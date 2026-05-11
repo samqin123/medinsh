@@ -1,0 +1,406 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Shanghai's Top Hospitals for Pancreatic Cancer Surgery | MedInSh"
+			description="Detailed profiles of Shanghai's leading hepatobiliary-pancreatic surgical centers. Fudan Cancer Center, Ruijin Hospital, Huashan Hospital, Changhai Hospital and Shanghai First People's Hospital."
+		/>
+		<style>
+			.page-header {
+				text-align: center;
+				padding: 3em 0 2em;
+				border-bottom: 1px solid rgb(var(--gray-light));
+				margin-bottom: 2.5em;
+			}
+			.page-header h1 { font-size: 2.2em; margin-bottom: 0.3em; }
+			.page-header p { color: rgb(var(--gray)); font-size: 1.05em; margin: 0; }
+
+			/* Hospital section */
+			.hospital-section {
+				margin-bottom: 4em;
+				padding-bottom: 4em;
+				border-bottom: 1px solid rgb(var(--gray-light));
+			}
+			.hospital-section:last-child {
+				border-bottom: none;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+			.hospital-header {
+				display: grid;
+				grid-template-columns: 320px 1fr;
+				gap: 2em;
+				margin-bottom: 1.5em;
+			}
+			.hospital-img {
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+			}
+			.hospital-img img {
+				width: 100%;
+				height: 220px;
+				object-fit: cover;
+				display: block;
+				border-radius: 0;
+			}
+			.hospital-basic h2 {
+				font-size: 1.8em;
+				margin: 0 0 0.15em;
+			}
+			.hospital-cn {
+				font-size: 1.1em;
+				color: rgb(var(--gray));
+				margin: 0 0 0.4em;
+			}
+			.hospital-badge {
+				display: inline-block;
+				padding: 0.15em 0.6em;
+				background: var(--accent-light);
+				color: var(--accent);
+				border-radius: 3px;
+				font-size: 0.75em;
+				font-weight: 700;
+				text-transform: uppercase;
+				margin-bottom: 0.5em;
+			}
+			.hospital-affil {
+				font-size: 0.9em;
+				color: rgb(var(--gray-dark));
+				margin: 0;
+			}
+
+			/* Stats row */
+			.stats-row {
+				display: flex;
+				gap: 0.8em;
+				margin: 1em 0 1.5em;
+				flex-wrap: wrap;
+			}
+			.stat-pill {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 8px;
+				padding: 0.7em 1em;
+				text-align: center;
+				min-width: 100px;
+				flex: 1;
+			}
+			.stat-pill .val {
+				display: block;
+				font-size: 1.3em;
+				font-weight: 700;
+				color: var(--accent);
+				line-height: 1.1;
+			}
+			.stat-pill .lbl {
+				font-size: 0.7em;
+				color: rgb(var(--gray));
+				margin-top: 0.15em;
+			}
+
+			/* Detail text */
+			.hospital-detail {
+				font-size: 0.95em;
+				color: rgb(var(--gray-dark));
+				line-height: 1.7;
+				max-width: 780px;
+			}
+			.hospital-detail h3 {
+				font-size: 1.15em;
+				margin: 1.5em 0 0.5em;
+				color: var(--accent-dark);
+			}
+			.hospital-detail ul {
+				padding-left: 1.2em;
+			}
+			.hospital-detail li {
+				margin-bottom: 0.4em;
+			}
+
+			/* International highlight box */
+			.highlight-box {
+				background: var(--green-light);
+				border-left: 4px solid var(--green);
+				padding: 1em 1.5em;
+				border-radius: 0 8px 8px 0;
+				margin: 1.5em 0;
+				font-size: 0.95em;
+			}
+			.highlight-box strong { color: var(--accent-dark); }
+
+			/* CTA */
+			.hospital-cta {
+				display: inline-block;
+				margin-top: 1em;
+				padding: 0.6em 1.4em;
+				background: var(--accent);
+				color: white;
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 0.9em;
+				transition: background 0.2s;
+			}
+			.hospital-cta:hover { background: var(--accent-dark); color: white; }
+
+			@media (max-width: 720px) {
+				.hospital-header { grid-template-columns: 1fr; }
+				.hospital-img { max-height: 200px; }
+				.stats-row { flex-wrap: wrap; }
+				.stat-pill { min-width: calc(50% - 0.4em); }
+				.hospital-basic h2 { font-size: 1.4em; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="page-header">
+				<h1>Hospitals</h1>
+				<p>Shanghai's leading centers for hepatobiliary-pancreatic surgery — detailed profiles, surgical volumes, and international patient services.</p>
+			</div>
+
+			<!-- ===== Fudan Cancer Center ===== -->
+			<div class="hospital-section">
+				<div class="hospital-header">
+					<div class="hospital-img">
+						<img src="/images/fudan-hospital.jpg" alt="Fudan University Shanghai Cancer Center" />
+					</div>
+					<div class="hospital-basic">
+						<span class="hospital-badge">Comprehensive Oncology</span>
+						<h2>Fudan University Shanghai Cancer Center</h2>
+						<p class="hospital-cn">复旦大学附属肿瘤医院</p>
+						<p class="hospital-affil">Affiliated with Fudan University · Founded 1931 · Grade III, Class A Oncology Hospital</p>
+					</div>
+				</div>
+
+				<div class="stats-row">
+					<div class="stat-pill"><span class="val">3,000+</span><span class="lbl">Complex surgeries/year</span></div>
+					<div class="stat-pill"><span class="val">80,000</span><span class="lbl">Surgeries/year (total)</span></div>
+					<div class="stat-pill"><span class="val">72%</span><span class="lbl">5-year survival rate</span></div>
+					<div class="stat-pill"><span class="val">250万</span><span class="lbl">Outpatient visits/year</span></div>
+					<div class="stat-pill"><span class="val">2,177</span><span class="lbl">Hospital beds</span></div>
+				</div>
+
+				<div class="hospital-detail">
+					<p>
+						Fudan University Shanghai Cancer Center (FUSCC) is China's earliest established oncology hospital and Shanghai's only tertiary Grade A hospital dedicated exclusively to cancer. The pancreatic surgery department, led by <strong>Prof. Yu Xianjun (虞先濬)</strong> and <strong>Dr. Xu Xiaowu (徐晓武)</strong>, is a national leader in minimally invasive pancreatic surgery.
+					</p>
+
+					<h3>Pancreatic Surgery Highlights</h3>
+					<ul>
+						<li>Over 1,000 Whipple procedures per year — among the highest volumes globally</li>
+						<li>80%+ minimally invasive rate (laparoscopic and robotic)</li>
+						<li>20%+ of cases involve vascular resection & reconstruction — demonstrating mastery of complex cases</li>
+						<li>Live-streamed laparoscopic Whipple demonstrations at the 36th Italian Digestive Surgery Congress (Milan, 2025), earning international praise as "textbook-level"</li>
+						<li>Innovated "middle approach laparoscopic Whipple" (Leave the Vein Alone concept) — reducing blood loss and complications</li>
+						<li>Pancreatic duct-mucosa double-layer anastomosis technique for safer reconstruction</li>
+					</ul>
+
+					<h3>Equipment & Technology</h3>
+					<ul>
+						<li>Da Vinci surgical robot system</li>
+						<li>Proton and heavy ion therapy (integrated with Shanghai Proton and Heavy Ion Center)</li>
+						<li>PET-CT, PET-MR, 5.0T MRI — 22 high-end imaging devices</li>
+						<li>National drug clinical trial institution — hundreds of active oncology trials</li>
+						<li>AI-powered precision oncology platform</li>
+					</ul>
+
+					<h3>Clinical Trials & Innovation</h3>
+					<ul>
+						<li>695 new clinical trials in 2025 alone (75% investigator-initiated)</li>
+						<li>National Natural Science Foundation: 100 projects funded in 2025</li>
+						<li>Published 35 papers with IF ≥ 20 in top journals including BMJ and Nature</li>
+						<li>Clinical research funding: ~600M RMB/year</li>
+						<li>17 international guideline changes per year — shaping global oncology standards</li>
+					</ul>
+
+					<h3>International Recognition</h3>
+					<ul>
+						<li>Cooperation agreements with 10+ institutions in France, Italy, Japan, Russia, Singapore</li>
+						<li>Top A rating in national hospital performance for oncology — consistently</li>
+						<li>Sister department relationship with UM/Sylvester Comprehensive Cancer Center (Miami)</li>
+					</ul>
+
+					<div class="highlight-box">
+						<strong>Why international patients choose FUSCC:</strong> The sheer surgical volume (3,000+ complex cases/year) means the team encounters rare and difficult presentations weekly that other centers see yearly. This depth of experience is the single strongest predictor of surgical outcomes.
+					</div>
+
+					<a href="/medical-travel" class="hospital-cta">Plan Your Visit to FUSCC →</a>
+				</div>
+			</div>
+
+			<!-- ===== Ruijin Hospital ===== -->
+			<div class="hospital-section">
+				<div class="hospital-header">
+					<div class="hospital-img">
+						<img src="/images/ruijin-team.jpg" alt="Ruijin Hospital pancreatic disease center" />
+					</div>
+					<div class="hospital-basic">
+						<span class="hospital-badge">Pancreatic Disease Center</span>
+						<h2>Ruijin Hospital</h2>
+						<p class="hospital-cn">上海交通大学医学院附属瑞金医院</p>
+						<p class="hospital-affil">Affiliated with Shanghai Jiao Tong University · Founded 1907 · Grade III, Class A</p>
+					</div>
+				</div>
+
+				<div class="stats-row">
+					<div class="stat-pill"><span class="val">30,000+</span><span class="lbl">Pancreatic cancer cases (cumulative)</span></div>
+					<div class="stat-pill"><span class="val">2,000+</span><span class="lbl">Complex surgeries/year</span></div>
+					<div class="stat-pill"><span class="val">21.2%</span><span class="lbl">5-year survival (vs 9-12% global)</span></div>
+					<div class="stat-pill"><span class="val">35.3%</span><span class="lbl">5-year survival (Stage I)</span></div>
+					<div class="stat-pill"><span class="val">3,000+</span><span class="lbl">Da Vinci robotic surgeries</span></div>
+				</div>
+
+				<div class="hospital-detail">
+					<p>
+						Ruijin Hospital is home to the world's largest, fully integrated, one-stop pancreatic disease diagnosis and treatment center. Led by <strong>Prof. Shen Baiyong (沈柏用)</strong>, Vice President of Ruijin Hospital and Director of the Pancreatic Disease Center, the center has treated over 30,000 pancreatic cancer cases — the largest quantity in the world.
+					</p>
+
+					<h3>Key Achievements</h3>
+					<ul>
+						<li>5-year survival rate of 21.2% — nearly double the global average of 9–12%</li>
+						<li>Stage I 5-year survival: 35.3% — a new global benchmark</li>
+						<li>Over 3,000 Da Vinci robotic pancreatic surgeries completed (malignant tumors: 2,000+)</li>
+						<li>Prof. Shen: first and only Chinese expert to co-author the ESMO Asia-Pacific Pancreatic Cancer Consensus</li>
+						<li>12 high-risk biomarkers monitored — 3–6 month early warning window for tumor detection</li>
+						<li>Personalized pancreatic cancer vaccine in Phase III clinical trials</li>
+					</ul>
+
+					<h3>International Partnership</h3>
+					<p>
+						In 2025, Ruijin established the <strong>Ruijin · United Family International Pancreatic Center</strong>
+						in partnership with United Family Healthcare — an international medical platform explicitly designed
+						to serve global patients. The partnership connects Ruijin's clinical excellence with international
+						healthcare networks across the UK, UAE, and beyond.
+					</p>
+
+					<h3>MDT Model</h3>
+					<p>
+						The center integrates pancreatic surgery, medical oncology, ICU, interventional radiology,
+						endoscopy, pathology, and precision medicine into a single multidisciplinary team — the same
+						model used by top Western cancer centers.
+					</p>
+
+					<div class="highlight-box">
+						<strong>Prof. Shen Baiyong:</strong> "Having treated over 30,000 pancreatic cancer cases, the largest quantity in the world, our center has become a global leader in comprehensive care on the disease. The five-year survival rate at our center is 21.2 percent, almost doubling the global average." — <em>Shanghai Daily / City News Service, May 2025</em>
+					</div>
+
+					<a href="/doctors" class="hospital-cta">Meet Ruijin's Surgeons →</a>
+				</div>
+			</div>
+
+			<!-- ===== Huashan Hospital ===== -->
+			<div class="hospital-section">
+				<div class="hospital-header">
+					<div class="hospital-img">
+						<img src="/images/shanghai-hospital.jpg" alt="Huashan Hospital" />
+					</div>
+					<div class="hospital-basic">
+						<span class="hospital-badge">General Surgery / Pancreatic</span>
+						<h2>Huashan Hospital</h2>
+						<p class="hospital-cn">复旦大学附属华山医院</p>
+						<p class="hospital-affil">Affiliated with Fudan University · Founded 1907 · Grade III, Class A</p>
+					</div>
+				</div>
+
+				<div class="stats-row">
+					<div class="stat-pill"><span class="val">1907</span><span class="lbl">Established</span></div>
+					<div class="stat-pill"><span class="val">Fudan</span><span class="lbl">University Affiliated</span></div>
+					<div class="stat-pill"><span class="val">Intl Ward</span><span class="lbl">English-speaking staff</span></div>
+				</div>
+
+				<div class="hospital-detail">
+					<p>
+						Huashan Hospital is one of Fudan University's flagship teaching hospitals with strong general surgery and growing pancreatic expertise. The hospital's international department provides dedicated services for overseas patients.
+					</p>
+
+					<h3>Why Consider Huashan</h3>
+					<ul>
+						<li>Strong general surgery department with hepatobiliary-pancreatic capabilities</li>
+						<li>International patient ward with English-speaking coordinators</li>
+						<li>Part of the Fudan University hospital system — cross-referral with Fudan Cancer Center available</li>
+						<li>Well-established infrastructure for international patients</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- ===== Changhai Hospital ===== -->
+			<div class="hospital-section">
+				<div class="hospital-header">
+					<div class="hospital-img">
+						<img src="/images/hospital-interior.jpg" alt="Changhai Hospital" />
+					</div>
+					<div class="hospital-basic">
+						<span class="hospital-badge">Hepatobiliary / Pancreatic</span>
+						<h2>Changhai Hospital</h2>
+						<p class="hospital-cn">海军军医大学附属长海医院</p>
+						<p class="hospital-affil">Affiliated with Naval Medical University · Grade III, Class A</p>
+					</div>
+				</div>
+
+				<div class="stats-row">
+					<div class="stat-pill"><span class="val">Military</span><span class="lbl">Medical University</span></div>
+					<div class="stat-pill"><span class="val">High</span><span class="lbl">Surgical Volume</span></div>
+					<div class="stat-pill"><span class="val">Civilian</span><span class="lbl">Access Available</span></div>
+				</div>
+
+				<div class="hospital-detail">
+					<p>
+						Changhai Hospital, affiliated with the Naval Medical University (formerly Second Military Medical University), has a strong hepatobiliary-pancreatic surgery department with high surgical volumes.
+					</p>
+
+					<h3>Why Consider Changhai</h3>
+					<ul>
+						<li>High-volume hepatobiliary and pancreatic surgery</li>
+						<li>Military-affiliated hospital with strict quality standards</li>
+						<li>International patients can access services with appropriate coordination</li>
+						<li>Strong academic research program in hepato-pancreato-biliary surgery</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- ===== Shanghai First People's Hospital ===== -->
+			<div class="hospital-section">
+				<div class="hospital-header">
+					<div class="hospital-img">
+						<img src="/images/medical-tech.jpg" alt="Shanghai First People's Hospital" />
+					</div>
+					<div class="hospital-basic">
+						<span class="hospital-badge">Pancreatic Center</span>
+						<h2>Shanghai First People's Hospital</h2>
+						<p class="hospital-cn">上海市第一人民医院胰腺中心</p>
+						<p class="hospital-affil">Affiliated with Shanghai Jiao Tong University · Grade III, Class A</p>
+					</div>
+				</div>
+
+				<div class="stats-row">
+					<div class="stat-pill"><span class="val">SJU</span><span class="lbl">Affiliated</span></div>
+					<div class="stat-pill"><span class="val">Pancreatic</span><span class="lbl">Dedicated Center</span></div>
+				</div>
+
+				<div class="hospital-detail">
+					<p>
+						Shanghai First People's Hospital (Shanghai General Hospital) operates a dedicated pancreatic center as part of its surgical oncology program. The hospital is affiliated with Shanghai Jiao Tong University.
+					</p>
+
+					<h3>Why Consider Shanghai First People's</h3>
+					<ul>
+						<li>Dedicated pancreatic center — not just a department within general surgery</li>
+						<li>University-affiliated with strong research capabilities</li>
+						<li>Growing international patient services</li>
+					</ul>
+				</div>
+			</div>
+
+		</main>
+		<Footer />
+	</body>
+</html>
