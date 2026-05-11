@@ -1,0 +1,1138 @@
+ 
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>壹生资讯-创新技术引领精准治疗，复旦肿瘤胰腺外科技术获国际同行盛赞</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="这种手术堪称外科领域的“珠峰”" />
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="https://image.medtrib.cn/image/icon/favicon.ico">
+<link rel="shortcut" href="https://image.medtrib.cn/image/icon/favicon.ico" />
+<script language="javascript" src="/res/js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript" src="/res/js/ajaxfileupload.js" ></script>
+<script language="javascript" src="/res/geetest/gt.js"></script>
+<script language="javascript" src="/res/js/func.js"></script>
+<script language="javascript" src="/res/js/main.js?1.0.2605102047"></script>
+<link type="text/css" rel="stylesheet" href="/res/css/style.css?1.0.2605102047" />
+<script>
+    var contextPath = ""
+    var userId = "0",
+        userType = "0",
+        userUuid = "",
+        improveStatus = "",
+        userPicture = "",
+        userNickname = "";
+</script>
+    <link type="text/css" rel="stylesheet" href="/res/css/ueditor.css" />
+    <link type="text/css" rel="stylesheet" href="/res/css/audioplayer.css" />
+    <link rel="stylesheet" type="text/css" href="https://g.alicdn.com/de/prismplayer/1.7.4/skins/default/index-min.css" />
+    <link type="text/css" rel="stylesheet" href="/res/css/comment/comment.css" />
+    <link rel="stylesheet" href="/res/css/element.css" >
+    <script src="https://g.alicdn.com/de/prismplayer/1.7.4/prism-h5-min.js"></script>
+    <script language="javascript" src="/res/js/survey.js"></script>
+    <script language="javascript" src="/res/js/viewStatistics.js"></script>
+    <script language="javascript" src="/res/js/audioplayerWx.js"></script>
+    <script src="/res/js/babel/babel.min.js"></script>
+    <script src="/res/js/babel/polyfill.min.js"></script>
+    <script src="/res/js/babel/vue.min.js"></script>
+    <script src="/res/js/element.js"></script>
+    <script language="javascript" src="/res/js/common/warnInfo/main.js"></script>
+    <script type="text/babel" src="/res/js/common/infoApproval/main.js"></script>
+    <style>
+      .flashtip {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: #000;
+        line-height: 300px;
+        text-align: center;
+      }
+      .flashtip p {
+        color: #fff;
+        font-size: 16px;
+      }
+      .flashtip a {
+        color: #19aaff !important;
+        font-size: 16px;
+      }
+      .expertList .addexpert-ueditor {
+        margin-bottom:8px;
+      }
+      .addexpert-ueditor{
+        background: #F7F7F7;
+        border-radius: 4px 4px 4px 4px;
+        padding: 10px;
+        line-height: normal;
+      }
+      .addexpert-right{
+        width:34px;
+        height:34px;
+        margin-right:8px;
+        flex-shrink: 0;
+      }
+      .addexpert-right img{
+        width:100%!important;
+        border-radius: 50%;
+      }
+      .addexpert-top_post{
+        display:flex;
+        align-items: center;
+      }
+      .addexpert-ueditor .follow{
+          display:none;
+      }
+      .addexpert-left_post{
+        width:100%;
+      }
+      .addexpert-left_post .p1{
+        display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-bottom:0!important;
+      }
+      .addexpert-left_post .p1 .expert_name{
+        font-weight: 500;
+        font-size: 15px!important;
+        color: #343434;
+      }
+      .addexpert-left_post .p2{
+        font-weight: 400;
+        font-size: 13px!important;
+        color: #8B8B8B;
+        padding-bottom:0!important;
+        margin-top:5px;
+        text-align: unset;
+      }
+      .post_expert_comment-cont{
+        background: rgba(246, 166, 35, 0.1);
+        border-radius: 8px;
+        padding: 14px 12px;
+      }
+      .post_expert_comment-cont * {
+        font-size: 15px;
+        line-height: 24px;
+        max-width: 100%;
+      }
+      .comment-title{
+        font-weight: 600;
+        font-size: 16px !important;
+        color: #1A1A1A;
+        line-height: normal;
+        padding-bottom: 14px;
+        line-height: 16px !important;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+      .comment-title-icon{
+        width: 3px;
+        height: 16px;
+        background: #F6A623;
+        border-radius: 3px;
+        margin-right: 8px;
+      }
+
+      .detail_cnt ul li,
+      .detail_cnt ul,
+      .detail_cnt ol li,
+      .detail_cnt ol{
+        list-style: initial;
+      }
+      .post_expert_comment-cont ul li,
+      .post_expert_comment-cont ul,
+      .post_expert_comment-cont ol li,
+      .post_expert_comment-cont ol{
+        margin-left: 10px;
+      }
+      #userInfo .imgUpload .onImg{
+        background: url('https://test-image.medtrib.cn/image/post/picture/5/897c1489-ba5e-4167-ad08-e111c01e57df.png') center center / cover no-repeat;
+      }
+      #userInfo .imgUpload .onImg .el-icon-camera,
+      #userInfo .imgUpload .onImg .text{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script language="javascript" src="/res/js/index.js"></script>
+    <script language="javascript" src="/res/js/crypto-js.js"></script>
+    
+        <script language="javascript" src="/res/js/qrcode.min.js"></script>
+    
+    <script>
+        var clearHistory = "/res/images/clear_history_icon.png"
+    </script>
+    <div class="header">
+        <div class="logo">
+            <a href="/index.html"><img
+                    src="/res/images/logo.png" /></a>
+        </div>
+        <div class="drop on">
+            <span><a href="/index.html" id="ysdx">壹生大学</a></span>
+            <div class="drop_list" name="collegeList">
+                <div class='shaddow'>
+                    
+                        <a href="/category/detail/104.html"
+                            target='_blank'>科研</a>
+                    
+                        <a href="/category/detail/12.html"
+                            target='_blank'>心血管</a>
+                    
+                        <a href="/category/detail/13.html"
+                            target='_blank'>肿瘤</a>
+                    
+                        <a href="/category/detail/14.html"
+                            target='_blank'>消化</a>
+                    
+                        <a href="/category/detail/15.html"
+                            target='_blank'>神经</a>
+                    
+                        <a href="/category/detail/100.html"
+                            target='_blank'>呼吸</a>
+                    
+                        <a href="/category/detail/101.html"
+                            target='_blank'>感染</a>
+                    
+                        <a href="/category/detail/16.html"
+                            target='_blank'>外科</a>
+                    
+                        <a href="/category/detail/103.html"
+                            target='_blank'>内分泌</a>
+                    
+                        <a href="/category/detail/138.html"
+                            target='_blank'>重症</a>
+                    
+                        <a href="/category/detail/128.html"
+                            target='_blank'>肾病</a>
+                    
+                        <a href="/category/detail/129.html"
+                            target='_blank'>儿科</a>
+                    
+                        <a href="/category/detail/130.html"
+                            target='_blank'>眼科</a>
+                    
+                        <a href="/category/detail/131.html"
+                            target='_blank'>妇产</a>
+                    
+                        <a href="/category/detail/132.html"
+                            target='_blank'>临床用药</a>
+                    
+                        <a href="/category/detail/133.html"
+                            target='_blank'>急诊</a>
+                    
+                        <a href="/category/detail/134.html"
+                            target='_blank'>风湿免疫</a>
+                    
+                        <a href="/category/detail/137.html"
+                            target='_blank'>血液</a>
+                    
+                        <a href="/category/detail/18.html"
+                            target='_blank'>口腔</a>
+                    
+                        <a href="/category/detail/102.html"
+                            target='_blank'>血栓</a>
+                    
+                        <a href="/category/detail/17.html"
+                            target='_blank'>热点</a>
+                    
+                        <a href="/category/detail/20.html"
+                            target='_blank'>医事法学</a>
+                    
+                        <a href="/category/detail/19.html"
+                            target='_blank'>综合</a>
+                    
+                        <a href="/category/detail/135.html"
+                            target='_blank'>医院管理</a>
+                    
+                        <a href="/category/detail/139.html"
+                            target='_blank'>皮肤</a>
+                    
+                        <a href="/category/detail/140.html"
+                            target='_blank'>麻醉</a>
+                    
+                        <a href="/category/detail/141.html"
+                            target='_blank'>中医药</a>
+                    
+                        <a href="/category/detail/143.html"
+                            target='_blank'>整形美容</a>
+                    
+                        <a href="/category/detail/144.html"
+                            target='_blank'>精神</a>
+                    
+                        <a href="/category/detail/145.html"
+                            target='_blank'>检验</a>
+                    
+                        <a href="/category/detail/146.html"
+                            target='_blank'>影像</a>
+                    
+                        <a href="/category/detail/147.html"
+                            target='_blank'>AI学院</a>
+                    
+                        <a href="/category/detail/148.html"
+                            target='_blank'>老年</a>
+                    
+                        <a href="/category/detail/150.html"
+                            target='_blank'>生殖</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="navi">
+            <ul>
+                <li><a href="/lives.html" id="classLive">直播</a></li>
+                <li><a href="/post/" id="post">资讯</a></li>
+                <li><a
+                        href="/static/web_page/dist/index.html#/myTrainingList">我的训练营</a>
+                </li>
+                <li><a
+                        href="/static/web_page/dist/index.html?queryPage=myCircleList">学习圈</a>
+                </li>
+                <!-- <li><a href="/business/list.html">项目e站</a></li>
+                <li><a href="/offline/meeting/index.html">品牌会议</a></li> -->
+            </ul>
+        </div>
+        <div class="header_right">
+            <div class="code">
+                <a href="javascript:void(0);">&nbsp;
+                    <span class="show_code"><img src="/res/images/dcode.png" /></span>
+                </a>
+            </div>
+            
+                <div id="userLogin">
+                    
+                        <div class="w"><a id="login" href="javascript:void(0);">登录</a>丨<a id="regist"
+                                href="/user/regist" target="_blank">注册</a></div>
+                    
+                    
+                </div>
+            
+        </div>
+        <div class="search">
+            <input type="text" class="text" placeholder="请输入关键字" onfocus="this.placeholder=''"
+                onblur="this.placeholder='请输入关键字'">
+            <input type="hidden" name="pageType" id="pageType" value="">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+    
+        <div class="login_mask">
+            <div class="content">
+                <div class="login">
+                    <div class="close close-login"></div>
+                    <div class="left-login-img">
+                        <div class="password-left-img">
+                            <img class="bac-img"
+                                src="https://test-image.medtrib.cn/image/post/picture/5/07c61caf-7579-4f76-a641-c323724b66fc.png"
+                                alt="">
+                            <a href="https://apps.medtrib.cn/cmtopdr.html" target='_blank'>
+                                <div class="download-btn"></div>
+                            </a>
+                        </div>
+                        <div class="code-left-img">
+                            <img class="bac-img"
+                                src="https://test-image.medtrib.cn/image/post/picture/5/82aa7827-5bd3-45f7-820b-a19746c0d342.png"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="block" id='loginWrap'>
+                        <div class="login_cnt_passwd">
+                            <div id="login_block">
+                                <input type="hidden" id="loginType" value="0" />
+                                <div class="login_cnt">
+                                    <div class="notice"></div>
+                                    <ul>
+                                        <li><span class='area-code' id='areaNum'>+86</span><span
+                                                class='arrow area-code'></span><input id="tel" name="username"
+                                                class="tel login_tel" type="text" placeholder="手机号" readonly
+                                                onfocus="this.removeAttribute('readonly')"
+                                                oninput="value=value.replace(/\D/g,'')" /><input type="hidden"
+                                                id='code'>
+                                        </li>
+                                        <li id="lognPwd"><input name="password" class="pwd" type="password"
+                                                placeholder="密码（密码为8-20位，字母数字或者特殊字符混合，至少包含两种）" readonly
+                                                onfocus="this.removeAttribute('readonly')" style="width: 100%;" /></li>
+                                        <li id="telCode"><input class="code2" type="text" placeholder="手机验证码"
+                                                id='msgCode' oninput="value=value.replace(/\D/g,'')" /><span
+                                                id="get_code" class="get_code login_get_code">获取验证码</span></li>
+                                    </ul>
+                                    <div class="rem">
+                                        <label>
+                                            <input type="checkbox" id="remeberMe" /> 记住我
+                                        </label>
+                                        <a href="/user/forget_pwd.html"
+                                            id='forgetPwdBtn'>忘记密码</a>
+                                    </div>
+                                    <div class="btn"><input type="button" value="立即登录" id="loginSubmit-none" /></div>
+                                    <div class="no_reg">还没有账号？<a
+                                            href="/user/regist.html"
+                                            target="_blank">立即注册</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login_cnt_code" style="display:none">
+                            <div>
+                                <div class="login-code-box">
+                                    <div id='qrcode'>获取二维码中...</div>
+                                    <p class="code-status code-success">扫描成功</p>
+                                    <div class="code-status code-timeout"><span id='refreshCodeBtn'>已过期<br>请点击刷新<br><i
+                                                class="refresh-code"></i></span></div>
+                                </div>
+                                <p class="code-tips-text">打开壹生app，进入我的页面扫码登录</p>
+                                <a class="download-app-btn" href="https://apps.medtrib.cn/cmtopdr.html?apm=smdl"
+                                    target='_blank'>请下载最新版本壹生app > </a>
+                            </div>
+                        </div>
+                        <div id='captchaBox'></div>
+                        <div id='areaBox' class='shaddow'>
+                            <div>
+                                <div class='container-area'><i
+                                        class='norm'>常用国家/地区</i><i>A</i><i>B</i><i>C</i><i>D</i><i>E</i><i>F</i><i>G</i><i>H</i><i>I</i><i>J</i><i>K</i><i>L</i><i>M</i><i>N</i><i>O</i><i>P</i><i>Q</i><i>R</i><i>S</i><i>T</i><i>U</i><i>V</i><i>W</i><i>X</i><i>Y</i><i>Z</i>
+                                </div>
+                            </div>
+                            <div id='areaCodeBox'></div>
+                        </div>
+                        <div class="reg_next" id='reg_next'>
+                            <div class="w">手机号已经完成验证，请完善个人资料！</div>
+                            <div class="btn"><a href="javascript:;" onclick="saveUserProfile()">完善信息</a></div>
+                            
+                        </div>
+                        <div class="right-login-tab">
+                            <div class="j-login-tab code-tab"></div>
+                            <div class="j-login-tab passwd-tab"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <div class='login-tips-wrap' id='loginTipsResetPwd'>
+        <div class='login_mask1'>
+            <div class="login">
+                <div class="close"></div>
+                <div class='login-tips-cont'>
+                    <p id='tipsText'>密码过期或已经不安全，请修改密码</p>
+                    <a href="/user/forget_pwd.html" class='go-login-page'>修改密码</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var temObj = {
+            userNickname: $('#userNickname').text(),
+            userPicture: $('#userPicture').prop('src'),
+            phone:$('#phone').val(),
+            subDepartment:$('#subDepartment').val()
+        }
+        window.localStorage.setItem('userNicknamePic', JSON.stringify(temObj))
+        getCertificateInfo();
+        $("document").ready(function () {
+            setHeaderMenuCheck();
+            $('.logout').on('click', function () {
+                $.ajax({
+                    url: contextPath + "/user/logout",
+                    type: "GET",
+                    success: function (data) {
+                        if (data.status == 0) {
+                            window.location.href = "/index.html"
+                        }
+                    }
+                })
+            })
+        });
+        function getCertificateInfo () {
+            // 获取当前用户是否认证
+            $.ajax({
+                url: contextPath + "/user/info.json",
+                type: "POST",
+                success: function (data) {
+                    var realStatus = data.status == '0' ? data.result.realStatus : ''
+                    window.localStorage.setItem('realStatus', realStatus)
+                }
+            });
+            // 获取实名认证功能列表
+            $.ajax({
+                url: contextPath + "/common/functions/real.json",
+                type: "POST",
+                success: function (data) {
+                    var functions = data.status == '0' ? data.result.functions : []
+                    window.localStorage.setItem('functions', functions)
+                }
+            });
+        }
+        function setHeaderMenuCheck () {
+            var path = getRequestUri();
+            var index = "";
+            $(".header .cnt .navi li a").each(function () {
+                var href = $(this).attr("href");
+                var idx2 = href.lastIndexOf(".");
+                if (idx2 != -1) {
+                    href = href.substring(0, idx2);
+                }
+                if (href == path) {
+                    $(this).addClass("on");
+                }
+            });
+            if (path.indexOf("/post/") != -1 || path.indexOf("post/detail") != -1 || path.indexOf("theme/") != -1) {
+                $("#post").addClass("on");
+            } else if (path.indexOf("/live") > -1 && path.indexOf("/live/exam") == -1) { //
+                $("#classLive").addClass("on");
+            } else if (path.indexOf("/themeroom") > -1 || path.indexOf("/index") > -1 ||
+                path.indexOf("classroom/recod/detail") > -1 || path.indexOf("classroom/live/detail") > -1 ||
+                path.indexOf("classroom/video/detail") > -1 || path.indexOf("category") > -1 || path.indexOf("/live/exam") > -1) {
+                $("#ysdx").addClass("on");
+            }
+
+        }
+        function saveUserProfile () {
+            var path = window.location.pathname + window.location.search;
+            $.post("/common/save/pre_login_reqUrl.json", {
+                "preLoginReqUrl": path
+            }, function () {
+                window.location.href = "/user/profile.html";
+            })
+        }
+        function getRequestUri () {
+            var path = window.location.pathname;
+            var idx = path.lastIndexOf(".");
+            if (idx != -1) {
+                path = path.substring(0, idx);
+            }
+            return path;
+        }
+
+        function incrAdvertisePv (advertiseId) {
+            $.post("/common/incr_advertise_pv.json", {
+                advertiseId: advertiseId
+            })
+        }
+
+        $(".search .search_out_icon").on("click", function () {
+            if ($(".search .text").val() != "") {
+                // var str = $(".search .text").val();
+                window.location.href = contextPath + "/s.html?keywords=" + str;
+            } else {
+                window.location.href = contextPath + "/s.html?"
+            }
+        })
+        // 搜索框输入文字时，跳转页面
+        $(".search .text").on("click", function (e) {
+            window.location.href = contextPath + "/s.html";
+        })
+        $(".search ul li .search_index").each(function (index, ele) {
+            $(this).parent().on("mouseover", function () {
+                $(this).addClass("on").siblings().removeClass("on");
+                if ($(this).hasClass("on")) {
+                    $(this).find(".fork").show().parent().siblings().find(".fork").hide();
+                }
+            })
+        })
+        $(".main_search_out_list").eq(0).show();
+        $(".search_out_navi li").on("click", function () {
+            var ind = $(".search_out_navi li").index(this);
+            $(".main_search_out_list").hide();
+            $(".main_search_out_list").eq(ind).show();
+        });
+    </script>
+    <!-- 完善信息 -->
+    <div class="bodyMask" style="width: 100%;height: 100%;position: fixed;top: 0;left: 0;"></div>
+    <link rel="stylesheet" href="/res/js/common/infoApproval/infoApproval.css">
+    <!-- <link rel="stylesheet" href="./infoApproval.css"> -->
+    <div id="hospitalModal"></div>
+    <div id="levelModal"></div>
+    <div id="departmentModal"></div>
+    <div id="approvalHtml">
+      <!-- 身份验证 -->
+      <div>
+        <div id="normal_authentication" class="authentication_content">
+            <div class="icon_w">
+              <img src="/res/images/doctor@3x.png" alt="">
+            </div>
+            <p class="authentication_t">壹生身份认证协议书</p>
+            <div class="identityAuthentication">
+              <div class="identityAuthenticationText">
+                本项目是由壹生提供的专业性学术分享，仅面向医疗卫生专业人士。我们将收集您是否是医疗卫生专业人士的信息，仅用于资格认证，不会用于其他用途。壹生作为平台及平台数据的运营者和负责方，负责平台和本专区及用户相关信息搜集和使用的合规和保护。<br>
+                本协议书仅为了向您说明个人相关信息处理目的，向您单独征求的同意，您已签署的壹生平台《壹生用户服务协议》和《壹生隐私政策》，详见链接：<br>
+                壹生用户服务协议：<br>
+                <a style="color: #02A7F0;" href="https://apps.medtrib.cn/html/serviceAgreement.html" target="_blank">https://apps.medtrib.cn/html/serviceAgreement.html</a><br>
+                壹生隐私政策：<br>
+                <a style="color: #02A7F0;" href="https://apps.medtrib.cn/html/p.html" target="_blank">https://apps.medtrib.cn/html/p.html</a><br>
+                如果您是医疗卫生专业人士，且点击了“同意”，表明您作为壹生的注册用户已授权壹生平台收集您是否是医疗卫生专业人士的信息，可以使用本项服务。<br>
+                如果您不是医疗卫生专业人士或不同意本说明，请勿点击“同意”，因为本项服务仅面向医疗卫生人士，以及专业性、合规性要求等因素，您将无法使用本项服务。
+              </div>
+            </div>
+            <div class="btn_w" style="margin-top: 1rem;">
+              <p class="canView">
+                <span>同意</span>
+              </p>
+              <p class="noCanview">
+                <span>拒绝</span>
+              </p>
+            </div>
+        </div>
+        <div id="custom_authentication" class='authentication_content custom_authentication_content'>
+            <div class="icon_w">
+              <img src="/res/images/doctor@3x.png" alt="">
+            </div>
+            <div class='authentication-wrap'>
+              <div class='authentication-cont'>
+              </div>
+              <div class='btn-group'>
+                <p class="canView">同意</p>
+                <p class="noCanview">拒绝</p>
+              </div>
+            </div>
+        </div>
+        <div id="know_authentication" class='authentication_content know_authentication_content'>
+            <div class="icon_w">
+              <img src="/res/images/doctor@3x.png" alt="">
+            </div>
+            <div class='authentication-wrap'>
+              <h2 style="text-align: center;margin-bottom: 30px;">知情同意书</h2>
+              <div class='authentication-know-cont'>
+              </div>
+              <div class='btn-group'>
+                <p class="knowCanView">同意</p>
+                <p class="knowNoCanview">不同意并跳过</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <!-- 审核中 -->
+      <div id="inReview">
+        <div class="title" style="padding: 48px 0 0;">工作人员正在审核中，<br />请您耐心等待</div>
+        <!-- <div class="button inReviewDefine cursorPointer">确定</div> -->
+      </div>
+      <!-- 审核不通过 -->
+      <div id="noPass">
+        <div class="icon">
+          <img src="https://test-image.medtrib.cn/image/post/picture/5/c44e9712-0f28-471d-bdcf-812152f96dd6.png" alt="">
+        </div>
+        <div class="title">
+          审核未通过
+        </div>
+        <div class="rejectReason"></div>
+        <div class="buttons">
+          <!-- <div class="determine cursorPointer">确定</div> -->
+          <div class="separate">
+            <!-- 驳回原因插入点 -->
+          </div>
+          <div class="reSubmit cursorPointer">重新提交</div>
+        </div>
+      </div>
+
+      <!-- 完善信息 -->
+      <div id="userInfo">
+        <div class="userInfoBox">
+          <div class="title">
+            <div class="titleText">完善信息</div>
+            <div class="img">
+              <img class="userInfoClose cursorPointer" src="https://test-image.medtrib.cn/image/post/picture/5/f593b4cf-d06b-4c06-bced-4bdad1d6c796.png" alt="">
+            </div>
+          </div>
+          <!-- 功能 -->
+          <div id="userInfoMain" v-loading="viewLoading">
+            <div v-for="(item, index) in userInfoList" :key="index">
+              <!-- 系统字段 -->
+              <template v-if="item.paramType == 0">
+                <!-- 姓名 email 纯文本内容 -->
+                <div v-if="item.type == 1 || item.type == 4" class="infoItem textInput bottomBar">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight">
+                    <el-input v-model="item.paramValue" :placeholder="item.paramPlaceholder"
+                      :maxlength="item.paramMaxlength"></el-input>
+                  </div>
+                </div>
+                <!-- 性别 -->
+                <div v-if="item.type == 2" class="infoItem bottomBar sexRadio">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight">
+                    <div class="radioItem cursorPointer" @click="userInfoList[index].paramValue = '1'">
+                      <div v-if="item.paramValue == 1" class="radioSelect">
+                        <div class="select"></div>
+                      </div>
+                      <div v-else class="radioNotSelect"></div>
+                      <div class="text">男</div>
+                    </div>
+                    <div class="radioItem cursorPointer" @click="userInfoList[index].paramValue = '2'">
+                      <div v-if="item.paramValue == 2" class="radioSelect">
+                        <div class="select"></div>
+                      </div>
+                      <div v-else class="radioNotSelect"></div>
+                      <div class="text">女</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 省市 -->
+                <div v-if="item.type == 5" class="infoItem selectInput">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight">
+                    <el-cascader @change="val => selectChange(val, item)" v-model="item.paramId" :options="city"
+                      :placeholder="item.paramPlaceholder" style="width: 202px;height: 32px;">
+                    </el-cascader>
+                  </div>
+                </div> 
+                <!-- 医院 -->
+                <div v-if="item.type == 6" class="infoItem selectInput">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight">
+                    <el-select v-model="item.paramValue" @focus="openHospitalModalView" @change="val => selectChange([val], item)" filterable remote
+                      reserve-keyword :placeholder="item.paramPlaceholder" :remote-method="remoteMethod" :loading="hospitalsLoading"
+                      style="width: 202px;height: 32px;">
+                      <el-option v-for="el in hospitals" :key="el.id" :label="el.hospname" :value="el.id">
+                      </el-option>
+                    </el-select>
+                  </div>
+                </div>
+                <!-- 科室 -->
+                <div v-if="item.type == 7" class="infoItem selectInput">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight">
+                    <el-select v-model="item.paramValue" @change="val => selectChange([val], item)" @focus="openDepartmentModalView"
+                      :placeholder="item.paramPlaceholder" style="width: 202px;height: 32px;">
+                      <el-option v-for="el in subDepartmentList" :key="el.paramId" :label="el.paramValue" :value="el.paramId">
+                      </el-option>
+                    </el-select>
+                  </div>
+                </div>
+                <!-- 职称 -->
+                <div v-if="item.type == 8" class="infoItem selectInput">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight">
+                    <el-select v-model="item.paramValue" @change="val => selectChange([val], item)" @focus="openLevelModalView"
+                      :placeholder="item.paramPlaceholder" style="width: 202px;height: 32px;">
+                      <el-option v-for="el in titleList" :key="el.levelId" :label="el.level" :value="el.levelId">
+                      </el-option>
+                    </el-select>
+                  </div>
+                </div>
+                <!-- 上传图片 -->
+                <div v-if="item.type == 11" class="infoItem imgUpload">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight" style="margin-top:50px">
+                    <el-upload class="avatar-uploader" action="/app/upload/upload_pic" :show-file-list="false"
+                      :on-success="res => handleAvatarSuccess(index, res)">
+                      <img v-if="item.paramValue" :src="item.paramValue">
+                      <div v-else class="onImg">
+                        <i class="el-icon-camera" style="font-size: 24px;"></i>
+                        <div class="text">{{ item.paramPlaceholder }}</div>
+                      </div>
+                    </el-upload>
+                  </div>
+                </div>
+              </template>
+              <!-- 系统字段 -->
+
+              <!-- 自定义字段 -->
+              <template v-else-if="item.paramType == 1">
+                <!-- 文本 -->
+                <div v-if="item.dataType == 1" class="infoItem textInput bottomBar twoLine">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight ml0">
+                    <el-input v-model="item.paramValue" :placeholder="item.paramPlaceholder"
+                      :maxlength="item.paramMaxlength"></el-input>
+                  </div>
+                </div>
+                <!-- 手机号 -->
+                <div v-if="item.dataType == 3" class="infoItem textInput bottomBar">
+                  <div class="itemLeft">{{ item.paramName }}</div>
+                  <div class="itemRight">
+                    <el-input v-model="item.paramValue" :placeholder="item.paramPlaceholder"
+                      @input="item.paramValue = item.paramValue.replace(/\D/g,'')" :maxlength="11"></el-input>
+                  </div>
+                </div>
+              </template>
+              <!-- 自定义字段 -->
+            </div>
+            <div v-for="(item, index) in questionList" :key="index">
+              <div class="infoItem textInput bottomBar twoLine">
+                <div class="itemLeft">{{ item.question }}</div>
+                <div class="itemRight ml0">
+                  <el-input v-model.trim="item.answer" placeholder="请输入..."
+                  :maxlength="99"></el-input>
+                </div>
+              </div>
+            </div>
+            <div v-loading="saveLoading" class="submit cursorPointer" @click="submit">确定</div>
+          </div>
+        </div>
+      </div>
+      <!-- 收集问题 -->
+      <div id="questionInfo">
+        <div class="userInfoBox">
+          <div class="title">
+            <div class="titleText">收集问题</div>
+            <div class="img">
+              <img class="questionClose cursorPointer" src="https://test-image.medtrib.cn/image/post/picture/5/f593b4cf-d06b-4c06-bced-4bdad1d6c796.png" alt="">
+            </div>
+          </div>
+          <!-- 功能 -->
+          <div id="questionInfoMain">
+        <div v-for="(item,index) in questionList" :key="index">
+          <div class="infoItem textInput bottomBar twoLine">
+            <div class="itemLeft">{{ item.question }}</div>
+            <div class="itemRight ml0">
+              <el-input v-model.trim="item.answer" placeholder="请输入..."
+              :maxlength="99"></el-input>
+            </div>
+            </div>
+        </div>
+            <div v-loading="saveLoading" class="submit cursorPointer" @click="submit">确定</div>
+          </div>
+        </div>
+      </div>
+      <!-- 收集问题 -->
+    </div>
+    <input type="hidden" name="uuid" id="uuid" value="685563cd-4f7d-4d86-ab7b-fc7ca3eaf343"/>
+    <input type="hidden" name="scene" id="scene" value="4"/>
+    <!-- 完善信息 -->
+    <div class="content cnt">
+      <div class="position"></div>
+      <div id="passedReminder" class="passedReminder">
+        <div class="tipIcon">
+          <img src="https://test-image.medtrib.cn/image/post/picture/5/08f1f2ca-fc83-4e59-b8ac-4053a7097211.png" alt="">
+        </div>
+        <div class="tipText">您已通过HCP身份认证和信息审核</div>
+        <div class="closeBox">
+          <div class="closeFlex">
+            <div class="closeNum">(<div id="passedReminderNum">5</div>s)</div>
+            <div class="closeIcon">
+              <img src="https://test-image.medtrib.cn/image/post/picture/5/6073716f-0586-4aa5-b44b-3bc704885f06.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="detail_cnt">
+          <h4>创新技术引领精准治疗，复旦肿瘤胰腺外科技术获国际同行盛赞</h4>
+          <div class="para">
+            <span>2026-01-02</span><span>作者：论坛报岳岳</span><span>资讯</span>
+          </div>
+          
+            <div class="label">
+              <span>非原创</span>
+              
+              <span></span>
+            </div>
+          
+          <div class="expertList"></div>
+          <div class="w">
+            <section data-role="outer" class="article135" label="edit by 135editor" style="font-size:15px;font-family:微软雅黑, Microsoft YaHei;letter-spacing:1.5px;line-height:2;"><section class="_135editor" data-tools="135编辑器" data-id="156952"><section style="margin: 10px auto;"><section style="width: 100%;height: 3px;background-color: #9ae9d2;margin-bottom: 3px;max-width:100% !important;box-sizing:border-box;" data-width="100%"></section><section style="background-color: #f3f9ff;padding: 15px;box-sizing:border-box;"><section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:14px;color:#333333;background-color: transparent;"><p style="text-align:justify;line-height: 2;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">日前，在意大利举办的第36届意大利消化外科年会上，复旦大学附属肿瘤医院院长、胰腺肿瘤多学科综合诊治团队首席专家虞先濬教授与胰腺外科副主任刘辰教授带领团队，历时3.5小时，在国际同行面前，完成一台腹腔镜胰十二指肠切除术的直播演示，赢得现场国际同行的高度认可。</span></p><p style="text-align:justify;line-height: 2;" align="justify"><br/></p><p style="text-align:justify;line-height: 2;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">最近，欧洲国际同行发来comments反馈，再次盛赞此次手术演示的规范性与熟练度：“此次手术示教不仅展示了极高的专业水准，也为参与观摩的同行提供了宝贵的学习机会与技术启发”。</span></p></section></section></section></section><p><br/></p><p style="margin-left:10px;margin-right:10px"><img data-imgfileid="100001888" data-s="300,640" src="https://image.medtrib.cn/image/post/picture//7a30d760-735b-4fc6-b469-f4453cec1388" data-type="png" style="width:auto;vertical-align:baseline;" data-ratio="2.827777777777778" data-w="1080"/></p><p><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">第36届意大利消化外科年会于当地时间11月24日~27日在意大利米兰举办。本届年会由意大利消化外科协会主办，以 “创新技术引领精准治疗，多学科协作共促发展”为主题，吸引来自全球40余个国家和地区的2000余名消化外科领域专家、学者及临床医师参会，是2025年度国际消化外科领域极具影响力的学术交流平台。</span></p><p><br/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><img src="https://image.medtrib.cn/image/post/picture//c52ffd87-831c-47cc-a772-a27d98957dd9" data-s="300,640" data-type="jpeg" data-imgfileid="100001887" style="width:auto;vertical-align:baseline;" data-ratio="0.6657407407407407" data-w="1080"/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 13px;">虞先濬院长（右一）领衔团队行腹腔镜胰十二指肠切除术手术演示</span></p><p><br/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><img src="https://image.medtrib.cn/image/post/picture//d9ff5835-6f2e-4c27-9450-95bbd8a12831" data-s="300,640" data-type="jpeg" data-imgfileid="100001890" style="width:auto;vertical-align:baseline;" data-ratio="0.6657407407407407" data-w="1080"/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 13px;">刘辰教授（右一）与国外同道分享手术中关键技术核心</span></p><p><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">胰十二指肠切除术因涉及胰腺、胆管、胃等多个重要腹腔脏器，解剖关系复杂、手术步骤繁多，且术中需精准处理血管与消化道重建，一直被业界称为外科手术领域的“珠穆朗玛峰”。</span></p><p style="margin-left:10px;margin-right:10px"><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">虞先濬院长介绍，医院胰腺外科早在十余年前就创新并推行胰腺肿瘤手术“开放微创对半开”的发展理念，这个被誉为“珠峰”式的手术在复旦大学附属肿瘤医院早已不用“开膛破肚”。“我们只需打5个‘小洞’，利用腹腔镜器械，就能在原本开放手术才能‘腾挪’的复杂解剖空间中，精准地根治肿瘤和重建消化道系统。”虞先濬教授强调，微创技术革新的背后是胰腺外科手术团队日复一日地精进，以及诸多原创性“复肿方案”的实践与总结。</span></p><p style="margin-left:10px;margin-right:10px"><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">手术演示开始，虞先濬院长、刘辰教授等团队成员为一位高龄的79岁十二指肠癌患者实施手术，通过实时传输的手术画面可见，团队凭借精湛的技艺，在术中能够清晰地进行精细解剖，游刃有余地完成肿瘤切除。在消化道重建环节，他们娴熟地应用“胰管-空肠黏膜双层吻合”这一关键技术，确保了胰肠吻合的可靠性与安全性。整个过程仅用时3.5小时，术中出血量控制在50毫升以内。</span></p><p><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><img src="https://image.medtrib.cn/image/post/picture//4f8e501c-3bd9-4e88-928f-cce851577a19" data-s="300,640" data-type="jpeg" data-imgfileid="100001889" style="width:auto;vertical-align:baseline;" data-ratio="0.6953703703703704" data-w="1080"/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 13px;">胰腺外科微创手术领跑全国、齐肩先进发达国家水平</span></p><p><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">“复旦肿瘤胰腺外科微创手术不仅实现了微创化与根治性的完美平衡，更在关键技术环节、难点问题上提出了有益于世界同行学习的‘复旦方案’。”意方朱塞佩·玛丽亚·埃托雷教授和中方陈丹磊、高松等教授观摩后高度评价，此台手术演示堪称教科书级别。术中医生对超声刀的极致丝滑驾驭、对解剖层次的精准把握，规范彻底的淋巴结清扫，以及精准牢靠的消化道重建，完美诠释了如何将腹腔镜胰十二指肠切除术中的关键难点转化为可控制的标准化步骤。这为世界胰腺外科领域提供了值得深入学习和借鉴的经验。</span></p><p><br/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><img src="https://image.medtrib.cn/image/post/picture//5cafa0f1-5a38-43fa-b88f-fd37c4670126" data-s="300,640" data-type="jpeg" data-imgfileid="100001893" style="width:auto;vertical-align:baseline;" data-ratio="0.6657407407407407" data-w="1080"/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 13px;">国内外专家高度评价手术演示团队的精湛操作</span></p><p><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">在虞先濬教授的引领下，复旦大学附属肿瘤医院胰腺外科已成为国际胰腺外科领域的重要力量。科室年完成胰十二指肠切除术逾千例，其中腹腔镜与机器人手术占比超过80%，展现出高度的微创化水平。尤为突出的是，在如此高手术量的基础上，涉及血管切除与重建的复杂病例比例高达20%以上，充分彰显了团队处理高难度手术的综合能力。刘辰教授创新性地提出的“中间入路腹腔镜胰十二指肠切除术”（“Leave the vein alone”理念），是该科室技术精进与理念革新的代表。该术式在确保肿瘤根治性的同时，有效减少了术中出血及相关并发症，实现了肿瘤学疗效与手术安全性的双重提升。</span></p><p style="margin-left:10px;margin-right:10px"><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">此次受邀参与第 36 届意大利消化外科年会手术演示，不仅是国际学界对“复旦肿瘤”胰腺外科技术的认可，更标志着医院胰腺外科微创水平已经从过去的“跟跑者”逐渐成为“领跑者”。</span></p><p style="margin-left:10px;margin-right:10px"><br/></p><p style="text-align:justify;margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">“能在国际舞台上展示中国胰腺外科技术，既是荣誉更是责任。” 虞先濬院长说，胰腺外科将持续开展临床研究与外科技术创新，同时通过国际学术交流平台，将我国胰腺外科的诊疗经验与全球同行共享，进一步提升胰腺癌外科手术精细化水平。</span></p><p><br/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><img src="https://image.medtrib.cn/image/post/picture//da4d42ca-f843-4223-9432-102ff2e3ef34" data-s="300,640" data-type="png" data-imgfileid="100001894" style="width:auto;vertical-align:baseline;" data-ratio="0.4861111111111111" data-w="1080"/></p><p style="text-align:center;margin-left: 10px; margin-right: 10px;" align="center"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 13px;">复旦肿瘤胰腺外科集体照</span></p><p><br/></p><p style="text-align:justify; margin-left: 10px; margin-right: 10px;" align="justify"><span style="font-weight: 400; color: #000000; text-shadow: none; letter-spacing: 1.5px; font-size: 15px;">来源：复旦大学附属肿瘤医院</span></p></section>
+          </div>
+          
+          <div class="survey_date"></div>
+          <div id="survey"></div>
+          <textarea rows="10" cols="10" id="__data" style="display: none;"></textarea>
+          
+          <!-- 评论 -->
+          <div class="detail">
+            <div class="couse_intro">
+              <div class="main_cnt detail">
+                <div class="main_left couse_intro">
+                  <div class="tabs" style="display: none;">
+                    <ul>
+                      <li class="on">评论</li>
+                    </ul>
+                  </div>
+                  <!-- 需要拿一个头像和昵称 -->
+                  <div class="tabs_cnt">
+                    
+                    <div class="self_commentarea">
+                      <span class="number" style="bottom:0px;">200</span>
+                      <textarea placeholder="写评论" name="" id="commentTextArea" cols="30" rows="10" onclick="javascript:handleCommentClick();"></textarea>
+                      <span class="self_comment_btn unsel_comment" style="float:right" data-type="main">评论</span>
+                      <!-- 不能评论的浮层 -->
+                      <div class='disabled-comment' onclick='$.littleHint("该内容暂不能评论！")'></div>
+                    </div>
+                    <div id='tabs_cnt_pinglun' class="tabs_cnt_pinglun">
+                    </div>
+                    <p class="getMore">查看更多</p>
+                </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+        <div class="detail_right">
+          <div class="block recommend">
+            <h5>热门资讯</h5>
+            <ul>
+              
+                <li>
+                  <a href="/post/detail/d96cd249-21c5-4db0-882b-6397bed0a1a9" target="_blank">口服抗癌药正确服用全攻略来了</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/c6c04238-2dc1-471e-be89-7f940fb540a2" target="_blank">肿瘤患者化疗后出现哪些情况需要注意？</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/3145cf6b-03f6-446f-84f0-c41174e87766" target="_blank">这些医学术语，肿瘤患者必须知道</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/3ad87d55-269f-4d44-8881-782828b856ff" target="_blank">骨髓抑制患者要注意什么？</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/65e1094e-f759-42a5-b2c5-0346def10375" target="_blank">这些标志物，肿瘤患者最好都了解</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/856c1757-a729-47ca-93a1-998ea6311ddf" target="_blank">新型HER2 ADC药物引领乳腺癌诊疗变革</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/14486551-b0ac-4768-b8d7-a41e322bcfc2" target="_blank">会议预告 | 医防融合，共促发展：皮肤病防治专科联盟院际交流会第十二期即将召开！</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/5a72e11e-622f-4e8a-a672-ccce5842a1ce" target="_blank">守护消化健康：走出认知误区，筑牢全身健康基石</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/aa9ecd6e-006f-4015-b30e-0d57e33286fc" target="_blank">【会议通知】领航计划·跟着国家队学肺动脉高压规范化诊疗项目-北京+成都两地联动</a>
+                </li>
+              
+                <li>
+                  <a href="/post/detail/28f5a0ea-de2c-41a0-b6ed-13acba547c4b" target="_blank">胰腺——消化系统的&#034;幕后英雄&#034;</a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+<div class="footer">
+    <div class="related cnt">
+        <div class="navi">
+            <h5>关于我们</h5>
+            
+                <a href="/common/info/8.html" target="_blank">报社介绍</a>
+            
+                <a href="/common/info/3.html" target="_blank">加入我们</a>
+            
+                <a href="/common/info/9.html" target="_blank">问题反馈</a>
+            
+        </div>
+        <div class="qr">
+            <h5>中国医学论坛报微信矩阵</h5>
+            <ul>
+                <li><img src="/res/images/code1.png" /><span>中国医学论坛报</span></li>
+                 <li><img src="/res/images/ys.png" /><span>壹生</span></li>
+                <li><img src="/res/images/code2.png" /><span>今日肿瘤</span></li>
+                <li><img src="/res/images/code3.png" /><span>今日循环</span></li>
+                <li><img src="/res/images/code4.png" /><span>今日糖尿病</span></li>
+                <li><img src="/res/images/code6.png" /><span>今日口腔</span></li>
+                <li><img src="/res/images/code7.png" /><span>全科周刊</span></li>
+            </ul>
+        </div>
+        <div class="qr" style="margin-left:200px;">
+            <h5>助力乡村振兴帮扶行动</h5>
+            <ul>
+                <!-- <li><img src="/res/images/code5.png" /><span>吕梁山货微商城</span></li> -->
+                <li><img src="https://test-image.medtrib.cn/image/post/picture/5/1ca0c46c-1255-466e-9c84-5f4aab8eb3bb.png" /><span style="line-height: 20px;padding-top: 10px;">脱贫地区农副产品网络销售平台</span></li>
+                <!-- <li><img src="https://test-image.medtrib.cn/image/post/picture/5/68f34d3c-ecc7-44f3-9e73-1ae711a41f65.jpg" /><span>情暖永和扶贫商城</span></li> -->
+            </ul>
+        </div>
+        <div class="links">
+            <h5>友情链接</h5>
+            <div class="links_cnt">
+                
+                    <a href="https://apps.medtrib.cn/cmtopdr.html?apm=yqlj" target="_blank">壹生APP下载</a>
+                
+                    <a href="http://www.nhc.gov.cn/" target="_blank">国家卫生健康委员会</a>
+                
+                    <a href="http://www.ihecc.org.cn/" target="_blank">国家卫生健康委国际交流与合作中心</a>
+                
+                    <a href="http://www.csco.org.cn/" target="_blank">中国临床肿瘤学会</a>
+                
+                    <a href="https://www.fupin832.com/" target="_blank">脱贫地区农副产品网络销售平台</a>
+                
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="qualification">(京)网药械信息备字（2025）第 00153 号 | <a href="https://beian.miit.gov.cn" target="_blank">京ICP备15004031号-2</a>｜违法和不良信息举报方式：（010）64036988 office@cmt.com.cn
+        <br />
+        <div style="margin:0 auto; padding:10px 0;">
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010202008182" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/res/images/gongan.png" style="float:left;padding-top:5px;"/><p style="padding-top:5px;float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010202008182号</p></a>&nbsp;&nbsp;|&nbsp;互联网新闻信息服务许可证编号：10120190017
+        </div>
+        <div id='lastbeizhu' style="margin:0 auto; padding:0 20px 20px 20px;">
+            Copyright © 2017-2021 中国医学论坛报社. All rights reserved.
+        </div>
+        
+    </div>
+
+</div>
+<script>
+</script>
+<script>
+  var mode="production";
+  if(mode != "test"){
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b38e9b203293848c324d0d4862967c0e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  }
+</script>
+
+    <script>
+      var data = $("#__data").val();
+      data = data.replace(/\n/g, "<br />").replace(/\r/g, "<br />");
+      if (data != "") data = eval("(" + data + ")");
+      var postAttr = "0";
+      var postUuid = "685563cd-4f7d-4d86-ab7b-fc7ca3eaf343";
+      var slogon = "请下载壹生App参与活动！";
+      var getJson = 1;
+      var groupId = "0";
+      var nickName = "";
+      var userPic = "";
+      var postId = "125429";
+      window.postId = postId
+      var isPrivate = false;
+      var deviceType = "";
+      $("document").ready(function () {
+        var data = {
+          eventId: "pm_post_postList_ck",
+        };
+        data.attstr = {
+          themeId: "",
+          themeName: "",
+          postId: postUuid,
+        };
+        eventReport(data, userId);
+        if ((postAttr & 128) == 128 && (postAttr & 64) != 64) {
+          $("#postType a").append("<b class='audio'></b>");
+        }
+        if ((postAttr & 64) == 64) {
+          $("#postType a").append("<b class='video'></b>");
+        }
+        if ((postAttr & 2) == 2) {
+          //
+          $("#postType a").append("<b class='question'></b>");
+          if (userType == "-1") {
+            $("#slogon").html(slogon);
+          }
+        }
+        if ((postAttr & 4) == 4) {
+          $("#postType a").append("<b class='vote'></b>");
+          if (userType == "-1") {
+            $("#slogon").html(slogon);
+          }
+        }
+        if ((postAttr & 1) == 1) {
+          $("#postType a").append("<b class='pdf'></b>");
+        }
+
+        $(".author_cnt").css("position", "relative"); //removeFix()
+        if ($(".add_content div").last().hasClass("next") && $(".add_content div").last().prev().hasClass("prev")) {
+          $(".add_content div").last().prev().toggleClass("now");
+        }
+      });
+    </script>
+    <script>
+      $(function () {
+        $("audio").audioPlayer();
+      });
+      getExpertListFn(postUuid,userId);
+      function getExpertListFn (postUuid,userId){
+        var params = {
+          postUuid:postUuid,
+          userId:userId,
+        }
+        $.ajax({
+            type: 'POST',
+            url: "/post/experts.json",
+            data: params,
+            success: function(res){
+              if(res.status == 0 && res.result && res.result.experts){
+                let str = '';
+                for(var i = 0;i < res.result.experts.length;i++){
+                    str += '<section class="addexpert-ueditor" data-expertidtype="1" data-expertid="'+res.result.experts[i].expertId+'">\
+                          <section class="addexpert-top addexpert-top_post">\
+                            <section class="addexpert-right addexpert-right_post"><img src="'+res.result.experts[i].picUrl+'" data-ratio="1" data-w="294" style="width:auto;"> </section>\
+                            <section class="addexpert-left addexpert-left_post">\
+                              <p class="p1">\
+                                <span class="expert_name">'+ res.result.experts[i].name +'&nbsp;&nbsp;'+ res.result.experts[i].level +'</span>\
+                                <span class="'+(res.result.followExpertIds.indexOf(res.result.experts[i].expertId) != -1 ? 'follow hasfollow' : 'follow' )+'"></span>\
+                              </p>\
+                              <p class="p2">'+ res.result.experts[i].showdepartment +' | '+ res.result.experts[i].hospital +'</p>\
+                            </section>\
+                          </section>\
+                        </section>'
+                }
+                $('.expertList').html(str)
+              }
+            }	
+        });
+      }
+      function handleCommentClick() {
+        
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+          url:'/estoppel/info',
+          success:function(res){
+            let { status, result} = res;
+            if(status == 0){
+              if(result.showType == '0'){
+                var realStatus = window.localStorage.getItem('realStatus');
+                var functions = window.localStorage.getItem('functions');
+                if (realStatus === '0'&&functions.indexOf('post_comment') !== -1) {
+                  popBox('实名制认证', '您尚未完成实名制认证，请在app端，完成实名认证后评论此内容');
+                }
+              } else {
+                warnInfoFnList.mixin(result);
+                $('#commentTextArea').val('');
+                $('#commentTextArea').blur();
+              }
+            } else {
+                var realStatus = window.localStorage.getItem('realStatus');
+                var functions = window.localStorage.getItem('functions');
+                if (realStatus === '0'&&functions.indexOf('post_comment') !== -1) {
+                  popBox('实名制认证', '您尚未完成实名制认证，请在app端，完成实名认证后评论此内容');
+                }
+            }
+          }
+        })
+      }
+    </script>
+    <!-- CC视频相关 -->
+    <script language="javascript" src="/res/js/media/aliyunAndCcVideo.js?1.0.2605102047"></script>
+    <script>
+      var siteid = "45BBAA286764DB35";
+      var host = window.location.origin;
+      if (host.indexOf("39.105.23.173") != -1 || host.indexOf("localhost") != -1) {
+        siteid = "98B325FBD488F61B";
+      }
+      var script = document.createElement("script"); //创建一个script标签
+      script.type = "text/javascript";
+      script.src = "https://p.bokecc.com/player?siteid=" + siteid + "&newversion=true";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    </script>
+    <script src="/res/js/comment/postComment.js"></script>
+    <script src="/res/js/comment/loading.js"></script>
+  </body>
+</html>

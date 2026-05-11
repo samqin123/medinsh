@@ -1,0 +1,413 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Our Surgeons — Top Pancreatic Cancer Specialists in Shanghai | MedInSh"
+			description="Meet Shanghai's leading hepatobiliary-pancreatic surgeons. Board-certified, internationally trained, performing 400+ pancreatic procedures per year with 80%+ minimally invasive rate."
+		/>
+		<style>
+			/* ===== Page header ===== */
+			.page-header {
+				text-align: center;
+				padding: 3em 0 2em;
+				border-bottom: 1px solid rgb(var(--gray-light));
+				margin-bottom: 2em;
+			}
+			.page-header h1 {
+				font-size: 2.2em;
+				margin-bottom: 0.3em;
+			}
+			.page-header p {
+				color: rgb(var(--gray));
+				font-size: 1.05em;
+				margin: 0;
+			}
+
+			/* ===== Doctor card ===== */
+			.doctor-card {
+				display: grid;
+				grid-template-columns: 280px 1fr;
+				gap: 2.5em;
+				margin-bottom: 3em;
+				padding-bottom: 3em;
+				border-bottom: 1px solid rgb(var(--gray-light));
+			}
+			.doctor-card:last-child {
+				border-bottom: none;
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+
+			/* Profile photo column */
+			.doctor-photo {
+				position: relative;
+			}
+			.doctor-photo img {
+				width: 100%;
+				border-radius: 12px;
+				box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+				aspect-ratio: 3/4;
+				object-fit: cover;
+				background: #f0f0f0;
+			}
+			.photo-placeholder {
+				width: 100%;
+				aspect-ratio: 3/4;
+				border-radius: 12px;
+				background: linear-gradient(135deg, var(--accent-light), #e0f2fe);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 4em;
+				color: var(--accent);
+				opacity: 0.4;
+			}
+			.like-badge {
+				display: flex;
+				align-items: center;
+				gap: 0.4em;
+				margin-top: 0.8em;
+				padding: 0.5em 0.8em;
+				background: #fef3c7;
+				border-radius: 8px;
+				font-size: 0.85em;
+				font-weight: 600;
+			}
+			.like-badge .heart {
+				color: #ef4444;
+				font-size: 1.1em;
+			}
+
+			/* Info column */
+			.doctor-info {
+				display: flex;
+				flex-direction: column;
+			}
+			.doctor-name {
+				font-size: 1.8em;
+				margin: 0 0 0.2em;
+				color: rgb(var(--black));
+				line-height: 1.2;
+			}
+			.doctor-name-cn {
+				font-size: 1.1em;
+				color: rgb(var(--gray));
+				margin: 0 0 0.5em;
+			}
+			.doctor-dept {
+				display: inline-block;
+				padding: 0.2em 0.8em;
+				background: var(--accent-light);
+				color: var(--accent);
+				border-radius: 4px;
+				font-size: 0.8em;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				margin-bottom: 0.5em;
+				width: fit-content;
+			}
+			.doctor-title-line {
+				color: rgb(var(--gray-dark));
+				font-size: 0.95em;
+				margin: 0 0 1em;
+				font-weight: 500;
+			}
+
+			/* Stats row */
+			.doctor-stats {
+				display: flex;
+				gap: 1em;
+				margin-bottom: 1.2em;
+			}
+			.doctor-stat {
+				flex: 1;
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 8px;
+				padding: 0.8em;
+				text-align: center;
+			}
+			.doctor-stat .val {
+				display: block;
+				font-size: 1.4em;
+				font-weight: 700;
+				color: var(--accent);
+				line-height: 1.1;
+			}
+			.doctor-stat .lbl {
+				font-size: 0.72em;
+				color: rgb(var(--gray));
+				margin-top: 0.2em;
+			}
+
+			/* Specialty */
+			.specialty-label {
+				font-size: 0.75em;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.06em;
+				color: rgb(var(--gray));
+				margin-bottom: 0.4em;
+			}
+			.specialty-text {
+				font-size: 0.92em;
+				color: rgb(var(--gray-dark));
+				margin: 0 0 1em;
+				line-height: 1.6;
+			}
+
+			/* Bio */
+			.doctor-bio {
+				font-size: 0.9em;
+				color: rgb(var(--gray-dark));
+				line-height: 1.7;
+				margin: 0 0 1em;
+			}
+			.doctor-bio strong {
+				color: rgb(var(--black));
+			}
+
+			/* Credential tags */
+			.cred-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.4em;
+				margin-top: 0.5em;
+			}
+			.cred-tag {
+				display: inline-block;
+				padding: 0.2em 0.6em;
+				background: #f1f5f9;
+				color: rgb(var(--gray-dark));
+				border-radius: 4px;
+				font-size: 0.75em;
+			}
+
+			/* Publications / achievements */
+			.achievements {
+				margin-top: 0.8em;
+			}
+			.achievements h4 {
+				font-size: 0.85em;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				color: rgb(var(--gray));
+				margin: 0 0 0.5em;
+			}
+			.achievements ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.achievements li {
+				padding: 0.3em 0 0.3em 1.2em;
+				position: relative;
+				font-size: 0.85em;
+				color: rgb(var(--gray-dark));
+			}
+			.achievements li::before {
+				content: '•';
+				position: absolute;
+				left: 0;
+				color: var(--accent);
+				font-weight: 700;
+			}
+
+			/* CTA for this doctor */
+			.doctor-cta {
+				display: inline-block;
+				margin-top: auto;
+				padding: 0.6em 1.4em;
+				background: var(--accent);
+				color: white;
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 0.9em;
+				width: fit-content;
+				transition: background 0.2s, transform 0.15s;
+			}
+			.doctor-cta:hover {
+				background: var(--accent-dark);
+				color: white;
+				transform: translateY(-2px);
+			}
+
+			/* Disclaimer */
+			.disclaimer {
+				margin-top: 3em;
+				padding-top: 2em;
+				border-top: 1px solid rgb(var(--gray-light));
+				font-size: 0.85em;
+				color: rgb(var(--gray));
+				line-height: 1.6;
+			}
+
+			@media (max-width: 720px) {
+				.doctor-card {
+					grid-template-columns: 1fr;
+					gap: 1.5em;
+				}
+				.doctor-photo {
+					max-width: 220px;
+					margin: 0 auto;
+				}
+				.doctor-stats {
+					flex-wrap: wrap;
+				}
+				.doctor-stat {
+					min-width: calc(50% - 0.5em);
+				}
+				.doctor-name {
+					font-size: 1.4em;
+					text-align: center;
+				}
+				.doctor-name-cn {
+					text-align: center;
+				}
+				.doctor-dept {
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="page-header">
+				<h1>Our Surgeons</h1>
+				<p>Board-certified specialists at Shanghai's top university hospitals — high volume, internationally recognized, patient-focused.</p>
+			</div>
+
+			<!-- Doctor 1 -->
+			<div class="doctor-card">
+				<div class="doctor-photo">
+					<div class="photo-placeholder">👨‍⚕️</div>
+					<div class="like-badge">
+						<span class="heart">♥</span>
+						<span>1,466 Patient Recommendations</span>
+					</div>
+				</div>
+				<div class="doctor-info">
+					<h2 class="doctor-name">Dr. Xiaowu Xu</h2>
+					<p class="doctor-name-cn">徐晓武</p>
+					<span class="doctor-dept">Pancreatic Surgery</span>
+					<p class="doctor-title-line">
+						Chief Physician · Vice Director, Pancreatic Surgery · Director, Pancreatic Minimally Invasive Surgery Center<br />
+						Fudan University Shanghai Cancer Center (复旦大学附属肿瘤医院)
+					</p>
+
+					<div class="doctor-stats">
+						<div class="doctor-stat">
+							<span class="val">400+</span>
+							<span class="lbl">Pancreatic surgeries/year</span>
+						</div>
+						<div class="doctor-stat">
+							<span class="val">80%+</span>
+							<span class="lbl">Minimally invasive rate</span>
+						</div>
+						<div class="doctor-stat">
+							<span class="val">PhD</span>
+							<span class="lbl">Supervisor</span>
+						</div>
+						<div class="doctor-stat">
+							<span class="val">12+</span>
+							<span class="lbl">SCI publications (first/corresponding author)</span>
+						</div>
+					</div>
+
+					<p class="specialty-label">Specialty</p>
+					<p class="specialty-text">
+						Robotic and laparoscopic minimally invasive pancreatic surgery. Pioneer in function-preserving
+						pancreatic procedures including spleen-preserving distal pancreatectomy, central pancreatectomy,
+						pancreatic tumor enucleation, and duodenum-preserving pancreatic head resection.
+					</p>
+
+					<p class="doctor-bio">
+						<strong>Professional Background:</strong> Dr. Xu trained under renowned minimally invasive
+						surgeon Prof. Mou Yiping, with whom he pioneered laparoscopic pancreatic and GI surgery in China.
+						He previously served as Associate Chief Physician at Sir Run Run Shaw Hospital (Zhejiang University)
+						and Vice Director of Gastrointestinal & Pancreatic Surgery at Zhejiang Provincial People's Hospital.
+						In 2018, he joined Fudan University Shanghai Cancer Center as a recruited talent, establishing
+						the Pancreatic Minimally Invasive Surgery Center.
+					</p>
+
+					<div class="achievements">
+						<h4>Key Achievements</h4>
+						<ul>
+							<li>Completed multiple live-streamed laparoscopic Whipple procedures for surgical education</li>
+							<li>National Natural Science Foundation of China (NSFC) grant recipient — General Program</li>
+							<li>Zhejiang Province Science and Technology Progress Award (2nd Prize) — ranked co-investigator</li>
+							<li>Young Member, Chinese Medical Association Minimally Invasive Surgery Committee</li>
+							<li>Secretary, Pancreatic Cancer Committee, China Anti-Cancer Association</li>
+						</ul>
+					</div>
+
+					<div class="cred-tags">
+						<span class="cred-tag">Robotic Surgery (Da Vinci)</span>
+						<span class="cred-tag">Laparoscopic Whipple</span>
+						<span class="cred-tag">Function-Preserving Surgery</span>
+						<span class="cred-tag">Pancreatic Cancer</span>
+						<span class="cred-tag">Pancreatic NET</span>
+					</div>
+
+					<a href="/medical-travel" class="doctor-cta">Request Consultation with Dr. Xu →</a>
+				</div>
+			</div>
+
+			<!-- Doctor 2 (Template placeholder) -->
+			<div class="doctor-card">
+				<div class="doctor-photo">
+					<div class="photo-placeholder">👨‍⚕️</div>
+					<div class="like-badge">
+						<span class="heart">♥</span>
+						<span>Coming Soon</span>
+					</div>
+				</div>
+				<div class="doctor-info">
+					<h2 class="doctor-name">More Surgeons</h2>
+					<p class="doctor-name-cn">更多专家</p>
+					<span class="doctor-dept">Hepatobiliary Surgery</span>
+					<p class="doctor-title-line">
+						Profiles of additional surgeons at Zhongshan Hospital, Ruijin Hospital, and Eastern Hepatobiliary Surgery Hospital are being compiled.
+					</p>
+
+					<p class="doctor-bio">
+						We are currently verifying credentials, surgical volumes, and international patient experience
+						for hepatobiliary surgeons at Shanghai's other top centers. Each profile will include published
+						outcomes data, specialty focus, and consultation availability.
+					</p>
+
+					<p class="doctor-bio">
+						<strong>Coming profiles will cover:</strong> Zhongshan Hospital (Fudan University) hepatobiliary
+						surgeons, Ruijin Hospital (Shanghai Jiao Tong University) pancreatic surgeons, and Eastern
+						Hepatobiliary Surgery Hospital (Naval Medical University) liver surgeons.
+					</p>
+
+					<a href="/blog" class="doctor-cta">Read Our Hospital Guides →</a>
+				</div>
+			</div>
+
+			<div class="disclaimer">
+				<p>
+					<strong>Disclaimer:</strong> Doctor profiles are based on publicly available information from
+					hospital websites, published literature, and professional society records. MedInSh is not
+					affiliated with any hospital or physician. Patient recommendation counts are sourced from
+					public hospital platforms. All information is subject to change — verify directly with the
+					hospital's international department before making treatment decisions. This website does not
+					constitute medical advice.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
