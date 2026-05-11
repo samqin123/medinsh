@@ -1,13 +1,14 @@
 /*
   MedInSh — Professional Medical Tourism Site
-  Color scheme: deep navy trust + clean white, inspired by top medical tourism sites
+  Color scheme: soft green (life/healing) + clean white
 */
 
 :root {
-	--accent: #166534;
-	--accent-dark: #14532d;
+	--accent: #16a34a;
+	--accent-dark: #15803d;
 	--accent-light: #f0fdf4;
-	--green: #16a34a;
+	--accent-muted: #bbf7d0;
+	--green: #22c55e;
 	--green-light: #f0fdf4;
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
