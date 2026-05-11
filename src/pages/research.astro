@@ -1,0 +1,542 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="China's Pancreatic Cancer Research & Innovation | MedInSh"
+			description="Chinese pancreatic cancer breakthroughs: KRAS inhibitors, mRNA vaccines, ESMO/AACR publications, NCCN guideline downloads, and global treatment standards."
+		/>
+		<style>
+			.page-header {
+				text-align: center;
+				padding: 3em 0 2em;
+				border-bottom: 1px solid rgb(var(--gray-light));
+				margin-bottom: 2.5em;
+			}
+			.page-header h1 { font-size: 2.2em; margin-bottom: 0.3em; }
+			.page-header p { color: rgb(var(--gray)); font-size: 1.05em; margin: 0; max-width: 660px; margin-left: auto; margin-right: auto; }
+
+			.section { margin: 3em 0; }
+			.section h2 {
+				font-size: 1.7em;
+				padding-bottom: 0.5em;
+				border-bottom: 2px solid var(--accent);
+				margin-bottom: 0.5em;
+			}
+			.section-intro { color: rgb(var(--gray)); max-width: 720px; margin-bottom: 1.5em; font-size: 1em; }
+
+			/* Paper card */
+			.paper-grid { display: flex; flex-direction: column; gap: 1em; }
+			.paper-card {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 8px;
+				padding: 1.3em 1.5em;
+				transition: box-shadow 0.2s;
+			}
+			.paper-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+			.paper-meta {
+				display: flex;
+				gap: 0.6em;
+				align-items: center;
+				margin-bottom: 0.5em;
+				flex-wrap: wrap;
+			}
+			.paper-badge {
+				display: inline-block;
+				padding: 0.12em 0.5em;
+				border-radius: 3px;
+				font-size: 0.7em;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+			.badge-esmo { background: #ede9fe; color: #6d28d9; }
+			.badge-aacr { background: #fef3c7; color: #b45309; }
+			.badge-journal { background: #dbeafe; color: #1e40af; }
+			.badge-nejm { background: #fee2e2; color: #dc2626; }
+			.paper-year { font-size: 0.75em; color: rgb(var(--gray)); }
+			.paper-card h4 { margin: 0 0 0.3em; font-size: 1em; line-height: 1.35; }
+			.paper-card .paper-authors { font-size: 0.82em; color: rgb(var(--gray)); margin-bottom: 0.4em; }
+			.paper-card .paper-summary { font-size: 0.88em; color: rgb(var(--gray-dark)); margin: 0; line-height: 1.5; }
+			.paper-link {
+				display: inline-block;
+				margin-top: 0.5em;
+				font-size: 0.82em;
+				font-weight: 600;
+			}
+
+			/* Drug comparison */
+			.drug-card {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 10px;
+				padding: 1.5em 1.8em;
+				margin-bottom: 1.5em;
+			}
+			.drug-header {
+				display: flex;
+				align-items: center;
+				gap: 1em;
+				margin-bottom: 0.8em;
+			}
+			.drug-icon {
+				width: 48px;
+				height: 48px;
+				border-radius: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.4em;
+				font-weight: 700;
+				flex-shrink: 0;
+			}
+			.drug-china { background: #fee2e2; color: #dc2626; }
+			.drug-global { background: #dbeafe; color: #1e40af; }
+			.drug-header h3 { margin: 0; font-size: 1.2em; }
+			.drug-header .developer { font-size: 0.82em; color: rgb(var(--gray)); }
+			.drug-body p { font-size: 0.92em; color: rgb(var(--gray-dark)); line-height: 1.6; margin-bottom: 0.8em; }
+			.drug-stats {
+				display: flex;
+				gap: 0.8em;
+				margin: 1em 0;
+				flex-wrap: wrap;
+			}
+			.drug-stat {
+				background: rgba(var(--gray-light), 0.3);
+				border-radius: 6px;
+				padding: 0.6em 1em;
+				text-align: center;
+				flex: 1;
+				min-width: 100px;
+			}
+			.drug-stat .v { display: block; font-size: 1.3em; font-weight: 700; color: var(--accent); }
+			.drug-stat .l { font-size: 0.72em; color: rgb(var(--gray)); }
+			.trial-badge {
+				display: inline-block;
+				padding: 0.12em 0.5em;
+				border-radius: 3px;
+				font-size: 0.7em;
+				font-weight: 700;
+			}
+			.trial-ph1 { background: #dbeafe; color: #1e40af; }
+			.trial-ph2 { background: #fef3c7; color: #b45309; }
+			.trial-ph3 { background: #dcfce7; color: #16a34a; }
+
+			/* Comparison table */
+			.comp-box {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 10px;
+				overflow: hidden;
+				margin: 1.5em 0;
+			}
+			.comp-box table { margin: 0; font-size: 0.88em; }
+			.comp-box thead { background: var(--accent); color: white; }
+			.comp-box thead th { background: var(--accent); color: white; padding: 0.8em 1em; border-bottom: none; }
+			.comp-box td { padding: 0.7em 1em; }
+			.comp-box tr:nth-child(even) td { background: rgba(var(--gray-light), 0.2); }
+			.highlight-china { color: #dc2626; font-weight: 600; }
+
+			/* Guide download */
+			.guide-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.5em;
+				margin-top: 1em;
+			}
+			.guide-card {
+				background: white;
+				border: 2px solid var(--accent);
+				border-radius: 12px;
+				padding: 2em;
+				text-align: center;
+				transition: box-shadow 0.2s, transform 0.15s;
+			}
+			.guide-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-3px); }
+			.guide-icon { font-size: 2.5em; margin-bottom: 0.5em; }
+			.guide-card h3 { margin: 0 0 0.3em; font-size: 1.1em; }
+			.guide-card p { font-size: 0.85em; color: rgb(var(--gray)); margin: 0 0 1em; }
+			.guide-btn {
+				display: inline-block;
+				padding: 0.6em 1.5em;
+				background: var(--accent);
+				color: white;
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 0.9em;
+				transition: background 0.2s;
+			}
+			.guide-btn:hover { background: var(--accent-dark); color: white; }
+			.guide-btn-outline {
+				display: inline-block;
+				padding: 0.5em 1.2em;
+				border: 2px solid var(--accent);
+				color: var(--accent);
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 0.85em;
+				margin-top: 0.5em;
+				transition: background 0.2s, color 0.2s;
+			}
+			.guide-btn-outline:hover { background: var(--accent); color: white; }
+
+			/* Alert */
+			.alert {
+				padding: 1.2em 1.5em;
+				border-radius: 8px;
+				margin: 1.5em 0;
+				font-size: 0.95em;
+			}
+			.alert-info { background: var(--accent-light); border-left: 4px solid var(--accent); }
+			.alert-green { background: var(--green-light); border-left: 4px solid var(--green); }
+			.alert h4 { margin: 0 0 0.3em; }
+			.alert p { margin: 0; }
+
+			@media (max-width: 720px) {
+				.page-header h1 { font-size: 1.6em; }
+				.section h2 { font-size: 1.3em; }
+				.guide-grid { grid-template-columns: 1fr; }
+				.drug-stats { flex-direction: column; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="page-header">
+				<h1>Research & Innovation</h1>
+				<p>China's breakthrough contributions to global pancreatic cancer treatment — publications, drug development, and international guideline alignment.</p>
+			</div>
+
+			<!-- ===== Section 1: Publications ===== -->
+			<section class="section">
+				<h2>1. Publications & Conference Presentations</h2>
+				<p class="section-intro">
+					Chinese pancreatic cancer research teams are increasingly prominent at ESMO, AACR, and top-tier journals. Below are key publications and presentations.
+				</p>
+
+				<div class="paper-grid">
+					<div class="paper-card">
+						<div class="paper-meta">
+							<span class="paper-badge badge-journal">JAMA Surgery</span>
+							<span class="paper-year">2024</span>
+						</div>
+						<h4>Robotic vs Open Whipple: 10-Year Comparative Study (450 vs 634 Cases)</h4>
+						<p class="paper-authors">Jin Jiabin et al. · Ruijin Hospital, Shanghai Jiao Tong University</p>
+						<p class="paper-summary">Landmark 10-year comparison of 450 robotic vs 634 open pancreaticoduodenectomy cases. Demonstrated comparable oncologic outcomes with robotic approach showing advantages in blood loss and recovery time.</p>
+						<a href="https://scholar.google.com/citations?user=Jin+Jiabin+Ruijin" class="paper-link" target="_blank" rel="noopener">View on Google Scholar →</a>
+					</div>
+
+					<div class="paper-card">
+						<div class="paper-meta">
+							<span class="paper-badge badge-esmo">ESMO GI Oncology</span>
+							<span class="paper-year">2025</span>
+						</div>
+						<h4>Pancreatic Cancer Systemic Therapy: Asia-Pacific Expert Consensus</h4>
+						<p class="paper-authors">Shen Baiyong (corresponding) et al. · Ruijin Hospital · Multi-country (China, Japan, South Korea, Singapore)</p>
+						<p class="paper-summary">First Asia-Pacific consensus on pancreatic cancer systemic therapy published in ESMO Gastrointestinal Oncology. Prof. Shen was the only Chinese expert among the core writing committee. Adapted international standards to Asian patient characteristics.</p>
+						<a href="https://www.esmo.org/open-access-publications" class="paper-link" target="_blank" rel="noopener">ESMO Publications →</a>
+					</div>
+
+					<div class="paper-card">
+						<div class="paper-meta">
+							<span class="paper-badge badge-journal">International Journal of Medical Robotics</span>
+							<span class="paper-year">2024</span>
+						</div>
+						<h4>Robotic Spleen-Preserving Distal Pancreatectomy: Improved Spleen Preservation Rate and Shorter Hospital Stay</h4>
+						<p class="paper-authors">Jin Jiabin et al. · Ruijin Hospital</p>
+						<p class="paper-summary">Demonstrated that robotic approach significantly improves spleen preservation rate in distal pancreatectomy while reducing hospital stay compared to open surgery.</p>
+					</div>
+
+					<div class="paper-card">
+						<div class="paper-meta">
+							<span class="paper-badge badge-journal">Annals of Surgery / Lancet Oncology</span>
+							<span class="paper-year">2024-2025</span>
+						</div>
+						<h4>Fudan Cancer Center: Laparoscopic Whipple — "Leave the Vein Alone" Concept</h4>
+						<p class="paper-authors">Liu Chen, Yu Xianjun et al. · Fudan University Shanghai Cancer Center</p>
+						<p class="paper-summary">Innovative "middle approach" laparoscopic pancreaticoduodenectomy that minimizes vein manipulation during surgery. Reduced intraoperative blood loss and complications while maintaining oncologic radicality. Demonstrated live at the 36th Italian Digestive Surgery Congress (Milan, 2025).</p>
+						<a href="https://pubmed.ncbi.nlm.nih.gov/?term=Fudan+pancreatic+cancer+laparoscopic" class="paper-link" target="_blank" rel="noopener">PubMed Search →</a>
+					</div>
+
+					<div class="paper-card">
+						<div class="paper-meta">
+							<span class="paper-badge badge-journal">The Lancet / BMJ / Nature</span>
+							<span class="paper-year">2025</span>
+						</div>
+						<h4>Fudan Cancer Center: 35 Papers with Impact Factor ≥ 20</h4>
+						<p class="paper-authors">Multiple teams · Fudan University Shanghai Cancer Center</p>
+						<p class="paper-summary">In 2025 alone, FUSCC published 35 papers in journals with IF ≥ 20, including 3 papers in BMJ and Nature main editions. The institution's clinical research changed international guidelines 17 times in a single year.</p>
+					</div>
+
+					<div class="paper-card">
+						<div class="paper-meta">
+							<span class="paper-badge badge-journal">Clinical Cancer Research / AACR</span>
+							<span class="paper-year">2024-2025</span>
+						</div>
+						<h4>Multiple AACR Presentations on KRAS-targeted Therapies and Tumor Microenvironment</h4>
+						<p class="paper-authors">Various Chinese institutions</p>
+						<p class="paper-summary">Chinese teams presented multiple abstracts at AACR 2024-2025 on KRAS G12D inhibitor clinical data, pancreatic cancer tumor microenvironment characterization, and novel combination strategies.</p>
+						<a href="https://www.aacr.org/" class="paper-link" target="_blank" rel="noopener">AACR →</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- ===== Section 2: Drug Breakthroughs ===== -->
+			<section class="section">
+				<h2>2. Drug Development Breakthroughs</h2>
+				<p class="section-intro">
+					China is at the forefront of developing next-generation pancreatic cancer therapies, particularly KRAS inhibitors and mRNA cancer vaccines.
+				</p>
+
+				<!-- KRAS Inhibitors -->
+				<h3 style="font-size: 1.15em; margin: 1.5em 0 0.8em; color: var(--accent-dark);">KRAS Inhibitors</h3>
+
+				<div class="drug-card">
+					<div class="drug-header">
+						<div class="drug-icon drug-china">C</div>
+						<div>
+							<h3>GFH375 (VS-7375)</h3>
+							<span class="developer">GenFleet Therapeutics (劲方医药) · Licensed to Verastem Oncology</span>
+						</div>
+					</div>
+					<div class="drug-body">
+						<span class="trial-badge trial-ph1/2">Phase I/II</span>
+						<p>
+							Oral, highly selective KRAS G12D inhibitor — dual-targeting both "ON" (GTP-bound) and "OFF" (GDP-bound) states.
+							ESMO 2025 data showed striking efficacy in previously treated KRAS G12D patients.
+						</p>
+						<div class="drug-stats">
+							<div class="drug-stat"><span class="v">40.7%</span><span class="l">Objective Response Rate</span></div>
+							<div class="drug-stat"><span class="v">96.7%</span><span class="l">Disease Control Rate</span></div>
+							<div class="drug-stat"><span class="v">FDA</span><span class="l">Fast Track Designation (Jul 2025)</span></div>
+						</div>
+						<p>
+							KRAS G12D is the most common KRAS mutation in pancreatic cancer (~40% of cases).
+							GFH375's ORR of 40.7% in a heavily pretreated population is a significant advance.
+						</p>
+					</div>
+				</div>
+
+				<div class="drug-card">
+					<div class="drug-header">
+						<div class="drug-icon drug-china">C</div>
+						<div>
+							<h3>HRS-4642</h3>
+							<span class="developer">Jiangsu Hengrui Pharmaceuticals (江苏恒瑞医药)</span>
+						</div>
+					</div>
+					<div class="drug-body">
+						<span class="trial-badge trial-ph3">Phase III</span>
+						<p>
+							The world's first KRAS G12D inhibitor to receive <strong>Breakthrough Therapy Designation</strong> (Feb 2026).
+							Now in a Phase III pivotal trial (NCT07232875): HRS-4642 + AG chemotherapy vs AG alone as first-line treatment for advanced KRAS G12D-mutant pancreatic cancer.
+						</p>
+						<div class="drug-stats">
+							<div class="drug-stat"><span class="v">1st</span><span class="l">Breakthrough Therapy for KRAS G12D</span></div>
+							<div class="drug-stat"><span class="v">Phase III</span><span class="l">Pivotal Trial Recruiting</span></div>
+							<div class="drug-stat"><span class="v">NCT07232875</span><span class="l">ClinicalTrials.gov</span></div>
+						</div>
+						<p>
+							HRS-4642 is only the second KRAS G12D inhibitor globally to reach Phase III, positioning Hengrui at the cutting edge of this target.
+						</p>
+					</div>
+				</div>
+
+				<!-- Comparison with global competitors -->
+				<div class="comp-box">
+					<table>
+						<thead>
+							<tr>
+								<th>Drug</th>
+								<th>Developer</th>
+								<th>Mechanism</th>
+								<th>Stage</th>
+								<th>Key Data</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong class="highlight-china">HRS-4642</strong></td>
+								<td class="highlight-china">Hengrui (China)</td>
+								<td>KRAS G12D selective</td>
+								<td>Phase III</td>
+								<td>Breakthrough Therapy; first-line combo</td>
+							</tr>
+							<tr>
+								<td><strong class="highlight-china">GFH375</strong></td>
+								<td class="highlight-china">GenFleet (China)</td>
+								<td>KRAS G12D selective (ON+OFF)</td>
+								<td>Phase I/II</td>
+								<td>ORR 40.7%, DCR 96.7%</td>
+							</tr>
+							<tr>
+								<td><strong>RMC6236</strong></td>
+								<td>Revolution Medicines (US)</td>
+								<td>Pan-RAS (ON-state)</td>
+								<td>Phase III (success)</td>
+								<td>Covers &gt;90% PDAC mutations; FDA filing planned</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="alert alert-info">
+					<h4>RMC6236 vs Chinese G12D Inhibitors — Key Difference</h4>
+					<p>
+						RMC6236 is a <strong>pan-RAS</strong> inhibitor covering all major RAS mutations (G12D, G12V, G12R, etc.)
+						— applicable to &gt;90% of pancreatic cancers. HRS-4642 and GFH375 are <strong>G12D-selective</strong>
+						— targeting the ~40% of pancreatic cancers with this specific mutation. For G12D patients specifically,
+						Chinese inhibitors may offer superior target selectivity and a cleaner safety profile.
+					</p>
+				</div>
+
+				<!-- mRNA Vaccines -->
+				<h3 style="font-size: 1.15em; margin: 2em 0 0.8em; color: var(--accent-dark);">mRNA Cancer Vaccines</h3>
+
+				<div class="drug-card">
+					<div class="drug-header">
+						<div class="drug-icon drug-china">C</div>
+						<div>
+							<h3>XP-004 — Personalized Pancreatic Cancer Vaccine</h3>
+							<span class="developer">Ruijin Hospital (瑞金医院) · Pancreatic Disease Center</span>
+						</div>
+					</div>
+					<div class="drug-body">
+						<span class="trial-badge trial-ph1">Phase I (Early Clinical)</span>
+						<p>
+							Personalized mRNA vaccine encoding tumor neoantigens. Currently in a clinical trial (NCT06496373)
+							combined with PD-1 inhibitor as adjuvant therapy for pancreatic cancer patients post-surgery who
+							cannot tolerate standard chemotherapy.
+						</p>
+						<p>
+							Ruijin's vaccine development is backed by their massive clinical database of 30,000+ pancreatic cancer
+							cases, providing a unique advantage in identifying optimal neoantigen targets.
+						</p>
+					</div>
+				</div>
+
+				<div class="drug-card">
+					<div class="drug-header">
+						<div class="drug-icon drug-china">C</div>
+						<div>
+							<h3>ABO2102 — Universal KRAS-targeting mRNA Vaccine</h3>
+							<span class="developer">Abogen Biosciences (艾博生物)</span>
+						</div>
+					</div>
+					<div class="drug-body">
+						<span class="trial-badge trial-ph1">Phase I</span>
+						<p>
+							mRNA vaccine targeting 5 common KRAS mutations. Received NMPA IND approval in China and US FDA
+							clinical trial authorization (Aug 2025). Designed as monotherapy and combination with toripalimab
+							(anti-PD-1) for KRAS-mutant advanced pancreatic cancer.
+						</p>
+					</div>
+				</div>
+
+				<!-- Vaccine comparison -->
+				<div class="comp-box">
+					<table>
+						<thead>
+							<tr>
+								<th>Vaccine</th>
+								<th>Developer</th>
+								<th>Target</th>
+								<th>Stage</th>
+								<th>Key Data</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>ELI-002</strong></td>
+								<td>Eli Lilly / Amphivena (US)</td>
+								<td>mKRAS (7 mutations)</td>
+								<td>Phase II</td>
+								<td>98.9% T-cell induction; 145x T-cell expansion (AMPLIFY-7P)</td>
+							</tr>
+							<tr>
+								<td><strong class="highlight-china">XP-004</strong></td>
+								<td class="highlight-china">Ruijin Hospital (China)</td>
+								<td>Personalized neoantigens</td>
+								<td>Phase I</td>
+								<td>30K+ case database for neoantigen selection</td>
+							</tr>
+							<tr>
+								<td><strong class="highlight-china">ABO2102</strong></td>
+								<td class="highlight-china">Abogen (China)</td>
+								<td>5 common KRAS mutations</td>
+								<td>Phase I</td>
+								<td>Dual IND: China + US (Aug 2025)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="alert alert-green">
+					<h4>Why this matters for patients</h4>
+					<p>
+						China's clinical trial infrastructure means access to these cutting-edge therapies is often <strong>free of charge</strong>
+						for eligible patients. For KRAS-mutant pancreatic cancer patients who have exhausted standard options,
+						enrolling in a Chinese clinical trial may provide access to tomorrow's medicine today — without the $150K+ cost
+						of novel targeted therapies in the US.
+					</p>
+				</div>
+			</section>
+
+			<!-- ===== Section 3: Guidelines ===== -->
+			<section class="section">
+				<h2>3. Global Treatment Guidelines</h2>
+				<p class="section-intro">
+					Pancreatic cancer treatment should follow internationally recognized guidelines. Below are the latest NCCN guidelines
+					for both clinicians and patients. China's top hospitals align closely with these standards while also contributing
+					new evidence that shapes future editions.
+				</p>
+
+				<div class="guide-grid">
+					<div class="guide-card">
+						<div class="guide-icon">📋</div>
+						<h3>NCCN Clinical Practice Guidelines</h3>
+						<p>Professional guidelines for oncologists. Pancreatic adenocarcinoma — screening, diagnosis, staging, and treatment algorithms.</p>
+						<a href="https://www.nccn.org/professionals/physician_gls/pdf/pancreatic.pdf" target="_blank" rel="noopener" class="guide-btn">View on NCCN.org →</a>
+					</div>
+					<div class="guide-card">
+						<div class="guide-icon">👤</div>
+						<h3>NCCN Patient Guidelines</h3>
+						<p>Patient-friendly version. Explains treatment options, side effects, and questions to ask your doctor. 72-page comprehensive guide.</p>
+						<a href="/docs/nccn-pancreatic-patient.pdf" download class="guide-btn">Download PDF (1.7 MB) ↓</a>
+						<br />
+						<a href="https://www.nccn.org/patients/guidelines/content/PDF/pancreatic-patient.pdf" target="_blank" rel="noopener" class="guide-btn-outline">Also available on NCCN.org →</a>
+					</div>
+				</div>
+
+				<div class="alert alert-info" style="margin-top: 2em;">
+					<h4>China's Role in Guideline Development</h4>
+					<p>
+						Prof. Shen Baiyong (Ruijin Hospital) was the only Chinese expert on the ESMO Asia-Pacific Pancreatic Cancer
+						Consensus writing committee. Fudan Cancer Center's research changed international clinical guidelines 17 times
+						in 2025 alone. China is no longer just following global standards — it is helping to write them.
+					</p>
+				</div>
+			</section>
+
+			<!-- Disclaimer -->
+			<section class="section" style="border-top: 1px solid rgb(var(--gray-light)); padding-top: 2em;">
+				<p style="font-size: 0.85em; color: rgb(var(--gray)); line-height: 1.6;">
+					<strong>Disclaimer:</strong> This page is for informational purposes only. Drug development timelines and clinical
+					trial data are based on publicly available information and may change. NCCN guidelines are copyrighted by NCCN
+					and provided here for patient convenience — always refer to the official NCCN website for the latest version.
+					This page does not constitute medical advice. Consult your treating physician before making treatment decisions.
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
