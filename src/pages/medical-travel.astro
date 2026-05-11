@@ -1,0 +1,530 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Medical Travel to Shanghai — Visa, Preparation & Logistics | MedInSh"
+			description="Step-by-step guide for international patients: visa-free entry requirements, medical records preparation, pre-travel consultations, and what to pack for pancreatic cancer surgery in Shanghai."
+		/>
+		<style>
+			.page-hero {
+				position: relative;
+				width: 100vw;
+				margin-left: calc(-50vw + 50%);
+				overflow: hidden;
+			}
+			.page-hero img {
+				width: 100%;
+				height: 340px;
+				object-fit: cover;
+				display: block;
+			}
+			.page-hero-overlay {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 3em 3em 2em;
+				background: linear-gradient(transparent, rgba(0,0,0,0.8));
+				color: white;
+			}
+			.page-hero-overlay h1 {
+				color: white;
+				font-size: 2.4em;
+				margin-bottom: 0.3em;
+			}
+			.page-hero-overlay p {
+				opacity: 0.9;
+				max-width: 600px;
+				margin: 0;
+			}
+			.content { max-width: 780px; margin: 0 auto; }
+			.section { margin: 2.5em 0; }
+			.section h2 {
+				font-size: 1.6em;
+				padding-bottom: 0.5em;
+				border-bottom: 2px solid var(--accent);
+				margin-bottom: 1em;
+			}
+			.section h3 {
+				font-size: 1.2em;
+				margin-top: 1.5em;
+				color: var(--accent-dark);
+			}
+
+			/* Checklist */
+			.checklist {
+				list-style: none;
+				padding: 0;
+			}
+			.checklist li {
+				padding: 0.8em 0 0.8em 2.2em;
+				position: relative;
+				border-bottom: 1px solid rgb(var(--gray-light));
+			}
+			.checklist li::before {
+				content: '✓';
+				position: absolute;
+				left: 0;
+				top: 0.8em;
+				color: var(--green);
+				font-weight: 700;
+				font-size: 1.2em;
+			}
+			.checklist li strong {
+				display: block;
+				margin-bottom: 0.2em;
+			}
+			.checklist li p {
+				margin: 0;
+				font-size: 0.92em;
+				color: rgb(var(--gray));
+			}
+
+			/* Timeline */
+			.timeline {
+				position: relative;
+				padding-left: 2.5em;
+			}
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 12px;
+				top: 0;
+				bottom: 0;
+				width: 2px;
+				background: var(--accent-light);
+			}
+			.timeline-item {
+				position: relative;
+				margin-bottom: 2em;
+			}
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: -2.5em;
+				top: 0.3em;
+				width: 14px;
+				height: 14px;
+				border-radius: 50%;
+				background: var(--accent);
+				border: 3px solid white;
+				box-shadow: 0 0 0 2px var(--accent);
+			}
+			.timeline-item h4 {
+				margin: 0 0 0.3em;
+				font-size: 1.05em;
+			}
+			.timeline-item p {
+				margin: 0;
+				font-size: 0.92em;
+				color: rgb(var(--gray));
+			}
+
+			/* Alert box */
+			.alert {
+				padding: 1.2em 1.5em;
+				border-radius: 8px;
+				margin: 1.5em 0;
+				font-size: 0.95em;
+			}
+			.alert-warn {
+				background: #fef9c3;
+				border-left: 4px solid #ca8a04;
+			}
+			.alert-info {
+				background: var(--accent-light);
+				border-left: 4px solid var(--accent);
+			}
+			.alert h4 {
+				margin: 0 0 0.3em;
+			}
+			.alert p {
+				margin: 0;
+			}
+
+			/* Packing grid */
+			.pack-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.5em;
+				margin-top: 1em;
+			}
+			.pack-card {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 8px;
+				padding: 1.2em 1.4em;
+			}
+			.pack-card h4 {
+				margin: 0 0 0.5em;
+				font-size: 1em;
+			}
+			.pack-card ul {
+				margin: 0;
+				padding-left: 1.2em;
+				font-size: 0.9em;
+				color: rgb(var(--gray-dark));
+			}
+			.pack-card ul li {
+				margin-bottom: 0.3em;
+			}
+
+			@media (max-width: 720px) {
+				.page-hero img { height: 240px; }
+				.page-hero-overlay { padding: 2em 1.5em 1.5em; }
+				.page-hero-overlay h1 { font-size: 1.6em; }
+				.pack-grid { grid-template-columns: 1fr; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-hero">
+				<img src="/images/shanghai-city.jpg" alt="Shanghai Pudong skyline" />
+				<div class="page-hero-overlay">
+					<h1>Medical Travel to Shanghai</h1>
+					<p>Everything you need to prepare before flying — visas, documents, medications, and consultations.</p>
+				</div>
+			</section>
+
+			<div class="content">
+
+				<!-- Step 1: Visa -->
+				<section class="section">
+					<h2>1. Visa & Entry Requirements</h2>
+
+					<h3>30-Day Visa-Free Entry</h3>
+					<p>
+						China now offers <strong>30-day visa-free entry</strong> to citizens of 35+ countries, including the
+						United Kingdom, United States, Canada, Australia, New Zealand, and most EU nations. The policy is
+						valid through December 31, 2026, and widely expected to be renewed.
+					</p>
+
+					<div class="alert alert-info">
+						<h4>What you need at immigration:</h4>
+						<p>
+							A valid passport (6+ months remaining validity). That's it. No visa application, no invitation
+							letter, no pre-booked hotel required. However, we strongly recommend carrying a printed
+							<strong>hospital appointment confirmation letter</strong> — while not required, immigration
+							officers may ask about the purpose of your visit.
+						</p>
+					</div>
+
+					<h3>240-Hour Transit Visa-Free (10 Days)</h3>
+					<p>
+						Citizens of 55 countries (including the US if not yet covered by the 30-day policy) can enter China
+						for up to 240 hours without a visa, provided they hold a confirmed onward ticket to a third country.
+						This is <strong>tight for surgical patients</strong> — only consider this for initial consultations
+						or if your procedure requires less than 2 weeks total.
+					</p>
+
+					<div class="alert alert-warn">
+						<h4>Important for pancreatic cancer patients:</h4>
+						<p>
+							The Whipple procedure typically requires a 3-week stay (surgery + recovery). The 30-day
+							visa-free window is comfortably sufficient. If your country is only eligible for the 240-hour
+							transit option, discuss timeline feasibility with your surgical team during the remote
+							consultation, or apply for a standard medical visa (M visa).
+						</p>
+					</div>
+
+					<p>
+						<strong>Need a longer stay?</strong> For neoadjuvant chemotherapy + surgery (2–3 months), you'll need
+						an M (medical) visa. The hospital can provide an official invitation letter to support your
+						application. Contact the hospital's international department for assistance.
+					</p>
+				</section>
+
+				<!-- Step 2: Medical Records -->
+				<section class="section">
+					<h2>2. Prepare Your Medical Records</h2>
+					<p>
+						Having complete, organized records before your remote consultation saves time and ensures
+						the surgical team can give you an accurate assessment. Start collecting these at least
+						<strong>2–3 weeks before</strong> your first video call.
+					</p>
+
+					<ul class="checklist">
+						<li>
+							<strong>CT/MRI Imaging (DICOM format)</strong>
+							<p>Request the digital files from your radiology department. USB drive or cloud upload (WeTransfer, Google Drive). Physical films are also accepted but digital is faster.</p>
+						</li>
+						<li>
+							<strong>Pathology / Biopsy Report</strong>
+							<p>If you've had a biopsy, get the full pathology report in English. If only available in your language, the hospital can arrange translation (allow 3–5 extra days).</p>
+						</li>
+						<li>
+							<strong>Recent Blood Work</strong>
+							<p>Complete blood count (CBC), liver function (LFT), kidney function, tumor markers (CA 19-9, CEA). Ideally within the past 2 weeks.</p>
+						</li>
+						<li>
+							<strong>Previous Treatment Records</strong>
+							<p>Any chemotherapy, radiation, or prior surgical reports. Include dates and drug names/regimens.</p>
+						</li>
+						<li>
+							<strong>Allergy & Medication List</strong>
+							<p>Current medications with dosages. Known drug allergies. This is critical for anesthesia planning.</p>
+						</li>
+						<li>
+							<strong>Cardiac Clearance (if applicable)</strong>
+							<p>Patients over 60 or with cardiac history should include a recent ECG and cardiologist clearance.</p>
+						</li>
+					</ul>
+
+					<div class="alert alert-info">
+						<h4>Digital submission:</h4>
+						<p>
+							Most Shanghai hospital international departments accept records via email or a secure upload portal.
+							We recommend organizing everything in a single folder (labeled by document type) before sending.
+							The international coordinator will confirm receipt within 2–3 business days.
+						</p>
+					</div>
+				</section>
+
+				<!-- Step 3: Pre-travel consultations -->
+				<section class="section">
+					<h2>3. Pre-Travel Remote Consultations</h2>
+					<p>
+						Do not fly blind. We recommend scheduling <strong>at least 2 remote consultations</strong>
+						via Tencent Meeting (腾讯会议), Zoom, or WhatsApp Video before booking your flight.
+						These sessions are critical for information symmetry between you and your surgical team.
+					</p>
+
+					<div class="timeline">
+						<div class="timeline-item">
+							<h4>Consultation 1: Case Review (Week –4)</h4>
+							<p>
+								Submit your records. The lead surgeon reviews your imaging and pathology. You receive a
+								preliminary assessment: Is surgery indicated? What type? What's the estimated cost?
+								Available via Tencent Meeting or Zoom. Duration: 30–45 min.
+							</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Consultation 2: Surgical Plan & Q&A (Week –3)</h4>
+							<p>
+								Detailed discussion of the surgical approach, expected recovery timeline, potential
+								complications, and adjuvant therapy plan. Bring your family members and your home
+								oncologist if possible. This is the session to ask every question you have.
+								Duration: 45–60 min.
+							</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Consultation 3 (Optional): Pre-Departure Confirmation (Week –1)</h4>
+							<p>
+								Final check: confirm surgery date, arrival logistics, what to bring, medication
+								guidance (especially pancreatic enzyme replacement — see below). Your coordinator
+								will also arrange airport pickup at this stage.
+							</p>
+						</div>
+					</div>
+
+					<div class="alert alert-info">
+						<h4>Tencent Meeting (腾讯会议) — Why we recommend it:</h4>
+						<p>
+							Tencent Meeting is the standard video platform used by Chinese hospitals. It's free,
+							supports up to 300 participants, works on all devices, and has an English interface.
+							The hospital will send you a meeting link — no account needed. Download the app before
+							your first session: available on iOS, Android, Windows, and Mac.
+						</p>
+					</div>
+				</section>
+
+				<!-- Step 4: Pancreatic-specific preparation -->
+				<section class="section">
+					<h2>4. Pancreatic Cancer: Special Preparations</h2>
+
+					<h3>Pancreatic Enzyme Replacement (PERT)</h3>
+					<p>
+						Many pancreatic cancer patients suffer from exocrine pancreatic insufficiency — your pancreas
+						can't produce enough enzymes to digest food. <strong>Bring your own supply of pancreatic enzyme
+						capsules</strong> (e.g., Creon, Pancreaze, Zenpep). Chinese pharmacies may not stock your exact
+						brand, and switching formulations mid-treatment can cause GI distress.
+					</p>
+					<ul class="checklist">
+						<li>
+							<strong>Bring 6–8 weeks' supply</strong>
+							<p>Enough for your entire trip plus a buffer. Keep in original packaging with prescription label for customs.</p>
+						</li>
+						<li>
+							<strong>Discuss dosage adjustments with your surgeon</strong>
+							<p>Post-Whipple, your enzyme needs may change significantly. The surgical team will advise during Consultation 2.</p>
+						</li>
+					</ul>
+
+					<h3>Nutritional Optimization</h3>
+					<p>
+						Pancreatic cancer patients are often malnourished at diagnosis. If your oncologist agrees,
+						begin nutritional optimization <strong>4–6 weeks before surgery</strong>: high-protein diet,
+						possibly oral nutritional supplements (ONS). Better pre-op nutrition = faster recovery.
+					</p>
+
+					<h3>Diabetes Management</h3>
+					<p>
+						If you have pancreatic diabetes (Type 3c), bring extra glucose monitoring supplies and your
+						current insulin/oral medication. Inform the surgical team during Consultation 1 — diabetes
+						management protocols differ between countries.
+					</p>
+				</section>
+
+				<!-- Step 5: What to bring -->
+				<section class="section">
+					<h2>5. Packing Checklist</h2>
+
+					<div class="pack-grid">
+						<div class="pack-card">
+							<h4>Medical Documents</h4>
+							<ul>
+								<li>Passport (+ 2 photocopies)</li>
+								<li>Hospital appointment letter (printed)</li>
+								<li>Complete medical records folder</li>
+								<li>Insurance policy documents</li>
+								<li>Emergency contact list</li>
+								<li>Power of Attorney (if traveling alone)</li>
+							</ul>
+						</div>
+						<div class="pack-card">
+							<h4>Medications</h4>
+							<ul>
+								<li>Pancreatic enzymes (6–8 weeks supply)</li>
+								<li>All current prescriptions (+ copies)</li>
+								<li>Pain medication (with prescription)</li>
+								<li>Anti-nausea medication</li>
+								<li>Blood thinners (if prescribed for DVT prevention)</li>
+								<li>Glucose monitoring kit (if diabetic)</li>
+							</ul>
+						</div>
+						<div class="pack-card">
+							<h4>Comfort & Recovery</h4>
+							<ul>
+								<li>Compression stockings (for the flight)</li>
+								<li>Loose-fitting, comfortable clothing</li>
+								<li>Neck pillow for long flights</li>
+								<li>Slip-on shoes (bending is hard post-surgery)</li>
+								<li>Lightweight robe for hospital stay</li>
+								<li>Entertainment (books, tablet, earbuds)</li>
+							</ul>
+						</div>
+						<div class="pack-card">
+							<h4>Tech & Connectivity</h4>
+							<ul>
+								<li>Tencent Meeting app installed</li>
+								<li>WeChat installed (essential in China)</li>
+								<li>VPN app (for Google, WhatsApp, etc.)</li>
+								<li>Universal power adapter</li>
+								<li>Portable phone charger</li>
+								<li>Translation app (Google Translate or DeepL)</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<!-- Step 6: Flight & arrival -->
+				<section class="section">
+					<h2>6. Flight & Arrival</h2>
+
+					<h3>Before You Fly</h3>
+					<ul class="checklist">
+						<li>
+							<strong>Wear compression stockings on the flight</strong>
+							<p>Long-haul flights increase DVT risk, especially for cancer patients. Your surgeon may prescribe prophylactic enoxaparin for the journey.</p>
+						</li>
+						<li>
+							<strong>Request an aisle seat</strong>
+							<p>Easier to get up and walk every 1–2 hours during the flight. Movement reduces clot risk.</p>
+						</li>
+						<li>
+							<strong>Stay hydrated, avoid alcohol</strong>
+							<p>Dehydration worsens DVT risk. Drink water frequently. Avoid alcohol and caffeine on the flight.</p>
+						</li>
+					</ul>
+
+					<h3>At Shanghai Pudong Airport (PVG)</h3>
+					<p>
+						Your hospital coordinator will meet you at arrivals with a sign bearing your name. If you've
+						arranged a companion, they'll be included in the pickup. The ride to the hospital is typically
+						45–90 minutes depending on traffic. Your coordinator handles all check-in paperwork at the
+						international department.
+					</p>
+
+					<h3>Pre-Operative Workup (Day 2–3)</h3>
+					<p>
+						Within 48 hours of arrival, you'll complete: repeat CT/MRI (if needed), blood panels, cardiac
+						clearance, anesthesia consultation, and a face-to-face meeting with the surgical team. Everything
+						is coordinated by your English-speaking assistant.
+					</p>
+				</section>
+
+				<!-- Timeline -->
+				<section class="section">
+					<h2>7. Typical 30-Day Timeline</h2>
+
+					<div class="timeline">
+						<div class="timeline-item">
+							<h4>Day 1: Arrival</h4>
+							<p>Fly in to PVG. Airport pickup. Check into hotel near hospital or international ward.</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Day 2–3: Pre-Op Workup</h4>
+							<p>CT/MRI, blood panels, cardiac clearance, anesthesia consult. Face-to-face with surgical team.</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Day 4–5: Surgical Planning</h4>
+							<p>Final review. Consent signing. Pre-op preparation. Diet adjustment.</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Day 6–7: Surgery</h4>
+							<p>Whipple procedure: 4–7 hours. Transfer to ICU for 1 night, then private recovery ward.</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Day 8–14: Early Recovery</h4>
+							<p>Drains removed gradually. Start liquid diet, progress to soft food. Walking encouraged from Day 8.</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Day 15–20: Recovery Milestones</h4>
+							<p>Pathology results back. Dietitian consultation. Increasing mobility. Adjuvant therapy discussed.</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Day 21–25: Discharge</h4>
+							<p>Discharge with full English report. Follow-up appointment. Fly home with compression stockings and blood thinners.</p>
+						</div>
+						<div class="timeline-item">
+							<h4>Day 25–30: Buffer</h4>
+							<p>Remaining visa days serve as safety margin for any complications or additional testing.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Emergency contacts -->
+				<section class="section">
+					<h2>8. Emergency Contacts & Useful Numbers</h2>
+					<ul class="checklist">
+						<li>
+							<strong>China Emergency: 120 (ambulance) / 110 (police)</strong>
+						</li>
+						<li>
+							<strong>Your hospital's international department hotline</strong>
+							<p>Save this in your phone before departure. Available 24/7 at major hospitals.</p>
+						</li>
+						<li>
+							<strong>Your country's consulate in Shanghai</strong>
+							<p>US: +86 21-6279-7663 | UK: +86 21-3279-2000 | Australia: +86 21-2215-5200</p>
+						</li>
+						<li>
+							<strong>MedInSh emergency support</strong>
+							<p>We can help coordinate with your hospital team if you encounter issues. Contact us via WhatsApp or WeChat.</p>
+						</li>
+					</ul>
+				</section>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

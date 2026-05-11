@@ -1,0 +1,309 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Insurance Coverage for Treatment in Shanghai | MedInSh"
+			description="International health insurance accepted at Shanghai's top hospitals. Direct billing partners including Cigna, BUPA, AIA, Aetna, Ping An and more."
+		/>
+		<style>
+			.page-hero {
+				position: relative;
+				width: 100vw;
+				margin-left: calc(-50vw + 50%);
+				overflow: hidden;
+			}
+			.page-hero img {
+				width: 100%;
+				height: 300px;
+				object-fit: cover;
+				display: block;
+			}
+			.page-hero-overlay {
+				position: absolute;
+				bottom: 0; left: 0; right: 0;
+				padding: 3em 3em 2em;
+				background: linear-gradient(transparent, rgba(0,0,0,0.8));
+				color: white;
+			}
+			.page-hero-overlay h1 { color: white; font-size: 2.4em; margin-bottom: 0.3em; }
+			.page-hero-overlay p { opacity: 0.9; max-width: 600px; margin: 0; }
+			.content { max-width: 860px; margin: 0 auto; }
+			.section { margin: 2.5em 0; }
+			.section h2 {
+				font-size: 1.6em;
+				padding-bottom: 0.5em;
+				border-bottom: 2px solid var(--accent);
+				margin-bottom: 1em;
+			}
+			.section h3 { font-size: 1.15em; margin-top: 1.5em; color: var(--accent-dark); }
+
+			/* Provider grid */
+			.provider-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1em;
+				margin-top: 1em;
+			}
+			.provider-card {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 8px;
+				padding: 1.2em 1.4em;
+				display: flex;
+				align-items: flex-start;
+				gap: 1em;
+				transition: box-shadow 0.2s;
+			}
+			.provider-card:hover {
+				box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+			}
+			.provider-icon {
+				width: 44px;
+				height: 44px;
+				background: var(--accent-light);
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.2em;
+				font-weight: 700;
+				color: var(--accent);
+				flex-shrink: 0;
+			}
+			.provider-info h4 { margin: 0 0 0.2em; font-size: 1em; }
+			.provider-info p { margin: 0; font-size: 0.85em; color: rgb(var(--gray)); line-height: 1.5; }
+			.badge {
+				display: inline-block;
+				padding: 0.1em 0.5em;
+				border-radius: 3px;
+				font-size: 0.7em;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				margin-bottom: 0.2em;
+			}
+			.badge-direct { background: var(--green-light); color: var(--green); }
+			.badge-reimburse { background: #fef3c7; color: #b45309; }
+
+			/* FAQ */
+			.faq-item {
+				border-bottom: 1px solid rgb(var(--gray-light));
+				padding: 1.2em 0;
+			}
+			.faq-item h4 { margin: 0 0 0.4em; font-size: 1.05em; color: var(--accent-dark); }
+			.faq-item p { margin: 0; font-size: 0.92em; color: rgb(var(--gray-dark)); }
+
+			/* Alert */
+			.alert {
+				padding: 1.2em 1.5em;
+				border-radius: 8px;
+				margin: 1.5em 0;
+				font-size: 0.95em;
+			}
+			.alert-info { background: var(--accent-light); border-left: 4px solid var(--accent); }
+			.alert h4 { margin: 0 0 0.3em; }
+			.alert p { margin: 0; }
+
+			@media (max-width: 720px) {
+				.page-hero img { height: 220px; }
+				.page-hero-overlay { padding: 2em 1.5em 1.5em; }
+				.page-hero-overlay h1 { font-size: 1.6em; }
+				.provider-grid { grid-template-columns: 1fr; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-hero">
+				<img src="/images/patient-care.jpg" alt="Patient receiving care" />
+				<div class="page-hero-overlay">
+					<h1>Insurance & Billing</h1>
+					<p>International insurance accepted at Shanghai's top hospitals. Direct billing available with major global providers.</p>
+				</div>
+			</section>
+
+			<div class="content">
+
+				<section class="section">
+					<h2>Direct Billing Partners</h2>
+					<p>
+						Shanghai's international hospital departments maintain direct billing agreements with major
+						global insurance providers. This means <strong>you don't pay upfront</strong> — the hospital
+						bills your insurer directly. Coverage depends on your specific policy and plan level.
+					</p>
+					<p>
+						Below are insurers with confirmed direct billing relationships at Shanghai's leading hospitals
+						(including Shanghai Jiahui International Hospital, United Family Hospital, and major public
+						hospital international departments).
+					</p>
+
+					<h3>United States</h3>
+					<div class="provider-grid">
+						<div class="provider-card">
+							<div class="provider-icon">CG</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Cigna Global</h4>
+								<p>International health plans with direct billing at major Shanghai hospitals. Also operates as Cigna & CMB (招商信诺) in China.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">AE</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Aetna International</h4>
+								<p>Global health insurance with direct billing partners in Shanghai. Verify your plan covers overseas surgical treatment.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">UH</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>United Healthcare Global</h4>
+								<p>International plans with direct billing in China. Check if your employer-sponsored plan includes overseas coverage.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">GB</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>GeoBlue</h4>
+								<p>Blue Cross Blue Shield's international arm. Direct billing at Shanghai hospitals. Strong network for US expats and travelers.</p>
+							</div>
+						</div>
+					</div>
+
+					<h3>United Kingdom</h3>
+					<div class="provider-grid">
+						<div class="provider-card">
+							<div class="provider-icon">BP</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Bupa Global</h4>
+								<p>One of the largest international health insurers. Direct billing at Shanghai Jiahui and United Family hospitals.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">AX</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>AXA - Global Healthcare</h4>
+								<p>International private medical insurance with direct billing partners in Shanghai's international hospitals.</p>
+							</div>
+						</div>
+					</div>
+
+					<h3>Asia-Pacific</h3>
+					<div class="provider-grid">
+						<div class="provider-card">
+							<div class="provider-icon">AI</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>AIA (友邦保险)</h4>
+								<p>Asia's largest independent life insurance group. AIA maintains direct billing with Shanghai international hospitals. Check your policy for overseas surgical coverage.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">AL</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Allianz Care</h4>
+								<p>Global health insurance with extensive Asia-Pacific network. Direct billing at major Shanghai hospitals.</p>
+							</div>
+						</div>
+					</div>
+
+					<h3>China (本土)</h3>
+					<div class="provider-grid">
+						<div class="provider-card">
+							<div class="provider-icon">PA</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Ping An Insurance (平安保险)</h4>
+								<p>China's largest insurer. Ping An offers health insurance products for foreign residents and has direct billing with Shanghai international hospital departments.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">MS</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>MSH China (万欣和)</h4>
+								<p>Leading international health insurance administrator in China. Extensive hospital network across Shanghai. Popular with expats and medical tourists.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="section">
+					<h2>How Direct Billing Works</h2>
+					<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1em; margin-top: 1em;">
+						<div style="text-align: center;">
+							<div style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: white; font-weight: 700; margin-bottom: 0.5em;">1</div>
+							<h4 style="font-size: 0.9em; margin: 0 0 0.3em;">Verify Coverage</h4>
+							<p style="font-size: 0.82em; color: rgb(var(--gray)); margin: 0;">Contact your insurer to confirm overseas surgical treatment is covered under your plan.</p>
+						</div>
+						<div style="text-align: center;">
+							<div style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: white; font-weight: 700; margin-bottom: 0.5em;">2</div>
+							<h4 style="font-size: 0.9em; margin: 0 0 0.3em;">Pre-Authorization</h4>
+							<p style="font-size: 0.82em; color: rgb(var(--gray)); margin: 0;">Your insurer issues a Guarantee of Payment (GOP) or pre-authorization letter to the hospital.</p>
+						</div>
+						<div style="text-align: center;">
+							<div style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: white; font-weight: 700; margin-bottom: 0.5em;">3</div>
+							<h4 style="font-size: 0.9em; margin: 0 0 0.3em;">Treatment</h4>
+							<p style="font-size: 0.82em; color: rgb(var(--gray)); margin: 0;">Hospital bills your insurer directly. You only pay any co-pay or deductible at discharge.</p>
+						</div>
+						<div style="text-align: center;">
+							<div style="display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: white; font-weight: 700; margin-bottom: 0.5em;">4</div>
+							<h4 style="font-size: 0.9em; margin: 0 0 0.3em;">Follow-Up</h4>
+							<p style="font-size: 0.82em; color: rgb(var(--gray)); margin: 0;">Discharge summary sent to your insurer. Remote follow-up consultations may also be covered.</p>
+						</div>
+					</div>
+
+					<div class="alert alert-info" style="margin-top: 2em;">
+						<h4>Don't see your insurer?</h4>
+						<p>
+							Many additional insurers have billing arrangements not listed here. Contact the hospital's
+							international department with your insurance details — they can check if your provider is
+							in their network. Even without direct billing, most hospitals accept payment by credit card
+							and provide itemized invoices for reimbursement from any insurer.
+						</p>
+					</div>
+				</section>
+
+				<section class="section">
+					<h2>Frequently Asked Questions</h2>
+
+					<div class="faq-item">
+						<h4>Will my US insurance cover surgery in China?</h4>
+						<p>Some international plans (Cigna Global, Aetna International, UHC Global, GeoBlue) cover treatment abroad, including China. Standard domestic US plans (HMO, PPO) typically do not cover overseas treatment unless you have a global rider. Always verify with your insurer before booking.</p>
+					</div>
+					<div class="faq-item">
+						<h4>Does the NHS cover treatment in Shanghai?</h4>
+						<p>No. The NHS only covers treatment within the UK (and limited reciprocal agreements with EEA countries). You would need private international insurance or self-pay for treatment in Shanghai.</p>
+					</div>
+					<div class="faq-item">
+						<h4>What if I don't have international insurance?</h4>
+						<p>Self-pay is common and straightforward. Shanghai hospital international departments provide transparent pricing upfront. Payment by credit card (Visa, Mastercard, UnionPay) or bank transfer. Itemized invoices provided for any reimbursement claims.</p>
+					</div>
+					<div class="faq-item">
+						<h4>Can I get insurance specifically for this trip?</h4>
+						<p>Short-term international health insurance (e.g., from Cigna, Allianz, or Bupa) can sometimes be purchased to cover a planned medical trip. However, most policies have waiting periods or exclusions for pre-existing conditions. This is worth exploring but should not be your primary plan.</p>
+					</div>
+					<div class="faq-item">
+						<h4>Does AIA cover mainland China hospitals?</h4>
+						<p>Yes. AIA (友邦) operates in mainland China and maintains direct billing agreements with Shanghai international hospitals. If you hold an AIA policy from Hong Kong, Singapore, or other Asian markets, check whether your plan includes mainland China coverage — many do.</p>
+					</div>
+				</section>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

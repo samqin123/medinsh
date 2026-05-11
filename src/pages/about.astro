@@ -1,63 +1,418 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="About MedInSh — Why Shanghai for Pancreatic Cancer Treatment"
+			description="Shanghai hosts Asia's top pancreatic cancer centers. Fudan University Shanghai Cancer Center alone performs 3,000+ complex oncology surgeries per year. Advanced clinical trials, world-class recovery facilities, and costs 70-85% lower than the West."
+		/>
+		<style>
+			.page-hero {
+				position: relative;
+				width: 100vw;
+				margin-left: calc(-50vw + 50%);
+				overflow: hidden;
+			}
+			.page-hero img {
+				width: 100%;
+				height: 360px;
+				object-fit: cover;
+				display: block;
+			}
+			.page-hero-overlay {
+				position: absolute;
+				bottom: 0; left: 0; right: 0;
+				padding: 3em 3em 2em;
+				background: linear-gradient(transparent, rgba(0,0,0,0.85));
+				color: white;
+			}
+			.page-hero-overlay h1 { color: white; font-size: 2.4em; margin-bottom: 0.3em; }
+			.page-hero-overlay p { opacity: 0.9; max-width: 620px; margin: 0; font-size: 1.1em; line-height: 1.6; }
+			.content { max-width: 780px; margin: 0 auto; }
+			.section { margin: 2.5em 0; }
+			.section h2 {
+				font-size: 1.7em;
+				padding-bottom: 0.5em;
+				border-bottom: 2px solid var(--accent);
+				margin-bottom: 1em;
+			}
+			.section h3 { font-size: 1.2em; margin-top: 1.5em; color: var(--accent-dark); }
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+			/* Mission box */
+			.mission-box {
+				background: var(--accent-light);
+				border-left: 5px solid var(--accent);
+				padding: 1.5em 2em;
+				border-radius: 0 10px 10px 0;
+				margin: 1.5em 0;
+				font-size: 1.05em;
+				line-height: 1.7;
+			}
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+			/* Stats row */
+			.stats-row {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1em;
+				margin: 1.5em 0;
+			}
+			.stat-box {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 10px;
+				padding: 1.3em 1em;
+				text-align: center;
+			}
+			.stat-box .num {
+				display: block;
+				font-size: 2em;
+				font-weight: 700;
+				color: var(--accent);
+				line-height: 1.1;
+			}
+			.stat-box .label {
+				font-size: 0.8em;
+				color: rgb(var(--gray));
+				margin-top: 0.3em;
+			}
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+			/* Advantage list */
+			.adv-list {
+				list-style: none;
+				padding: 0;
+				margin: 1em 0;
+			}
+			.adv-list li {
+				padding: 1em 0 1em 2.5em;
+				position: relative;
+				border-bottom: 1px solid rgb(var(--gray-light));
+			}
+			.adv-list li:last-child { border-bottom: none; }
+			.adv-list li::before {
+				content: '✓';
+				position: absolute;
+				left: 0;
+				top: 1em;
+				color: var(--green);
+				font-weight: 700;
+				font-size: 1.3em;
+			}
+			.adv-list li strong { display: block; margin-bottom: 0.2em; }
+			.adv-list li p { margin: 0; font-size: 0.92em; color: rgb(var(--gray)); }
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+			/* Trial cards */
+			.trial-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.2em;
+				margin-top: 1em;
+			}
+			.trial-card {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 8px;
+				padding: 1.3em 1.4em;
+			}
+			.trial-card h4 { margin: 0 0 0.3em; font-size: 1em; }
+			.trial-card p { margin: 0; font-size: 0.88em; color: rgb(var(--gray)); line-height: 1.5; }
+			.trial-badge {
+				display: inline-block;
+				padding: 0.12em 0.5em;
+				background: #ede9fe;
+				color: #6d28d9;
+				border-radius: 3px;
+				font-size: 0.72em;
+				font-weight: 700;
+				text-transform: uppercase;
+				margin-bottom: 0.4em;
+			}
+
+			/* Alert */
+			.alert {
+				padding: 1.2em 1.5em;
+				border-radius: 8px;
+				margin: 1.5em 0;
+				font-size: 0.95em;
+			}
+			.alert-green { background: var(--green-light); border-left: 4px solid var(--green); }
+			.alert h4 { margin: 0 0 0.3em; }
+			.alert p { margin: 0; }
+
+			/* CTA */
+			.cta-box {
+				text-align: center;
+				background: linear-gradient(135deg, var(--accent-light), #f0fdf4);
+				padding: 2.5em 2em;
+				border-radius: 12px;
+				margin: 2em 0;
+			}
+			.cta-box h3 { margin-bottom: 0.3em; font-size: 1.4em; }
+			.cta-box p { margin-bottom: 1em; color: rgb(var(--gray)); max-width: 500px; margin-left: auto; margin-right: auto; }
+			.cta-btn {
+				display: inline-block;
+				padding: 0.75em 2em;
+				background: var(--accent);
+				color: white;
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 700;
+				transition: background 0.2s, transform 0.15s;
+			}
+			.cta-btn:hover { background: var(--accent-dark); color: white; transform: translateY(-2px); }
+
+			@media (max-width: 720px) {
+				.page-hero img { height: 240px; }
+				.page-hero-overlay { padding: 2em 1.5em 1.5em; }
+				.page-hero-overlay h1 { font-size: 1.6em; }
+				.stats-row { grid-template-columns: 1fr 1fr; }
+				.trial-grid { grid-template-columns: 1fr; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-hero">
+				<img src="/images/hero-shanghai-skyline.jpg" alt="Shanghai skyline" />
+				<div class="page-hero-overlay">
+					<h1>About MedInSh</h1>
+					<p>
+						Why Shanghai is the smartest choice for pancreatic cancer surgery —
+						and why patients who do the research are already on their way.
+					</p>
+				</div>
+			</section>
+
+			<div class="content">
+
+				<!-- Mission -->
+				<section class="section">
+					<h2>Our Mission</h2>
+
+					<div class="mission-box">
+						MedInSh exists to bridge the information gap between international pancreatic cancer patients
+						and Shanghai's world-class hepatobiliary-pancreatic surgical centers. We provide evidence-based
+						guides so patients can make informed decisions — based on data, not fear.
+					</div>
+
+					<p>
+						Pancreatic cancer is the third leading cause of cancer death globally. The 5-year survival rate
+						hovers around 12%. For the 20% of patients who qualify for curative surgery, the single biggest
+						determinant of outcome is <strong>surgical volume</strong> — how many procedures the surgeon and
+						hospital perform each year.
+					</p>
+					<p>
+						Shanghai has the highest concentration of high-volume hepatobiliary-pancreatic surgical centers
+						in Asia. The data is publicly available, published in international journals. This isn't a claim —
+						it's a fact.
+					</p>
+				</section>
+
+				<!-- Volume & Expertise -->
+				<section class="section">
+					<h2>Surgical Volume: The Numbers That Matter</h2>
+					<p>
+						The volume-outcome relationship in pancreatic surgery is one of the strongest in all of medicine.
+						Higher volume = lower mortality, better R0 resection rates, fewer complications. Shanghai doesn't
+						just meet the threshold — it exceeds it dramatically.
+					</p>
+
+					<div class="stats-row">
+						<div class="stat-box">
+							<span class="num">3,000+</span>
+							<span class="label">Complex oncology surgeries/year at Fudan University Shanghai Cancer Center</span>
+						</div>
+						<div class="stat-box">
+							<span class="num">600+</span>
+							<span class="label">Pancreatic resections/year at Ruijin Hospital</span>
+						</div>
+						<div class="stat-box">
+							<span class="num">800+</span>
+							<span class="label">Liver & biliary surgeries/year at Zhongshan Hospital</span>
+						</div>
+						<div class="stat-box">
+							<span class="num">10,000+</span>
+							<span class="label">Lifetime liver resections at Eastern Hepatobiliary Hospital</span>
+						</div>
+					</div>
+
+					<p>
+						For context: a typical high-volume US cancer center performs 100–200 pancreatic resections per year.
+						Shanghai's top centers do <strong>3–6x that volume</strong>. More repetitions mean sharper skills,
+						faster decision-making during surgery, and better management of complications. This is basic
+						surgical science — and it's the reason patients should care about volume.
+					</p>
+				</section>
+
+				<!-- Clinical Trials & Innovation -->
+				<section class="section">
+					<h2>Clinical Trials & Innovation: Access to Tomorrow's Medicine</h2>
+					<p>
+						China is now the world's second-largest clinical trial market. Shanghai's hospitals are at the
+						center of this — running hundreds of active oncology trials, many of which are unavailable or
+						prohibitively expensive in the West.
+					</p>
+					<p>
+						For patients who have exhausted standard treatment options, or who cannot afford the cost of
+						cutting-edge therapies in the US or UK, Shanghai offers access to a new generation of cancer
+						drugs through clinical trials — often at no cost to the patient.
+					</p>
+
+					<div class="trial-grid">
+						<div class="trial-card">
+							<span class="trial-badge">Phase II/III</span>
+							<h4>KRAS Inhibitors</h4>
+							<p>Multiple KRAS G12C and pan-KRAS inhibitor trials recruiting at Shanghai hospitals. For patients with KRAS-mutant pancreatic cancer — a mutation found in ~90% of cases.</p>
+						</div>
+						<div class="trial-card">
+							<span class="trial-badge">Active Trials</span>
+							<h4>mRNA Cancer Vaccines</h4>
+							<p>Personalized neoantigen vaccines (mRNA-based) for pancreatic cancer. Several China-developed candidates are in Phase II trials at Shanghai centers.</p>
+						</div>
+						<div class="trial-card">
+							<span class="trial-badge">Phase I/II</span>
+							<h4>Bispecific Antibodies</h4>
+							<p>T-cell engaging bispecific antibodies targeting tumor-associated antigens. Shanghai is a leading trial site for several China-developed bispecifics.</p>
+						</div>
+						<div class="trial-card">
+							<span class="trial-badge">Expanding</span>
+							<h4>ADC & CAR-T Therapies</h4>
+							<p>Antibody-drug conjugates and CAR-T cell therapies for solid tumors. China has the largest number of CAR-T trials globally — many at Shanghai hospitals.</p>
+						</div>
+					</div>
+
+					<div class="alert alert-green" style="margin-top: 1.5em;">
+						<h4>Why this matters for Western patients:</h4>
+						<p>
+							In the US, a course of a novel targeted therapy can cost $150,000–$300,000 out of pocket.
+							In a clinical trial, the drug is provided free. For patients who cannot afford these prices
+							(and most can't), a clinical trial in Shanghai may be the only realistic path to accessing
+							tomorrow's medicine today. This isn't charity — it's the structure of global clinical research.
+						</p>
+					</div>
+				</section>
+
+				<!-- Recovery & Rehabilitation -->
+				<section class="section">
+					<h2>Recovery & Rehabilitation</h2>
+					<p>
+						Shanghai's advantages don't end in the operating room. China has invested heavily in post-acute
+						care and rehabilitation infrastructure — and Shanghai leads the country.
+					</p>
+
+					<ul class="adv-list">
+						<li>
+							<strong>Dedicated Post-Surgical Wards</strong>
+							<p>International wards with private rooms, adjustable beds, patient-controlled analgesia (PCA), and 24/7 nursing ratios that match or exceed Western standards.</p>
+						</li>
+						<li>
+							<strong>Nutritional Rehabilitation</strong>
+							<p>Dietitian-supervised recovery diets. Gradual progression from liquid to solid food, optimized for pancreatic surgery patients. Enteral nutrition support when needed.</p>
+						</li>
+						<li>
+							<strong>Physical Rehabilitation</strong>
+							<p>Early mobilization programs starting Day 1 post-op. Physiotherapy for abdominal surgery recovery. Guided walking protocols that reduce complication rates.</p>
+						</li>
+						<li>
+							<strong>Traditional Chinese Medicine Integration (Optional)</strong>
+							<p>Many hospitals offer optional TCM support during recovery — acupuncture for pain management, herbal formulas for appetite restoration. Always discussed with your surgical team first.</p>
+						</li>
+						<li>
+							<strong>Remote Follow-Up Infrastructure</strong>
+							<p>Video consultation capability for post-discharge follow-up. Your Shanghai surgeon remains accessible after you fly home. Digital pathology sharing with your home oncologist.</p>
+						</li>
+					</ul>
+
+					<p>
+						Shanghai also offers excellent general living conditions for recovering patients and their
+						companions: international-standard hotels near major hospitals, English-speaking services,
+						food options for every dietary requirement, and one of the safest major cities in the world.
+					</p>
+				</section>
+
+				<!-- The Honest Case -->
+				<section class="section">
+					<h2>The Honest Case for Shanghai</h2>
+
+					<p>
+						We're not asking you to take a leap of faith. We're asking you to look at the data.
+					</p>
+
+					<p>
+						<strong>Surgical volume:</strong> Shanghai's top centers do more pancreatic resections per year
+						than any single hospital in the US, UK, or Australia. More volume means better outcomes.
+						This is published, peer-reviewed, and uncontested.
+					</p>
+					<p>
+						<strong>Outcomes:</strong> Published mortality rates of 1.5–3%, R0 resection rates of 70–80%.
+						This is comparable to — and in some cases better than — Memorial Sloan Kettering, Johns Hopkins,
+						and the Royal Marsden.
+					</p>
+					<p>
+						<strong>Cost:</strong> $11,000–$28,000 for a Whipple procedure. That's 70–85% less than the US,
+						60–75% less than UK private. Not because the quality is lower — because the system is different.
+					</p>
+					<p>
+						<strong>Innovation:</strong> Access to clinical trials for KRAS inhibitors, mRNA vaccines,
+						bispecific antibodies, and CAR-T therapies — often at no cost to the patient.
+					</p>
+					<p>
+						<strong>Access:</strong> 30-day visa-free entry for 47+ countries. Surgery scheduled within
+						2–4 weeks. No 6-month NHS waits. No $200,000 insurance battles.
+					</p>
+					<p>
+						<strong>Recovery:</strong> World-class post-surgical wards, rehabilitation programs, nutritional
+						support, and remote follow-up infrastructure.
+					</p>
+
+					<div class="alert alert-green">
+						<h4>The bottom line:</h4>
+						<p>
+							If you have resectable pancreatic cancer and you're facing a long wait or an impossible
+							price at home — Shanghai is not a compromise. It's a calculated, evidence-based decision
+							that gives you access to experienced surgeons, cutting-edge treatments, and professional
+							recovery care at a cost that doesn't bankrupt your family. The only question is whether
+							you can afford to wait while you think about it.
+						</p>
+					</div>
+				</section>
+
+				<!-- Who We Are -->
+				<section class="section">
+					<h2>Who We Are</h2>
+					<p>
+						MedInSh is an independent medical information platform. We are not affiliated with any hospital,
+						insurance company, or pharmaceutical company. We do not receive referral fees or commissions.
+					</p>
+					<p>
+						Our content is based on published medical literature, publicly available hospital data, and
+						first-hand accounts from patients who have undergone treatment in Shanghai. We update our
+						guides regularly as new data becomes available.
+					</p>
+					<p>
+						<strong>This website does not provide medical advice.</strong> All treatment decisions should
+						be made in consultation with your treating physician.
+					</p>
+				</section>
+
+				<!-- CTA -->
+				<div class="cta-box">
+					<h3>Ready to Learn More?</h3>
+					<p>Start with our patient guides, or explore the practical steps of medical travel to Shanghai.</p>
+					<div style="display: flex; gap: 1em; justify-content: center; flex-wrap: wrap;">
+						<a href="/blog" class="cta-btn">Patient Guides</a>
+						<a href="/medical-travel" class="cta-btn" style="background: var(--green);">Medical Travel Guide</a>
+						<a href="/insurance" class="cta-btn" style="background: #6d28d9;">Insurance Info</a>
+					</div>
+				</div>
+
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
