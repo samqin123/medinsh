@@ -9,7 +9,7 @@ import Header from '../components/Header.astro';
 	<head>
 		<BaseHead
 			title="Pancreatic Cancer Oncologists in Shanghai | MedInSh"
-			description="Meet Shanghai's leading pancreatic cancer medical oncologists — chemotherapy, targeted therapy, immunotherapy, and clinical trials."
+			description="Meet Shanghai's leading pancreatic cancer medical oncologists — mRNA vaccine pioneers, ASCO presenters, national guideline authors, and KRAS G12V TCR-T cell therapy researchers."
 		/>
 		<style>
 			.page-header {
@@ -28,53 +28,74 @@ import Header from '../components/Header.astro';
 				gap: 0.8em;
 				margin-bottom: 1.5em;
 				padding-bottom: 0.5em;
-				border-bottom: 2px solid var(--accent);
+				border-bottom: 2px solid #6d28d9;
 			}
 			.hospital-group-header h2 { margin: 0; font-size: 1.5em; }
 			.hospital-group-header .hospital-cn { color: rgb(var(--gray)); font-size: 0.95em; }
 
-			.doctor-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 1.5em;
-			}
-			.doctor-card {
+			.doctor-card-full {
 				background: white;
 				border: 1px solid rgb(var(--gray-light));
 				border-radius: 10px;
-				padding: 1.5em;
-				display: flex;
-				gap: 1.2em;
+				padding: 1.8em 2em;
+				margin-bottom: 1.5em;
+				display: grid;
+				grid-template-columns: 100px 1fr;
+				gap: 1.5em;
 				transition: box-shadow 0.2s;
 			}
-			.doctor-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+			.doctor-card-full:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
 
-			.doctor-photo { flex-shrink: 0; width: 90px; }
+			.doctor-photo { flex-shrink: 0; }
 			.doctor-photo img {
-				width: 90px;
-				height: 110px;
+				width: 100px;
+				height: 120px;
 				object-fit: cover;
 				border-radius: 8px;
 				display: block;
 			}
 			.photo-placeholder {
-				width: 90px;
-				height: 110px;
+				width: 100px;
+				height: 120px;
 				border-radius: 8px;
 				background: linear-gradient(135deg, #ede9fe, #f3e8ff);
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 2em;
+				font-size: 2.2em;
 				color: #6d28d9;
 				opacity: 0.5;
 			}
 
-			.doctor-info h4 { margin: 0 0 0.1em; font-size: 1.05em; }
-			.doctor-info .cn-name { font-size: 0.85em; color: rgb(var(--gray)); margin: 0 0 0.3em; }
-			.doctor-info .title-line { font-size: 0.82em; color: rgb(var(--gray-dark)); margin: 0 0 0.4em; font-weight: 500; }
-			.doctor-info .specialty { font-size: 0.82em; color: rgb(var(--gray)); margin: 0; line-height: 1.5; }
-			.doctor-info .highlight { font-size: 0.78em; color: #6d28d9; margin: 0.3em 0 0; font-weight: 600; }
+			.doctor-info h3 { margin: 0 0 0.1em; font-size: 1.2em; }
+			.doctor-info .cn-name { font-size: 0.9em; color: rgb(var(--gray)); margin: 0 0 0.2em; }
+			.doctor-info .title-line { font-size: 0.85em; color: rgb(var(--gray-dark)); margin: 0 0 0.5em; font-weight: 500; }
+
+			.stat-pills {
+				display: flex;
+				gap: 0.5em;
+				margin-bottom: 0.6em;
+				flex-wrap: wrap;
+			}
+			.stat-pill {
+				display: inline-block;
+				padding: 0.2em 0.6em;
+				border-radius: 4px;
+				font-size: 0.75em;
+				font-weight: 700;
+			}
+			.pill-paper { background: #ede9fe; color: #6d28d9; }
+			.pill-award { background: #fef3c7; color: #b45309; }
+			.pill-intl { background: #dbeafe; color: #1e40af; }
+			.pill-trial { background: #dcfce7; color: #16a34a; }
+
+			.doctor-desc {
+				font-size: 0.88em;
+				color: rgb(var(--gray-dark));
+				margin: 0;
+				line-height: 1.6;
+			}
+			.doctor-desc strong { color: rgb(var(--black)); }
 
 			.disclaimer {
 				margin-top: 3em;
@@ -86,8 +107,8 @@ import Header from '../components/Header.astro';
 			}
 
 			@media (max-width: 720px) {
-				.doctor-grid { grid-template-columns: 1fr; }
-				.doctor-card { flex-direction: column; align-items: center; text-align: center; }
+				.doctor-card-full { grid-template-columns: 1fr; }
+				.doctor-photo { text-align: center; }
 			}
 		</style>
 	</head>
@@ -96,41 +117,7 @@ import Header from '../components/Header.astro';
 		<main>
 			<div class="page-header">
 				<h1>Pancreatic Cancer Oncologists</h1>
-				<p>Shanghai's leading medical oncologists specializing in pancreatic cancer — chemotherapy, targeted therapy, immunotherapy, and clinical trials.</p>
-			</div>
-
-			<!-- Fudan Cancer Center -->
-			<div class="hospital-group">
-				<div class="hospital-group-header">
-					<h2>Fudan University Shanghai Cancer Center</h2>
-					<span class="hospital-cn">复旦大学附属肿瘤医院</span>
-				</div>
-				<div class="doctor-grid">
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<img src="/images/dr-gao-heli.jpg" alt="Dr. Gao Heli" />
-						</div>
-						<div class="doctor-info">
-							<h4>Dr. Heli Gao</h4>
-							<p class="cn-name">高鹤丽</p>
-							<p class="title-line">Pancreatic Surgery / PanNET Center · Fudan University Shanghai Cancer Center</p>
-							<p class="specialty">Pancreatic neuroendocrine tumor (PanNET) research. Uncovered the ACSS2/BCL6/P53 axis mediating chemotherapy resistance — a potential therapeutic target for overcoming PanNET drug resistance.</p>
-							<p class="highlight">PMID: 41786280 · Cancer Letters 2026</p>
-						</div>
-					</div>
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<div class="photo-placeholder">👩‍⚕️</div>
-						</div>
-						<div class="doctor-info">
-							<h4>Dr. Miaoyan Wei</h4>
-							<p class="cn-name">魏妙艳</p>
-							<p class="title-line">Pancreatic Surgery / PanNET Center · Fudan University Shanghai Cancer Center</p>
-							<p class="specialty">Epigenetic regulation and drug resistance in pancreatic neuroendocrine tumors. Research on targeting ACSS2 to overcome temozolomide resistance, and SIRT7 inhibition to overcome radiotherapy resistance in PanNETs.</p>
-							<p class="highlight">PMID: 41786280 · PMID: 41972414 · Active conference presenter</p>
-						</div>
-					</div>
-				</div>
+				<p>Shanghai's leading medical oncologists — mRNA vaccine pioneers, ASCO presenters, national guideline authors, and precision medicine researchers.</p>
 			</div>
 
 			<!-- Ruijin Hospital -->
@@ -139,18 +126,90 @@ import Header from '../components/Header.astro';
 					<h2>Ruijin Hospital</h2>
 					<span class="hospital-cn">上海交通大学医学院附属瑞金医院</span>
 				</div>
-				<div class="doctor-grid">
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<div class="photo-placeholder">👨‍⚕️</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<div class="photo-placeholder">🧬</div>
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Jun Zhang</h3>
+						<p class="cn-name">张俊</p>
+						<p class="title-line">Professor · Chief Physician · PhD Supervisor · Head of Medical Oncology Department · Deputy Researcher, Shanghai Institute of Digestive Surgery</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-paper">100+ papers, IF &gt; 1,100</span>
+							<span class="stat-pill pill-paper">Cell Research (IF 28.1)</span>
+							<span class="stat-pill pill-paper">Cell Discovery</span>
+							<span class="stat-pill pill-award">National Science &amp; Technology Progress Award</span>
 						</div>
-						<div class="doctor-info">
-							<h4>Dr. Xinjing Wang</h4>
-							<p class="cn-name">王新景</p>
-							<p class="title-line">General Surgery / Pancreatic Disease Center · Ruijin Hospital</p>
-							<p class="specialty">Pancreatic disease research at Shanghai Key Laboratory of Pancreatic Cancer Translational Research. Research on MEN1 gene mutations in insulinomas and functional characterization.</p>
-							<p class="highlight">PMID: 41936330 · Cancer Genetics 2026</p>
+						<p class="doctor-desc">
+							<strong>Key architect of Ruijin's 21.2% five-year survival rate</strong> — the world's best published outcome for pancreatic cancer (global average: 9–12%). Head of Medical Oncology at the world's largest pancreatic cancer center. Published the <strong>world's first mRNA tumor vaccine targeting KRAS G12V</strong> in solid tumors (<em>Cell Research</em>, 2024, IF 28.1). First treated patient: 31% tumor reduction after 3 cycles, 17 months disease-free, 27 months overall survival. Also identified <strong>NDUFB8 and CEMIP2</strong> as predictive biomarkers for chemotherapy response (<em>Cell Discovery</em>), validated in 3 independent international cohorts. Sits on China's <strong>National Committee for Cancer Standardized Diagnosis and Treatment (Chemotherapy Section)</strong>. Awards: National Science &amp; Technology Progress Award (2nd class), Huaxia Medical Science Award (1st class), 2x Shanghai Science &amp; Technology Progress Award (1st class).
+						</p>
+					</div>
+				</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<div class="photo-placeholder">🧬</div>
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Xinjing Wang</h3>
+						<p class="cn-name">王新景</p>
+						<p class="title-line">Physician · MD, PhD in Surgery · Pancreatic Surgery Department (mentored by Prof. Shen Baiyong)</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-paper">Cell Research (IF 28.1) — Co-first author</span>
+							<span class="stat-pill pill-trial">mKRAS mRNA Vaccine Clinical Trial</span>
+							<span class="stat-pill pill-award">Shanghai Sci &amp; Tech Progress Award (1st Class)</span>
 						</div>
+						<p class="doctor-desc">
+							<strong>Co-first author</strong> on the landmark <em>Cell Research</em> paper describing the world's first KRAS G12V mRNA tumor vaccine combined with pembrolizumab in advanced solid tumors. The mRNA vaccine is <strong>not a research concept — it is a treatment being actively administered to patients</strong> at Ruijin under clinical protocols. Dr. Wang directly handles patient inquiries for mRNA vaccine eligibility on Chinese medical platforms. For patients with <strong>KRAS G12V-mutant pancreatic cancer</strong> (present in ~40% of PDAC) and <strong>HLA-A*11:01</strong> (~20–25% of Chinese population), this vaccine may be a treatment option. Research focus: pancreatic cancer surgery, PNETs, mRNA vaccine clinical translation.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Fudan Cancer Center -->
+			<div class="hospital-group">
+				<div class="hospital-group-header">
+					<h2>Fudan University Shanghai Cancer Center</h2>
+					<span class="hospital-cn">复旦大学附属肿瘤医院</span>
+				</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<img src="/images/dr-wei-miaoyan.png" alt="Dr. Wei Miaoyan" />
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Miaoyan Wei</h3>
+						<p class="cn-name">魏妙艳</p>
+						<p class="title-line">Attending Physician · PhD in Oncology · MD Anderson Cancer Center Visiting Scholar · Pancreatic Tumor Comprehensive Treatment Department</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-intl">MD Anderson Visiting Scholar</span>
+							<span class="stat-pill pill-intl">ASCO 2025 Presenter</span>
+							<span class="stat-pill pill-trial">Phase II: Fruquintinib + AG for Liver Mets</span>
+							<span class="stat-pill pill-paper">National Guidelines Co-author</span>
+						</div>
+						<p class="doctor-desc">
+							Trained at <strong>MD Anderson Cancer Center</strong> — consistently ranked the world's top oncology institution. Holds a rare dual Master's in Surgical Medicine + PhD in Oncology. Led a <strong>Phase II clinical trial of fruquintinib + nab-paclitaxel + gemcitabine</strong> for PDAC with liver metastasis — selected for <strong>ASCO presentation</strong>. Co-reviewer of ASCO 2025 pancreatic cancer precision medicine highlights alongside Prof. Xu Jin. Co-author of the <strong>2020 China Pancreatic Cancer Comprehensive Diagnosis and Treatment Guidelines</strong>. Research also covers ctDNA-guided adjuvant therapy and pancreatic NET treatment. Practices within Fudan's Pancreatic Tumor Comprehensive Treatment Department — 2,250+ pancreatic resections in 2023, 45,000+ comprehensive treatment visits/year.
+						</p>
+					</div>
+				</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<img src="/images/dr-gao-heli.jpg" alt="Dr. Gao Heli" />
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Heli Gao</h3>
+						<p class="cn-name">高鹤丽</p>
+						<p class="title-line">Chief Physician · Pancreatic Tumor Comprehensive Treatment Department · Fudan University Shanghai Cancer Center</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-paper">2020 National Guidelines Co-author</span>
+							<span class="stat-pill pill-paper">PMID: 41786280 (Cancer Letters)</span>
+							<span class="stat-pill pill-trial">Fudan's 23+ active clinical trials</span>
+						</div>
+						<p class="doctor-desc">
+							Embedded medical oncologist within Dr. Xu Xiaowu's surgical team — manages <strong>neoadjuvant and adjuvant chemotherapy</strong> as part of Fudan's integrated surgical-medical pathway. Documented case: 47-year-old with borderline resectable PDAC — after 3 cycles under Dr. Gao's management, tumor shrank 39.3%, CA199 dropped 78.8%, enabling R0 resection via laparoscopic Whipple. Co-author of the <strong>2020 China Pancreatic Cancer Guidelines</strong> — the national standard that shapes treatment across hundreds of hospitals. Research on ACSS2/BCL6/P53 axis mediating chemotherapy resistance in PanNETs (PMID: 41786280). Also manages biliary tract cancer and PNET systemic therapy.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -161,40 +220,24 @@ import Header from '../components/Header.astro';
 					<h2>Changhai Hospital</h2>
 					<span class="hospital-cn">海军军医大学附属长海医院</span>
 				</div>
-				<div class="doctor-grid">
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<div class="photo-placeholder">👨‍⚕️</div>
-						</div>
-						<div class="doctor-info">
-							<h4>Dr. Shiwei Guo</h4>
-							<p class="cn-name">郭世伟</p>
-							<p class="title-line">Hepatobiliary & Pancreatic Surgery · Changhai Hospital, Naval Medical University</p>
-							<p class="specialty">Co-leader of the world's first KRAS G12V-targeted TCR-T cell gene therapy clinical trial for pancreatic cancer. Collaboration with Providence Cancer Institute (Eric Tran), USA.</p>
-							<p class="highlight">PMID: 41814655 · Molecular Therapy 2026 · First-in-human TCR-T</p>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<!-- Zhongshan Hospital -->
-			<div class="hospital-group">
-				<div class="hospital-group-header">
-					<h2>Zhongshan Hospital</h2>
-					<span class="hospital-cn">复旦大学附属中山医院</span>
-				</div>
-				<div class="doctor-grid">
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<div class="photo-placeholder">👨‍⚕️</div>
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<div class="photo-placeholder">🧬</div>
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Shiwei Guo</h3>
+						<p class="cn-name">郭世伟</p>
+						<p class="title-line">Associate Chief Physician · PhD in Surgery · Postdoctoral Fellow in Statistics · MD Anderson Visiting Scholar · Pancreatic-Hepatobiliary-Splenic Surgery</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-intl">MD Anderson Visiting Scholar</span>
+							<span class="stat-pill pill-paper">World's First Neoantigen Vaccine for Pancreatic Cancer (Changhai)</span>
+							<span class="stat-pill pill-trial">Multi-omics Database + Drug Sensitivity Screening</span>
+							<span class="stat-pill pill-paper">20+ SCI publications</span>
 						</div>
-						<div class="doctor-info">
-							<h4>Dr. Wenquan Wang</h4>
-							<p class="cn-name">王文权</p>
-							<p class="title-line">Pancreatic Surgery · Zhongshan Hospital, Fudan University</p>
-							<p class="specialty">Pancreatic cancer research collaborator. Part of the multi-center proteogenomic study building deep-learning prognostic models from 873 surgical specimens.</p>
-							<p class="highlight">PMID: 41556438 · Advanced Science 2026</p>
-						</div>
+						<p class="doctor-desc">
+							Rare combination: <strong>PhD in Surgery + Postdoctoral Fellowship in Statistics</strong> — gives him both clinical depth and biostatistical rigor. Trained at <strong>MD Anderson Cancer Center</strong>. Pioneered <strong>China's first individualized neoantigen peptide vaccine for pancreatic cancer</strong> at Changhai Hospital. Built one of China's largest <strong>pancreatic cancer multi-omics databases</strong> integrating genomic, transcriptomic, proteomic, and clinical outcome data. Pioneered <strong>individualized drug sensitivity screening</strong> — testing patient tumor-derived organoids against panels of chemo/targeted/immuno agents. Published data on <strong>KN046</strong> (PD-L1/CTLA-4 dual antibody) in advanced pancreatic cancer — 8 months stable disease in a patient refractory to FOLFIRINOX. Among China's first cohort of certified genetic physicians. Works within Dr. Jin Gang's MDT team.
+						</p>
 					</div>
 				</div>
 			</div>

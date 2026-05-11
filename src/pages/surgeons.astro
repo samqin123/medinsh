@@ -9,7 +9,7 @@ import Header from '../components/Header.astro';
 	<head>
 		<BaseHead
 			title="Pancreatic Cancer Surgeons in Shanghai | MedInSh"
-			description="Meet Shanghai's leading pancreatic cancer surgeons at Fudan Cancer Center, Ruijin Hospital, Zhongshan Hospital, and Changhai Hospital."
+			description="Meet Shanghai's leading pancreatic cancer surgeons — 1,500+ surgeries, robotic Whipple pioneers, dual PhD holders, and international award winners."
 		/>
 		<style>
 			.page-header {
@@ -33,48 +33,70 @@ import Header from '../components/Header.astro';
 			.hospital-group-header h2 { margin: 0; font-size: 1.5em; }
 			.hospital-group-header .hospital-cn { color: rgb(var(--gray)); font-size: 0.95em; }
 
-			.doctor-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 1.5em;
-			}
-			.doctor-card {
+			/* Full-width doctor card */
+			.doctor-card-full {
 				background: white;
 				border: 1px solid rgb(var(--gray-light));
 				border-radius: 10px;
-				padding: 1.5em;
-				display: flex;
-				gap: 1.2em;
+				padding: 1.8em 2em;
+				margin-bottom: 1.5em;
+				display: grid;
+				grid-template-columns: 100px 1fr;
+				gap: 1.5em;
 				transition: box-shadow 0.2s;
 			}
-			.doctor-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+			.doctor-card-full:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
 
-			.doctor-photo { flex-shrink: 0; width: 90px; }
+			.doctor-photo { flex-shrink: 0; }
 			.doctor-photo img {
-				width: 90px;
-				height: 110px;
+				width: 100px;
+				height: 120px;
 				object-fit: cover;
 				border-radius: 8px;
 				display: block;
 			}
 			.photo-placeholder {
-				width: 90px;
-				height: 110px;
+				width: 100px;
+				height: 120px;
 				border-radius: 8px;
 				background: linear-gradient(135deg, var(--accent-light), #e0f2fe);
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 2em;
+				font-size: 2.2em;
 				color: var(--accent);
 				opacity: 0.5;
 			}
 
-			.doctor-info h4 { margin: 0 0 0.1em; font-size: 1.05em; }
-			.doctor-info .cn-name { font-size: 0.85em; color: rgb(var(--gray)); margin: 0 0 0.3em; }
-			.doctor-info .title-line { font-size: 0.82em; color: rgb(var(--gray-dark)); margin: 0 0 0.4em; font-weight: 500; }
-			.doctor-info .specialty { font-size: 0.82em; color: rgb(var(--gray)); margin: 0; line-height: 1.5; }
-			.doctor-info .highlight { font-size: 0.78em; color: var(--accent-dark); margin: 0.3em 0 0; font-weight: 600; }
+			.doctor-info h3 { margin: 0 0 0.1em; font-size: 1.2em; }
+			.doctor-info .cn-name { font-size: 0.9em; color: rgb(var(--gray)); margin: 0 0 0.2em; }
+			.doctor-info .title-line { font-size: 0.85em; color: rgb(var(--gray-dark)); margin: 0 0 0.5em; font-weight: 500; }
+
+			/* Stats pills */
+			.stat-pills {
+				display: flex;
+				gap: 0.5em;
+				margin-bottom: 0.6em;
+				flex-wrap: wrap;
+			}
+			.stat-pill {
+				display: inline-block;
+				padding: 0.2em 0.6em;
+				border-radius: 4px;
+				font-size: 0.75em;
+				font-weight: 700;
+			}
+			.pill-volume { background: #dcfce7; color: #16a34a; }
+			.pill-award { background: #fef3c7; color: #b45309; }
+			.pill-intl { background: #dbeafe; color: #1e40af; }
+
+			.doctor-desc {
+				font-size: 0.88em;
+				color: rgb(var(--gray-dark));
+				margin: 0;
+				line-height: 1.6;
+			}
+			.doctor-desc strong { color: rgb(var(--black)); }
 
 			.disclaimer {
 				margin-top: 3em;
@@ -86,8 +108,8 @@ import Header from '../components/Header.astro';
 			}
 
 			@media (max-width: 720px) {
-				.doctor-grid { grid-template-columns: 1fr; }
-				.doctor-card { flex-direction: column; align-items: center; text-align: center; }
+				.doctor-card-full { grid-template-columns: 1fr; }
+				.doctor-photo { text-align: center; }
 			}
 		</style>
 	</head>
@@ -96,7 +118,7 @@ import Header from '../components/Header.astro';
 		<main>
 			<div class="page-header">
 				<h1>Pancreatic Cancer Surgeons</h1>
-				<p>Shanghai's top pancreatic cancer surgeons — high volume, internationally trained, pioneering minimally invasive techniques.</p>
+				<p>Shanghai's top pancreatic cancer surgeons — high volume, internationally trained, pioneering robotic and minimally invasive techniques.</p>
 			</div>
 
 			<!-- Fudan Cancer Center -->
@@ -105,52 +127,60 @@ import Header from '../components/Header.astro';
 					<h2>Fudan University Shanghai Cancer Center</h2>
 					<span class="hospital-cn">复旦大学附属肿瘤医院</span>
 				</div>
-				<div class="doctor-grid">
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<img src="/images/dr-xu-xiaowu.jpg" alt="Dr. Xu Xiaowu" />
-						</div>
-						<div class="doctor-info">
-							<h4>Dr. Xiaowu Xu</h4>
-							<p class="cn-name">徐晓武</p>
-							<p class="title-line">Chief Physician · Vice Director, Pancreatic Surgery · PhD Supervisor</p>
-							<p class="specialty">Robotic and laparoscopic minimally invasive pancreatic surgery. Pioneer in function-preserving procedures including spleen-preserving distal pancreatectomy and pancreatic tumor enucleation.</p>
-							<p class="highlight">400+ pancreatic surgeries/year · 80%+ minimally invasive · NSFC grant recipient</p>
-						</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<img src="/images/dr-xu-xiaowu.jpg" alt="Dr. Xu Xiaowu" />
 					</div>
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<img src="/images/dr-liu-chen.jpg" alt="Dr. Liu Chen" />
+					<div class="doctor-info">
+						<h3>Dr. Xiaowu Xu</h3>
+						<p class="cn-name">徐晓武</p>
+						<p class="title-line">Chief Physician · PhD Supervisor · Director, Minimally Invasive Pancreatic Surgery Center</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-volume">800+ procedures/year</span>
+							<span class="stat-pill pill-volume">80%+ minimally invasive</span>
+							<span class="stat-pill pill-volume">~500 laparoscopic Whipples</span>
+							<span class="stat-pill pill-award">Gold Finger Award Finalist</span>
 						</div>
-						<div class="doctor-info">
-							<h4>Dr. Chen Liu</h4>
-							<p class="cn-name">刘辰</p>
-							<p class="title-line">Chief Physician · Pancreatic Surgery · Professor</p>
-							<p class="specialty">Innovator of "middle approach" laparoscopic Whipple — "Leave the Vein Alone" concept. Live surgery demonstrator at the 36th Italian Digestive Surgery Congress (Milan, 2025), earning "textbook-level" international praise.</p>
-							<p class="highlight">Reduced blood loss · Standardized complex steps · PMID: 36690522</p>
-						</div>
+						<p class="doctor-desc">
+							Trained under <strong>Prof. Mou Yiping</strong>, one of China's most influential minimally invasive surgery pioneers. In 2018, recruited to Fudan Cancer Center to build the Minimally Invasive Pancreatic Surgery Center from scratch. His team was among the <strong>first in China to routinely perform laparoscopic Whipple procedures</strong> with live national conference broadcasts. Pioneer in function-preserving surgery: spleen-preserving distal pancreatectomy, pancreatic enucleation, duodenum-preserving pancreatic head resection, and middle pancreatectomy. <strong>20+ SCI papers</strong>, 3 NSFC grants. In Dec 2024, Prof. Martin Loos from Heidelberg University Hospital observed Dr. Xu's robotic and laparoscopic Whipple procedures and rated them as world-class.
+						</p>
 					</div>
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<img src="/images/dr-xu-jin.jpg" alt="Dr. Xu Jin" />
-						</div>
-						<div class="doctor-info">
-							<h4>Dr. Jin Xu</h4>
-							<p class="cn-name">徐近</p>
-							<p class="title-line">Pancreatic Surgery · Fudan University Shanghai Cancer Center</p>
-							<p class="specialty">Pancreatic surgical oncology. Contributor to mitochondria DNA mutation research in pancreatic cancer (PMID: 41639740).</p>
-						</div>
+				</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<img src="/images/dr-liu-chen.jpg" alt="Dr. Liu Chen" />
 					</div>
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<div class="photo-placeholder">👨‍⚕️</div>
+					<div class="doctor-info">
+						<h3>Dr. Chen Liu</h3>
+						<p class="cn-name">刘辰</p>
+						<p class="title-line">Chief Physician · PhD Supervisor · Deputy Director, Pancreatic Surgery</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-volume">400+ procedures/year</span>
+							<span class="stat-pill pill-volume">50%+ laparoscopic</span>
+							<span class="stat-pill pill-award">IAP Outstanding Surgical Video Award (2015)</span>
 						</div>
-						<div class="doctor-info">
-							<h4>Dr. Liang Liu</h4>
-							<p class="cn-name">刘亮</p>
-							<p class="title-line">Pancreatic Surgery · Fudan University Shanghai Cancer Center</p>
-							<p class="specialty">Pancreatic surgical oncology with expertise in complex resection and MDT coordination.</p>
+						<p class="doctor-desc">
+							Trained under <strong>Prof. Ni Quanxing (倪泉兴)</strong> — one of China's foundational pancreatic surgeons. 2015 <strong>International Association of Pancreatology (IAP) Outstanding Surgical Video Award</strong> — selected from among the best surgical videos submitted globally, peer-reviewed by an international panel. Innovator of the <strong>"middle approach" laparoscopic Whipple</strong> ("Leave the Vein Alone" concept). Live surgery demonstrator at the 36th Italian Digestive Surgery Congress (Milan, 2025) — European peers called it "textbook level." Published on laparoscopic Whipple with portal vein/superior mesenteric vein resection and reconstruction (PMID: 36690522). Editorial board member, <em>Hepatobiliary and Pancreatic Diseases International</em>.
+						</p>
+					</div>
+				</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<img src="/images/dr-xu-jin.jpg" alt="Dr. Xu Jin" />
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Jin Xu</h3>
+						<p class="cn-name">徐近</p>
+						<p class="title-line">Pancreatic Surgery · Fudan University Shanghai Cancer Center</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-intl">ASCO 2025 Reviewer</span>
 						</div>
+						<p class="doctor-desc">
+							ASCO 2025 co-reviewer with Dr. Wei Miaoyan — selected 3 landmark pancreatic cancer precision medicine studies for expert commentary. Contributor to mitochondria DNA mutation research in pancreatic cancer (PMID: 41639740). Active in ctDNA-guided adjuvant therapy research.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -161,18 +191,52 @@ import Header from '../components/Header.astro';
 					<h2>Ruijin Hospital</h2>
 					<span class="hospital-cn">上海交通大学医学院附属瑞金医院</span>
 				</div>
-				<div class="doctor-grid">
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<img src="/images/dr-jin-jiabin.jpg" alt="Dr. Jin Jiabin" />
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<img src="/images/dr-jin-jiabin.jpg" alt="Dr. Jin Jiabin" />
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Jiabin Jin</h3>
+						<p class="cn-name">金佳斌</p>
+						<p class="title-line">Chief Physician · Postdoctoral Supervisor · Director, Pancreatic Surgery Ward 2 · VP, Ruijin Hainan Campus</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-volume">400+ surgeries/year (personal)</span>
+							<span class="stat-pill pill-intl">Paul Brousse (Paris)</span>
+							<span class="stat-pill pill-intl">Johns Hopkins</span>
+							<span class="stat-pill pill-intl">Fluent English</span>
 						</div>
-						<div class="doctor-info">
-							<h4>Dr. Jiabin Jin</h4>
-							<p class="cn-name">金佳斌</p>
-							<p class="title-line">Chief Physician · Director, Pancreatic Surgery Ward 2 · VP, Ruijin Hainan Hospital</p>
-							<p class="specialty">Robotic pancreatic surgery pioneer. Trained at Paul Brousse Hospital (Paris), Strasbourg Civil Hospital, and Johns Hopkins. Author of landmark JAMA Surgery study comparing robotic vs open Whipple procedures over 10 years.</p>
-							<p class="highlight">3,000+ robotic pancreatic surgeries · JAMA Surgery publication · Spleen-preserving technique pioneer</p>
+						<p class="doctor-desc">
+							International training at <strong>Paul Brousse Hospital (Paris)</strong> hepatobiliary center, <strong>Strasbourg Civil Hospital</strong> digestive oncology, and <strong>Johns Hopkins Hospital</strong> research fellowship. Author of <strong>JAMA Surgery</strong> landmark 10-year study comparing 450 robotic vs 634 open Whipple procedures. Pioneer in robotic spleen-preserving distal pancreatectomy (PMID in <em>Int J Med Robotics</em>). Also performs robotic pancreatic enucleation and R-RAMPS procedures. Successfully operated on a <strong>10-year-old Canadian girl</strong> with solid pseudopapillary neoplasm — robotic spleen-preserving surgery, 3-day mobilization, ~$22,000 total cost. <strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=94Ddsi8AAAAJ" target="_blank" rel="noopener">profile →</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Zhongshan Hospital -->
+			<div class="hospital-group">
+				<div class="hospital-group-header">
+					<h2>Zhongshan Hospital</h2>
+					<span class="hospital-cn">复旦大学附属中山医院</span>
+				</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<div class="photo-placeholder">👨‍⚕️</div>
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Liang Liu</h3>
+						<p class="cn-name">刘亮</p>
+						<p class="title-line">Chief Physician · Professor · "Surgery + Oncology" Dual PhD Supervisor · Director, Pancreatic Surgery · Deputy Director, General Surgery</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-volume">1,500+ surgeries personally</span>
+							<span class="stat-pill pill-volume">10,000+ cases managed</span>
+							<span class="stat-pill pill-intl">JITC Publication (2024)</span>
+							<span class="stat-pill pill-award">National Guidelines Author</span>
 						</div>
+						<p class="doctor-desc">
+							One of Shanghai's most experienced pancreatic cancer surgeons. Holds a <strong>rare dual doctoral degree in Surgery and Oncology</strong> — uniquely positioned to design integrated surgical + systemic treatment strategies. <strong>1,500+ pancreatic cancer surgeries</strong> personally completed, 10,000+ cases managed through integrated care. Key specialist in <strong>conversion therapy</strong> for locally advanced pancreatic cancer — turning inoperable tumors into operable ones through neoadjuvant treatment. Published in <em>Journal for Immunotherapy of Cancer</em> (JITC, 2024) on CD161 as a novel immune checkpoint target. Co-author of the <strong>2012 China Pancreatic Cancer Clinical Diagnosis and Treatment Guidelines</strong>. Multi-center proteogenomic study on 873 surgical specimens (PMID: 41556438, <em>Advanced Science</em> 2026).
+						</p>
 					</div>
 				</div>
 			</div>
@@ -183,29 +247,52 @@ import Header from '../components/Header.astro';
 					<h2>Changhai Hospital</h2>
 					<span class="hospital-cn">海军军医大学附属长海医院</span>
 				</div>
-				<div class="doctor-grid">
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<img src="/images/dr-jin-gang.jpg" alt="Dr. Jin Gang" />
-						</div>
-						<div class="doctor-info">
-							<h4>Dr. Gang Jin</h4>
-							<p class="cn-name">金刚</p>
-							<p class="title-line">Hepatobiliary & Pancreatic Surgery · Changhai Hospital, Naval Medical University</p>
-							<p class="specialty">Leader of the world's first KRAS G12V-targeted TCR-T cell gene therapy clinical trial for recurrent pancreatic cancer (Molecular Therapy 2026). Collaboration with Providence Cancer Institute, USA.</p>
-							<p class="highlight">PMID: 41814655 · First-in-human TCR-T for KRAS G12V pancreatic cancer</p>
-						</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<img src="/images/dr-jin-gang.jpg" alt="Dr. Jin Gang" />
 					</div>
-					<div class="doctor-card">
-						<div class="doctor-photo">
-							<img src="/images/dr-long-jiang.jpg" alt="Dr. Long Jiang" />
+					<div class="doctor-info">
+						<h3>Dr. Gang Jin</h3>
+						<p class="cn-name">金刚</p>
+						<p class="title-line">Chief Physician · Professor · PhD Supervisor · Director, Pancreatic-Hepatobiliary-Splenic Surgery · Vice Director, Shanghai Pancreatic Disease Research Institute</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-volume">1,000+ robotic cases (team)</span>
+							<span class="stat-pill pill-volume">103 robotic enucleations</span>
+							<span class="stat-pill pill-award">"Diamond Drill" nickname</span>
+							<span class="stat-pill pill-intl">TCR-T Cell Therapy Pioneer</span>
 						</div>
-						<div class="doctor-info">
-							<h4>Dr. Jiang Long</h4>
-							<p class="cn-name">龙江</p>
-							<p class="title-line">Pancreatic Surgery · Shanghai</p>
-							<p class="specialty">Pancreatic surgical oncology.</p>
+						<p class="doctor-desc">
+							Known as the <strong>"Diamond Drill" (钻石钻)</strong> — the surgeon capable of cracking the hardest cases in abdominal surgery. Led the team that published the <strong>world's first KRAS G12V-targeted TCR-T cell gene therapy</strong> Phase I/II trial for recurrent pancreatic cancer (<em>Molecular Therapy</em>, 2026, PMID: 41814655). Published <strong>103 consecutive robotic pancreatic enucleation procedures</strong> — one of the largest single-institution series. Pioneer in neoadjuvant conversion therapy and "textbook outcome" quality metrics. Military-affiliated hospital with fast-track decision-making and structured multidisciplinary team meetings.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Shanghai First People's Hospital -->
+			<div class="hospital-group">
+				<div class="hospital-group-header">
+					<h2>Shanghai First People's Hospital</h2>
+					<span class="hospital-cn">上海市第一人民医院</span>
+				</div>
+
+				<div class="doctor-card-full">
+					<div class="doctor-photo">
+						<img src="/images/dr-long-jiang.jpg" alt="Dr. Long Jiang" />
+					</div>
+					<div class="doctor-info">
+						<h3>Dr. Jiang Long</h3>
+						<p class="cn-name">龙江</p>
+						<p class="title-line">Chief Physician · Professor · PhD Supervisor · Director, Hepatobiliary Surgery · Assistant Director, Shanghai Pancreatic Tumor Research Institute</p>
+						<div class="stat-pills">
+							<span class="stat-pill pill-volume">300+ surgeries/year</span>
+							<span class="stat-pill pill-volume">400+ interventional procedures/year</span>
+							<span class="stat-pill pill-award">American Surgical Association Young Investigator Award</span>
+							<span class="stat-pill pill-award">Golden Finger Award</span>
 						</div>
+						<p class="doctor-desc">
+							Trained under <strong>Prof. Ni Quanxing</strong> — same mentor lineage as Dr. Liu Chen. Unique combination of <strong>surgical + arterial interventional skills</strong> — performs 400+ interventional procedures annually alongside surgical caseload. <strong>30+ SCI papers</strong>, <strong>4 national invention patents</strong>. Executive Secretary-General of Shanghai Anti-Cancer Association. Strong focus on pancreatic neuroendocrine tumors (PNETs). At Shanghai First People's Hospital, international department pricing is <strong>15–30% lower</strong> than top-tier hospitals while maintaining comparable surgical quality. A more accessible option for international patients.
+						</p>
 					</div>
 				</div>
 			</div>
