@@ -9,103 +9,33 @@ import Header from '../components/Header.astro';
 	<head>
 		<BaseHead
 			title="Insurance Coverage for Treatment in Shanghai | MedInSh"
-			description="International health insurance accepted at Shanghai's top hospitals. Direct billing partners including Cigna, BUPA, AIA, Aetna, Ping An and more."
+			description="International health insurance accepted at Shanghai's top hospitals. Direct billing partners including Cigna, BUPA, AIA, Aetna, Ping An, MSH, and 15+ more."
 		/>
 		<style>
-			.page-hero {
-				position: relative;
-				width: 100vw;
-				margin-left: calc(-50vw + 50%);
-				overflow: hidden;
-			}
-			.page-hero img {
-				width: 100%;
-				height: 300px;
-				object-fit: cover;
-				display: block;
-			}
-			.page-hero-overlay {
-				position: absolute;
-				bottom: 0; left: 0; right: 0;
-				padding: 3em 3em 2em;
-				background: linear-gradient(transparent, rgba(0,0,0,0.8));
-				color: white;
-			}
+			.page-hero { position: relative; width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden; }
+			.page-hero img { width: 100%; height: 300px; object-fit: cover; display: block; }
+			.page-hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 3em 3em 2em; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; }
 			.page-hero-overlay h1 { color: white; font-size: 2.4em; margin-bottom: 0.3em; }
 			.page-hero-overlay p { opacity: 0.9; max-width: 600px; margin: 0; }
 			.content { max-width: 860px; margin: 0 auto; }
 			.section { margin: 2.5em 0; }
-			.section h2 {
-				font-size: 1.6em;
-				padding-bottom: 0.5em;
-				border-bottom: 2px solid var(--accent);
-				margin-bottom: 1em;
-			}
+			.section h2 { font-size: 1.6em; padding-bottom: 0.5em; border-bottom: 2px solid var(--accent); margin-bottom: 1em; }
 			.section h3 { font-size: 1.15em; margin-top: 1.5em; color: var(--accent-dark); }
 
-			/* Provider grid */
-			.provider-grid {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 1em;
-				margin-top: 1em;
-			}
-			.provider-card {
-				background: white;
-				border: 1px solid rgb(var(--gray-light));
-				border-radius: 8px;
-				padding: 1.2em 1.4em;
-				display: flex;
-				align-items: flex-start;
-				gap: 1em;
-				transition: box-shadow 0.2s;
-			}
-			.provider-card:hover {
-				box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-			}
-			.provider-icon {
-				width: 44px;
-				height: 44px;
-				background: var(--accent-light);
-				border-radius: 8px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-size: 1.2em;
-				font-weight: 700;
-				color: var(--accent);
-				flex-shrink: 0;
-			}
+			.provider-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; margin-top: 1em; }
+			.provider-card { background: white; border: 1px solid rgb(var(--gray-light)); border-radius: 8px; padding: 1.2em 1.4em; display: flex; align-items: flex-start; gap: 1em; transition: box-shadow 0.2s; }
+			.provider-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+			.provider-icon { width: 44px; height: 44px; background: var(--accent-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1em; font-weight: 700; color: var(--accent); flex-shrink: 0; }
 			.provider-info h4 { margin: 0 0 0.2em; font-size: 1em; }
 			.provider-info p { margin: 0; font-size: 0.85em; color: rgb(var(--gray)); line-height: 1.5; }
-			.badge {
-				display: inline-block;
-				padding: 0.1em 0.5em;
-				border-radius: 3px;
-				font-size: 0.7em;
-				font-weight: 700;
-				text-transform: uppercase;
-				letter-spacing: 0.04em;
-				margin-bottom: 0.2em;
-			}
+			.badge { display: inline-block; padding: 0.1em 0.5em; border-radius: 3px; font-size: 0.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.2em; }
 			.badge-direct { background: var(--green-light); color: var(--green); }
-			.badge-reimburse { background: #fef3c7; color: #b45309; }
 
-			/* FAQ */
-			.faq-item {
-				border-bottom: 1px solid rgb(var(--gray-light));
-				padding: 1.2em 0;
-			}
+			.faq-item { border-bottom: 1px solid rgb(var(--gray-light)); padding: 1.2em 0; }
 			.faq-item h4 { margin: 0 0 0.4em; font-size: 1.05em; color: var(--accent-dark); }
 			.faq-item p { margin: 0; font-size: 0.92em; color: rgb(var(--gray-dark)); }
 
-			/* Alert */
-			.alert {
-				padding: 1.2em 1.5em;
-				border-radius: 8px;
-				margin: 1.5em 0;
-				font-size: 0.95em;
-			}
+			.alert { padding: 1.2em 1.5em; border-radius: 8px; margin: 1.5em 0; font-size: 0.95em; }
 			.alert-info { background: var(--accent-light); border-left: 4px solid var(--accent); }
 			.alert h4 { margin: 0 0 0.3em; }
 			.alert p { margin: 0; }
@@ -125,7 +55,7 @@ import Header from '../components/Header.astro';
 				<img src="/images/patient-care.jpg" alt="Patient receiving care" />
 				<div class="page-hero-overlay">
 					<h1>Insurance & Billing</h1>
-					<p>International insurance accepted at Shanghai's top hospitals. Direct billing available with major global providers.</p>
+					<p>17+ insurance providers with direct billing at Shanghai's top hospitals. International and domestic coverage accepted.</p>
 				</div>
 			</section>
 
@@ -135,7 +65,7 @@ import Header from '../components/Header.astro';
 					<h2>Direct Billing Partners</h2>
 					<p>
 						Shanghai's international hospital departments maintain direct billing agreements with major
-						global insurance providers. This means <strong>you don't pay upfront</strong> — the hospital
+						global and domestic insurance providers. This means <strong>you don't pay upfront</strong> — the hospital
 						bills your insurer directly. Coverage depends on your specific policy and plan level.
 					</p>
 					<p>
@@ -144,7 +74,7 @@ import Header from '../components/Header.astro';
 						hospital international departments).
 					</p>
 
-					<h3>United States</h3>
+					<h3>United States & Global</h3>
 					<div class="provider-grid">
 						<div class="provider-card">
 							<div class="provider-icon">CG</div>
@@ -152,6 +82,14 @@ import Header from '../components/Header.astro';
 								<span class="badge badge-direct">Direct Billing</span>
 								<h4>Cigna Global</h4>
 								<p>International health plans with direct billing at major Shanghai hospitals. Also operates as Cigna & CMB (招商信诺) in China.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">CC</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Cigna & CMB (招商信诺)</h4>
+								<p>Joint venture between Cigna and China Merchants Bank. Extensive direct billing network in Shanghai hospitals.</p>
 							</div>
 						</div>
 						<div class="provider-card">
@@ -178,9 +116,17 @@ import Header from '../components/Header.astro';
 								<p>Blue Cross Blue Shield's international arm. Direct billing at Shanghai hospitals. Strong network for US expats and travelers.</p>
 							</div>
 						</div>
+						<div class="provider-card">
+							<div class="provider-icon">WB</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>WellBe / FB Medical</h4>
+								<p>International medical communication and insurance coordination services for foreign patients in Shanghai.</p>
+							</div>
+						</div>
 					</div>
 
-					<h3>United Kingdom</h3>
+					<h3>United Kingdom & Europe</h3>
 					<div class="provider-grid">
 						<div class="provider-card">
 							<div class="provider-icon">BP</div>
@@ -198,6 +144,22 @@ import Header from '../components/Header.astro';
 								<p>International private medical insurance with direct billing partners in Shanghai's international hospitals.</p>
 							</div>
 						</div>
+						<div class="provider-card">
+							<div class="provider-icon">AL</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Allianz (安联)</h4>
+								<p>Global health insurance with extensive Asia-Pacific network. Direct billing at major Shanghai hospitals.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">ER</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>ERGO Assistance</h4>
+								<p>International assistance and insurance coordination services. Direct billing at Shanghai hospitals for policyholders.</p>
+							</div>
+						</div>
 					</div>
 
 					<h3>Asia-Pacific</h3>
@@ -207,27 +169,27 @@ import Header from '../components/Header.astro';
 							<div class="provider-info">
 								<span class="badge badge-direct">Direct Billing</span>
 								<h4>AIA (友邦保险)</h4>
-								<p>Asia's largest independent life insurance group. AIA maintains direct billing with Shanghai international hospitals. Check your policy for overseas surgical coverage.</p>
+								<p>Asia's largest independent life insurance group. Direct billing with Shanghai international hospitals. Check your HK/SG policy for mainland China coverage.</p>
 							</div>
 						</div>
 						<div class="provider-card">
-							<div class="provider-icon">AL</div>
+							<div class="provider-icon">GE</div>
 							<div class="provider-info">
 								<span class="badge badge-direct">Direct Billing</span>
-								<h4>Allianz Care</h4>
-								<p>Global health insurance with extensive Asia-Pacific network. Direct billing at major Shanghai hospitals.</p>
+								<h4>Generali China (中意人寿)</h4>
+								<p>Joint venture between Generali and CNPC. Commercial health insurance accepted at Shanghai international hospitals.</p>
 							</div>
 						</div>
 					</div>
 
-					<h3>China (本土)</h3>
+					<h3>China Domestic (本土)</h3>
 					<div class="provider-grid">
 						<div class="provider-card">
 							<div class="provider-icon">PA</div>
 							<div class="provider-info">
 								<span class="badge badge-direct">Direct Billing</span>
-								<h4>Ping An Insurance (平安保险)</h4>
-								<p>China's largest insurer. Ping An offers health insurance products for foreign residents and has direct billing with Shanghai international hospital departments.</p>
+								<h4>Ping An Insurance (中国平安)</h4>
+								<p>China's largest insurer. Offers health insurance for foreign residents and direct billing with Shanghai international hospital departments.</p>
 							</div>
 						</div>
 						<div class="provider-card">
@@ -236,6 +198,78 @@ import Header from '../components/Header.astro';
 								<span class="badge badge-direct">Direct Billing</span>
 								<h4>MSH China (万欣和)</h4>
 								<p>Leading international health insurance administrator in China. Extensive hospital network across Shanghai. Popular with expats and medical tourists.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">TK</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Taikang Life (泰康人寿)</h4>
+								<p>Major Chinese life and health insurer. Commercial health insurance with direct billing at international hospital departments in Shanghai.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">HT</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Huatai Insurance Broker (华泰保险经纪)</h4>
+								<p>Major Chinese insurance brokerage with commercial health insurance products accepted at Shanghai international hospitals.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">CP</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>CPIC (太平洋保险)</h4>
+								<p>China Pacific Insurance. One of China's largest insurers with commercial health products and direct billing at major Shanghai hospitals.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">IC</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>ICBC-AXA Life (工银安盛人寿)</h4>
+								<p>Joint venture between ICBC and AXA. Health insurance with direct billing at Shanghai international hospitals.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">ML</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>MediLink-Global</h4>
+								<p>International health insurance administrator specializing in direct billing with hospitals across China.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">FH</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Fosun Health (复星联合健康保险)</h4>
+								<p>Fosun Group's health insurance arm. Commercial health products with direct billing at Shanghai hospitals.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">JD</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>JD-Allianz (京东安联)</h4>
+								<p>Joint venture between JD.com and Allianz. Health and travel insurance with direct billing at Shanghai international hospitals.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">BP</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>Blue Pass</h4>
+								<p>International health insurance with direct billing at Shanghai hospitals. Popular with the expat community.</p>
+							</div>
+						</div>
+						<div class="provider-card">
+							<div class="provider-icon">SB</div>
+							<div class="provider-info">
+								<span class="badge badge-direct">Direct Billing</span>
+								<h4>商保通 (ShangBaoTong)</h4>
+								<p>Commercial insurance coordination platform with direct billing at major Shanghai international hospital departments.</p>
 							</div>
 						</div>
 					</div>
@@ -299,6 +333,10 @@ import Header from '../components/Header.astro';
 					<div class="faq-item">
 						<h4>Does AIA cover mainland China hospitals?</h4>
 						<p>Yes. AIA (友邦) operates in mainland China and maintains direct billing agreements with Shanghai international hospitals. If you hold an AIA policy from Hong Kong, Singapore, or other Asian markets, check whether your plan includes mainland China coverage — many do.</p>
+					</div>
+					<div class="faq-item">
+						<h4>Can I use Chinese domestic insurance as a foreigner?</h4>
+						<p>Some Chinese insurers (Ping An, Taikang, CPIC) offer commercial health insurance products for foreign residents in China. MSH China and MediLink-Global specialize in international health insurance administration with strong hospital networks in Shanghai.</p>
 					</div>
 				</section>
 
