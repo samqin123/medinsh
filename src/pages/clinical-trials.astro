@@ -1,0 +1,813 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="PDAC Clinical Trials & Treatment Resources in China | MedInSh"
+			description="Comprehensive guide to pancreatic cancer (PDAC) targeted therapies, immunotherapy, mRNA vaccines, and post-surgery treatment protocols available in China. Updated April 2026."
+		/>
+		<style>
+			.page-header {
+				text-align: center;
+				padding: 3em 0 2em;
+				border-bottom: 1px solid rgb(var(--gray-light));
+				margin-bottom: 2em;
+			}
+			.page-header h1 { font-size: 2em; margin-bottom: 0.3em; }
+			.page-header p { color: rgb(var(--gray)); font-size: 1em; margin: 0; max-width: 700px; margin-left: auto; margin-right: auto; }
+			.page-header .update-date {
+				display: inline-block;
+				margin-top: 0.5em;
+				padding: 0.2em 0.7em;
+				background: var(--accent-light);
+				color: var(--accent);
+				border-radius: 4px;
+				font-size: 0.8em;
+				font-weight: 600;
+			}
+
+			/* Tab nav */
+			.tab-nav {
+				display: flex;
+				gap: 0;
+				border-bottom: 2px solid rgb(var(--gray-light));
+				margin-bottom: 2em;
+				overflow-x: auto;
+			}
+			.tab-btn {
+				padding: 0.8em 1.4em;
+				border: none;
+				background: none;
+				font-size: 0.92em;
+				font-weight: 600;
+				color: rgb(var(--gray));
+				cursor: pointer;
+				border-bottom: 3px solid transparent;
+				white-space: nowrap;
+				transition: color 0.15s, border-color 0.15s;
+			}
+			.tab-btn:hover { color: var(--accent-dark); }
+			.tab-btn.active {
+				color: var(--accent);
+				border-bottom-color: var(--accent);
+			}
+			.tab-content { display: none; }
+			.tab-content.active { display: block; }
+
+			/* Table styling */
+			.table-wrap {
+				overflow-x: auto;
+				margin: 1em 0 2em;
+				border-radius: 8px;
+				border: 1px solid rgb(var(--gray-light));
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 0.85em;
+				line-height: 1.5;
+			}
+			thead {
+				background: var(--accent);
+				color: white;
+				position: sticky;
+				top: 0;
+			}
+			thead th {
+				padding: 0.8em 1em;
+				text-align: left;
+				font-weight: 600;
+				border-bottom: none;
+				white-space: nowrap;
+			}
+			tbody td {
+				padding: 0.7em 1em;
+				border-bottom: 1px solid rgb(var(--gray-light));
+				vertical-align: top;
+			}
+			tbody tr:hover { background: rgba(var(--gray-light), 0.3); }
+			tbody tr:nth-child(even) { background: rgba(var(--gray-light), 0.15); }
+			tbody tr:nth-child(even):hover { background: rgba(var(--gray-light), 0.4); }
+
+			/* Target group header row */
+			.group-row td {
+				background: var(--accent-light) !important;
+				font-weight: 700;
+				color: var(--accent-dark);
+				font-size: 0.95em;
+				padding: 0.6em 1em;
+			}
+			.group-row:hover { background: var(--accent-light) !important; }
+
+			/* Drug name styling */
+			.drug-name { font-weight: 700; color: rgb(var(--black)); }
+			.drug-company { font-size: 0.8em; color: rgb(var(--gray)); }
+			.trial-phase {
+				display: inline-block;
+				padding: 0.1em 0.4em;
+				border-radius: 3px;
+				font-size: 0.75em;
+				font-weight: 700;
+			}
+			.ph1 { background: #dbeafe; color: #1e40af; }
+			.ph2 { background: #fef3c7; color: #b45309; }
+			.ph3 { background: #dcfce7; color: #16a34a; }
+			.approved { background: #fee2e2; color: #dc2626; }
+
+			/* ORR highlight */
+			.orr { font-weight: 700; color: var(--green); }
+
+			/* Section header */
+			.section-title {
+				font-size: 1.4em;
+				margin: 1.5em 0 0.5em;
+				padding-bottom: 0.4em;
+				border-bottom: 2px solid var(--accent);
+			}
+			.section-desc {
+				color: rgb(var(--gray));
+				margin-bottom: 1em;
+				font-size: 0.95em;
+			}
+
+			/* Alert */
+			.alert {
+				padding: 1em 1.5em;
+				border-radius: 8px;
+				margin: 1.5em 0;
+				font-size: 0.9em;
+			}
+			.alert-warn { background: #fef9c3; border-left: 4px solid #ca8a04; }
+			.alert-info { background: var(--accent-light); border-left: 4px solid var(--accent); }
+			.alert h4 { margin: 0 0 0.3em; font-size: 0.95em; }
+			.alert p { margin: 0; }
+
+			/* Disclaimer */
+			.disclaimer {
+				margin-top: 2em;
+				padding: 1.2em 1.5em;
+				background: rgba(var(--gray-light), 0.3);
+				border-radius: 8px;
+				font-size: 0.82em;
+				color: rgb(var(--gray));
+				line-height: 1.6;
+			}
+
+			@media (max-width: 720px) {
+				.page-header h1 { font-size: 1.4em; }
+				table { font-size: 0.78em; }
+				thead th, tbody td { padding: 0.5em 0.6em; }
+				.tab-btn { padding: 0.6em 0.8em; font-size: 0.82em; }
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="page-header">
+				<h1>Shanghai Latest PDAC Treatment Resources</h1>
+				<p>Comprehensive clinical trial and treatment guide for pancreatic ductal adenocarcinoma (PDAC) — targeted therapies, immunotherapy, mRNA vaccines, and post-surgery protocols available in China.</p>
+				<span class="update-date">Updated: April 2026</span>
+			</div>
+
+			<div class="alert alert-info">
+				<h4>Disclaimer</h4>
+				<p>This data is compiled by a non-professional for reference purposes. Information may not be 100% accurate. Always verify with your treating physician. Only Chinese domestic clinical trials are included (international trials like RMC-6236/RMC-9805 in the US are in a separate section).</p>
+			</div>
+
+			<!-- Tab Navigation -->
+			<div class="tab-nav">
+				<button class="tab-btn active" data-tab="targeted">Targeted Therapies</button>
+				<button class="tab-btn" data-tab="prevention">Anti-Recurrence Vaccines</button>
+				<button class="tab-btn" data-tab="rmc">RMC Drugs</button>
+				<button class="tab-btn" data-tab="postop">Post-Surgery Protocols</button>
+			</div>
+
+			<!-- ===== Tab 1: Targeted Therapies ===== -->
+			<div class="tab-content active" id="tab-targeted">
+				<h2 class="section-title">PDAC Targeted Therapies — China Clinical Trials</h2>
+				<p class="section-desc">Currently active clinical trials for PDAC in China, organized by target. Click drug names for more info.</p>
+
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Target</th>
+								<th>Drug Name</th>
+								<th>Population</th>
+								<th>Trial Phase</th>
+								<th>Efficacy Data</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- KRAS G12D -->
+							<tr class="group-row"><td colspan="5">KRAS G12D (~40% of PDAC)</td></tr>
+							<tr>
+								<td>KRAS G12D</td>
+								<td><span class="drug-name">HRS-4642</span><br/><span class="drug-company">Hengrui 恒瑞</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph3">Phase 3</span></td>
+								<td>Monotherapy: ORR <span class="orr">20.8%</span>, DCR 79.2%, PFS 4.1mo, OS 7.2mo<br/>+ AG: ORR <span class="orr">60.0%</span>, DCR 93.3%</td>
+							</tr>
+							<tr>
+								<td>KRAS G12D</td>
+								<td><span class="drug-name">GFH375</span><br/><span class="drug-company">GenFleet 劲方</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph2">Phase 2</span> <span class="trial-phase ph3">Phase 3</span></td>
+								<td>Monotherapy (66 PDAC, 45 ≥ 2nd line): ORR <span class="orr">41%</span>, DCR <span class="orr">97%</span></td>
+							</tr>
+							<tr>
+								<td>KRAS G12D</td>
+								<td><span class="drug-name">RNK08954</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1/2</span> <span class="trial-phase ph2">Phase 2</span></td>
+								<td>Monotherapy (17 PDAC): ORR <span class="orr">15%</span>, DCR 85%, median duration 3.5mo</td>
+							</tr>
+							<tr>
+								<td>KRAS G12D</td>
+								<td><span class="drug-name">TSN1611</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1/2</span></td>
+								<td>Monotherapy (800mg/1200mg QD, 1-2 prior lines): ORR <span class="orr">36.4%</span>, DCR 72.7%</td>
+							</tr>
+							<tr>
+								<td>KRAS G12D</td>
+								<td><span class="drug-name">ABSK141 / QLC1101 / DN022150 / HBW-012336</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1/2</span></td>
+								<td>Dose exploration — data pending</td>
+							</tr>
+							<tr>
+								<td>KRAS G12D</td>
+								<td><span class="drug-name">NW-301D (TCR-T)</span></td>
+								<td>Requires HLA-A*11:01</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>—</td>
+							</tr>
+
+							<!-- KRAS G12V -->
+							<tr class="group-row"><td colspan="5">KRAS G12V</td></tr>
+							<tr>
+								<td>KRAS G12V</td>
+								<td><span class="drug-name">NW-301V (TCR-T)</span></td>
+								<td>Requires HLA-A*11:01</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>14 pts (CRC+PDAC): ORR <span class="orr">42.9%</span>, DCR 78.6%. High-dose (10 pts): 5 PR, 5 SD</td>
+							</tr>
+							<tr>
+								<td>KRAS G12V</td>
+								<td><span class="drug-name">KRAS G12V TCR-T (Changhai Hospital)</span><br/><span class="drug-company">长海医院 金刚/郭世伟团队</span></td>
+								<td>Requires HLA-A*11:01</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>5 recurrent PDAC: 1 CR (4 liver mets completely resolved, sustained 5.5mo)</td>
+							</tr>
+							<tr>
+								<td>KRAS G12V</td>
+								<td><span class="drug-name">IX001 (TCR-T) / KRAS TCR-T (可瑞生物)</span></td>
+								<td>Requires HLA-A*11:01</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>Dose exploration</td>
+							</tr>
+							<tr>
+								<td>KRAS G12V</td>
+								<td><span class="drug-name">XP-001-V2 (Vaccine)</span></td>
+								<td>Multiple HLA types eligible</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>—</td>
+							</tr>
+
+							<!-- KRAS G12C (Approved) -->
+							<tr class="group-row"><td colspan="5">KRAS G12C (Multiple Approved Drugs)</td></tr>
+							<tr>
+								<td>KRAS G12C</td>
+								<td><span class="drug-name">JAB-21822 (戈来雷塞)</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph2">Phase 2</span></td>
+								<td>Phase 1 included 2 PDAC patients</td>
+							</tr>
+							<tr>
+								<td>KRAS G12C</td>
+								<td><span class="drug-name">MK-1084 / HRS-7058</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph2">Phase 2</span></td>
+								<td>—</td>
+							</tr>
+							<tr>
+								<td>KRAS G12C</td>
+								<td><span class="drug-name">索托拉西布 / 阿达格拉西布 / 氟泽雷塞 / 格索雷塞</span></td>
+								<td>Approved</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>On market</td>
+							</tr>
+
+							<!-- Pan-KRAS -->
+							<tr class="group-row"><td colspan="5">Pan-KRAS (Multiple KRAS mutations)</td></tr>
+							<tr>
+								<td>Pan-KRAS</td>
+								<td><span class="drug-name">JAB-23E73</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>≥160mg, 13 PDAC (mostly ≥3rd line): ORR <span class="orr">38.5%</span>, DCR 84.6%</td>
+							</tr>
+							<tr>
+								<td>Pan-KRAS</td>
+								<td><span class="drug-name">HBW-012462 / BGB-53038</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>Dose exploration</td>
+							</tr>
+							<tr>
+								<td>Pan-KRAS</td>
+								<td><span class="drug-name">RGL-232 / ABO2102 (Vaccines)</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>mRNA vaccines targeting KRAS mutations</td>
+							</tr>
+
+							<!-- Pan-RAS -->
+							<tr class="group-row"><td colspan="5">Pan-RAS (All RAS mutations)</td></tr>
+							<tr>
+								<td>Pan-RAS</td>
+								<td><span class="drug-name">JYP0015 / GFH276 / HRS-7172 / HRS-2329 / AN9025 / BPI-572270 / ASKC189</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>All in dose exploration stage</td>
+							</tr>
+
+							<!-- CLDN18.2 -->
+							<tr class="group-row"><td colspan="5">CLDN18.2 (⚠️ GI toxicity — monitor weight)</td></tr>
+							<tr>
+								<td>CLDN18.2</td>
+								<td><span class="drug-name">QLS31905 (CLDN18.2 × CD3 bispecific)</span></td>
+								<td>Treatment-naive</td>
+								<td><span class="trial-phase ph3">Phase 3</span></td>
+								<td>Monotherapy (12 PDAC): ORR <span class="orr">25%</span>, DCR 91.67%, PFS 3.94mo</td>
+							</tr>
+							<tr>
+								<td>CLDN18.2</td>
+								<td><span class="drug-name">PT886 / Spevatamig (CLDN18.2 × CD47)</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph2">Phase 2</span></td>
+								<td>+ AG: mPFS 7.3mo, 6mo-PFS 59%, 6mo-OS 93%, DCR 93%, ORR 33%</td>
+							</tr>
+							<tr>
+								<td>CLDN18.2</td>
+								<td><span class="drug-name">IBI343 (ADC-exatecan)</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph2">Phase 2/3</span></td>
+								<td>Monotherapy: ORR <span class="orr">22.7%</span>, DCR 81.8%, PFS 5.4mo, OS 8.5mo</td>
+							</tr>
+							<tr>
+								<td>CLDN18.2</td>
+								<td><span class="drug-name">FG-M108 (ADCC-enhanced mAb)</span></td>
+								<td>Treatment-naive (CLDN18.2 mid-high expr)</td>
+								<td><span class="trial-phase ph2">Phase 2</span> <span class="trial-phase ph3">Phase 3</span></td>
+								<td>+ AG (32 pts): ORR <span class="orr">53.1%</span>, DCR <span class="orr">100%</span>, DOR 9.9mo, PFS 9.9mo</td>
+							</tr>
+
+							<!-- Immunotherapy -->
+							<tr class="group-row"><td colspan="5">Immunotherapy</td></tr>
+							<tr>
+								<td>PD-1/TGF-β</td>
+								<td><span class="drug-name">TQB2868 + 安罗替尼 + AG</span></td>
+								<td>Treatment-naive</td>
+								<td><span class="trial-phase ph3">Phase 3</span></td>
+								<td>36 evaluable: ORR <span class="orr">63.9%</span>, DCR <span class="orr">100%</span>, 6mo-PFS 86%, 6mo-OS 95%</td>
+							</tr>
+
+							<!-- TF Target -->
+							<tr class="group-row"><td colspan="5">TF (⚠️ Ocular toxicity — caution with glaucoma)</td></tr>
+							<tr>
+								<td>TF</td>
+								<td><span class="drug-name">MRG004A (ADC-MMAE)</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph3">Phase 3</span></td>
+								<td>1st line (10 pts): ORR <span class="orr">40%</span>, DCR 80%, PFS 5.8mo, OS 13.2mo<br/>≥2nd line (27 pts): ORR 18.5%, PFS 2.7mo</td>
+							</tr>
+
+							<!-- MTAP -->
+							<tr class="group-row"><td colspan="5">MTAP Deletion</td></tr>
+							<tr>
+								<td>MTAP</td>
+								<td><span class="drug-name">BMS-986504</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph2">Phase 2</span></td>
+								<td>Monotherapy (35 PDAC): ORR 17%, DCR 69%</td>
+							</tr>
+							<tr>
+								<td>MTAP</td>
+								<td><span class="drug-name">ABSK131 / GH56 / AMG 193</span></td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1/2</span></td>
+								<td>Dose exploration</td>
+							</tr>
+
+							<!-- Personalized Vaccines -->
+							<tr class="group-row"><td colspan="5">Personalized Cancer Vaccines</td></tr>
+							<tr>
+								<td>Personalized</td>
+								<td><span class="drug-name">mRNA Vaccine (Ruijin 瑞金)</span> NCT05916248</td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>—</td>
+							</tr>
+							<tr>
+								<td>Personalized</td>
+								<td><span class="drug-name">mRNA Vaccine (Guangzhou Medical Univ.)</span> NCT06195384</td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>—</td>
+							</tr>
+							<tr>
+								<td>Personalized</td>
+								<td><span class="drug-name">Peptide Vaccines</span> (Nanchang, HKU-Shenzhen)</td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>—</td>
+							</tr>
+							<tr>
+								<td>Personalized</td>
+								<td><span class="drug-name">srRNA Vaccine (Peking Univ. Cancer Hospital)</span> NCT05579275</td>
+								<td>Locally advanced / metastatic</td>
+								<td><span class="trial-phase ph1">Phase 1</span></td>
+								<td>—</td>
+							</tr>
+
+							<!-- Known Targetable Mutations -->
+							<tr class="group-row"><td colspan="5">Other Known Targetable Mutations (Approved Drugs)</td></tr>
+							<tr>
+								<td>BRCA1/2</td>
+								<td><span class="drug-name">Olaparib / Rucaparib</span> / FOLFIRINOX or platinum-based</td>
+								<td>Germline & somatic</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>PARP inhibitors</td>
+							</tr>
+							<tr>
+								<td>BRAF V600E</td>
+								<td><span class="drug-name">Dabrafenib + Trametinib</span></td>
+								<td>Somatic</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>Dual MAPK pathway blockade</td>
+							</tr>
+							<tr>
+								<td>RET Fusion</td>
+								<td><span class="drug-name">Selpercatinib</span></td>
+								<td>Somatic</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>Selective RET kinase inhibitor</td>
+							</tr>
+							<tr>
+								<td>NTRK1/2/3</td>
+								<td><span class="drug-name">Larotrectinib / Entrectinib / Repotrectinib</span></td>
+								<td>Somatic</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>TRK inhibitors</td>
+							</tr>
+							<tr>
+								<td>NRG1 Fusion</td>
+								<td><span class="drug-name">Zenocutuzumab</span></td>
+								<td>Somatic</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>HER2/HER3 bispecific antibody</td>
+							</tr>
+							<tr>
+								<td>HER2 Amp</td>
+								<td><span class="drug-name">Trastuzumab deruxtecan</span></td>
+								<td>Somatic</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>HER2 ADC</td>
+							</tr>
+							<tr>
+								<td>FGFR1/2/3</td>
+								<td><span class="drug-name">Erdafitinib</span></td>
+								<td>Somatic</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>Pan-FGFR TKI</td>
+							</tr>
+							<tr>
+								<td>MSI-H / TMB-H</td>
+								<td><span class="drug-name">Nivolumab+Ipilimumab / Pembrolizumab</span></td>
+								<td>Somatic</td>
+								<td><span class="trial-phase approved">Approved</span></td>
+								<td>Immune checkpoint inhibitors</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- ===== Tab 2: Anti-Recurrence Vaccines ===== -->
+			<div class="tab-content" id="tab-prevention">
+				<h2 class="section-title">Anti-Recurrence Vaccines — Post-Surgery Prevention</h2>
+				<p class="section-desc">Personalized cancer vaccines designed to prevent recurrence after curative-intent surgery. All trials are in China.</p>
+
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Company</th>
+								<th>Hospital</th>
+								<th>Requirements</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span class="drug-name">PCNAT-01</span></td>
+								<td>安达生物</td>
+								<td>上海长海 / 中山</td>
+								<td>Completed 12 cycles mFOLFIRINOX post-surgery, no radiological recurrence</td>
+								<td>Peptide vaccine for recurrence prevention</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">AK154</span></td>
+								<td>康方生物</td>
+								<td>上海复旦肿瘤</td>
+								<td>Surgery at Fudan Cancer, vaccine first then sequential mFOLFIRINOX</td>
+								<td>mRNA vaccine — chemo start delayed due to vaccination schedule</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">RGL-270</span></td>
+								<td>瑞宏迪</td>
+								<td>上海复旦肿瘤</td>
+								<td>Post-surgery, completed 6mo chemo, no radiological recurrence</td>
+								<td>mRNA vaccine — may be full (verify)</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">XH001</span></td>
+								<td>新合生物</td>
+								<td>北京协和</td>
+								<td>Surgery at PUMCH (fresh tissue needed), not yet started chemo</td>
+								<td>mRNA vaccine — combined with chemo (mFOLFIRINOX or GemCap)</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">XP-004</span></td>
+								<td>信普</td>
+								<td>上海瑞金</td>
+								<td>Elderly patients unable to tolerate chemo</td>
+								<td>mRNA vaccine — no chemotherapy</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">R01</span></td>
+								<td>纽安津</td>
+								<td>浙一 / 邵逸夫</td>
+								<td>Surgery at the same hospital, no neoadjuvant</td>
+								<td>mRNA vaccine — combined with GemCap or mFOLFIRINOX. Also has late-stage trial</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">LK101</span></td>
+								<td>立康</td>
+								<td>海南</td>
+								<td>Self-pay (150,000 RMB/shot × 4-7 shots)</td>
+								<td>mRNA-DC vaccine — expensive, self-pay only</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">ABO2109</span></td>
+								<td>艾博生物</td>
+								<td>上海 / 苏州</td>
+								<td>Surgery at partner hospital, no neoadjuvant</td>
+								<td>mRNA vaccine — combined with chemo</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h3 class="section-title" style="font-size: 1.1em;">Other Anti-Recurrence Approaches</h3>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Company</th>
+								<th>Hospital</th>
+								<th>Requirements</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span class="drug-name">CT041 (CAR-T, anti-CLDN18.2)</span></td>
+								<td>科济制药</td>
+								<td>上海复旦肿瘤</td>
+								<td>Post-surgery with elevated CA19-9. Applying for market approval (gastric cancer; pancreatic indication unclear)</td>
+								<td>Phase I: ORR 16.7%, DCR 70.8%, mOS 10.0mo in advanced patients</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">VRT106 (Oncolytic Virus)</span></td>
+								<td>威溶特医药</td>
+								<td>广东省人民医院</td>
+								<td>Post-surgery combined with GemCap</td>
+								<td>—</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- ===== Tab 3: RMC Drugs ===== -->
+			<div class="tab-content" id="tab-rmc">
+				<h2 class="section-title">Revolution Medicines (RMC) Pipeline — Global Reference</h2>
+				<p class="section-desc">RMC drugs are primarily available in the US. Included here for comparison with Chinese domestic alternatives.</p>
+
+				<h3 style="margin-top: 1.5em; color: var(--accent-dark);">RMC-6236 (Pan-RAS Inhibitor)</h3>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Trial</th>
+								<th>Regimen</th>
+								<th>Patients</th>
+								<th>Side Effects (≥10%)</th>
+								<th>Efficacy</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2023 ESMO</td>
+								<td>RMC-6236 monotherapy</td>
+								<td>14 PDAC + 9 NSCLC</td>
+								<td>Rash 52%, diarrhea 21%, nausea 21%, vomiting 15%</td>
+								<td>ORR 36%, DCR 86%</td>
+							</tr>
+							<tr>
+								<td>2025 ASCO</td>
+								<td>RMC-6236 monotherapy (160-300mg QD)</td>
+								<td>127 RAS-mutant PDAC</td>
+								<td>Rash 91%, diarrhea 48%, nausea 43%, vomiting 31%, stomatitis 31%</td>
+								<td>KRAS G12X: ORR 29%, RAS-mutant: ORR 25%</td>
+							</tr>
+							<tr>
+								<td>RASolute 302 (Phase 3)</td>
+								<td>RMC-6236 vs chemo</td>
+								<td>460 previously treated mPDAC, 1:1 randomization</td>
+								<td>—</td>
+								<td><strong>RMC-6236: mOS 13.2mo vs chemo 6.7mo</strong></td>
+							</tr>
+							<tr>
+								<td>RASolute 303 (Phase 3)</td>
+								<td>RMC-6236 ± chemo</td>
+								<td>Treatment-naive (started Feb 2026)</td>
+								<td>—</td>
+								<td>Ongoing</td>
+							</tr>
+							<tr>
+								<td>NCT07252232 (Phase 3)</td>
+								<td>Post-surgery RMC-6236 + chemo</td>
+								<td>~500 patients</td>
+								<td>—</td>
+								<td>Adjuvant setting — ongoing</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h3 style="margin-top: 1.5em; color: var(--accent-dark);">RMC-9805 (KRAS G12D Inhibitor)</h3>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Trial</th>
+								<th>Regimen</th>
+								<th>Patients</th>
+								<th>Side Effects (≥10%)</th>
+								<th>Efficacy</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2025 ASCO</td>
+								<td>RMC-9805 (150-1200mg QD)</td>
+								<td>179 KRAS G12D solid tumors (104 PDAC)</td>
+								<td>At 1200mg/600mg BID: nausea 27%, diarrhea 20%, vomiting 15%, rash 10%</td>
+								<td>At 1200mg QD or 600mg BID (n=40): ORR 30%, DCR 80%</td>
+							</tr>
+							<tr>
+								<td>NCT06040541 (Phase 1)</td>
+								<td>A: RMC-9805 mono; B: + RMC-6236</td>
+								<td>Locally advanced / metastatic solid tumors</td>
+								<td>—</td>
+								<td>Ongoing</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h3 style="margin-top: 1.5em; color: var(--accent-dark);">RMC-5127 (KRAS G12V Inhibitor) & Preclinical</h3>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Drug</th>
+								<th>Target</th>
+								<th>Trial</th>
+								<th>Arms</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span class="drug-name">RMC-5127</span></td>
+								<td>KRAS G12V</td>
+								<td>NCT07349537 (Phase 1)</td>
+								<td>A: mono dose escalation; B: + RMC-6236; C: + cetuximab</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">RMC-7977</span></td>
+								<td>Pan-KRAS</td>
+								<td>Preclinical</td>
+								<td>—</td>
+							</tr>
+							<tr>
+								<td><span class="drug-name">RMC-9945</span></td>
+								<td>KRAS G12D</td>
+								<td>Preclinical</td>
+								<td>—</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- ===== Tab 4: Post-Surgery Protocols ===== -->
+			<div class="tab-content" id="tab-postop">
+				<h2 class="section-title">Post-Surgery Adjuvant Chemotherapy — Evidence Summary</h2>
+				<p class="section-desc">Comparison of adjuvant chemotherapy regimens after curative-intent PDAC resection. Data from major clinical trials.</p>
+
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Year</th>
+								<th>Comparison</th>
+								<th>Key Results</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2017</td>
+								<td><strong>GemCap (双滨) vs Gemcitabine alone</strong></td>
+								<td>GemCap mOS 28.0mo vs Gem 25.5mo</td>
+							</tr>
+							<tr>
+								<td>2025</td>
+								<td><strong>GemCap vs Gemcitabine (updated)</strong></td>
+								<td>R0 patients: Gem mOS 32.2mo vs GemCap <strong>49.9mo</strong>. Node-negative: GemCap 5yr-OS 59% vs Gem 53%</td>
+							</tr>
+							<tr>
+								<td>2018</td>
+								<td><strong>mFOLFIRINOX vs Gemcitabine</strong></td>
+								<td>mFOLFIRINOX: mOS <strong>54mo</strong> vs Gem 36mo, 5yr-OS <strong>43.2%</strong> vs 31.4%. Higher toxicity.</td>
+							</tr>
+							<tr>
+								<td>2022</td>
+								<td><strong>mFOLFIRINOX vs Gemcitabine (updated)</strong></td>
+								<td>mFOLFIRINOX: mDFS 21.4mo vs 12.8mo, 5yr-DFS 26.1% vs 19.0%, mOS 53.5mo vs 35.5mo, 5yr-OS 43.2% vs 31.4%</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td><strong>S-1 vs Gemcitabine (Japan)</strong></td>
+								<td>S-1: mOS <strong>47mo</strong> vs Gem 26mo, 5yr-OS <strong>44%</strong> vs 24%</td>
+							</tr>
+							<tr>
+								<td>2020</td>
+								<td><strong>Network Meta-Analysis</strong></td>
+								<td>mFOLFIRINOX and S-1 most effective. mFOLFIRINOX preferred first-line adjuvant. For patients intolerant to mFOLFIRINOX, Gem+nab-paclitaxel showed no additional benefit over Gem alone.</td>
+							</tr>
+							<tr>
+								<td>2023</td>
+								<td><strong>AG vs Gemcitabine</strong></td>
+								<td>AG: mDFS 16.6mo vs Gem 13.7mo, mOS 41.8mo vs 37.7mo</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="alert alert-info" style="margin-top: 1.5em;">
+					<h4>Key Takeaway for Patients</h4>
+					<p><strong>mFOLFIRINOX</strong> is the most effective adjuvant regimen (5yr-OS 43%) but has higher toxicity. <strong>GemCap (双滨)</strong> is a good alternative with lower toxicity and strong results (49.9mo mOS in R0 patients). Discuss with your oncologist which regimen best suits your condition and tolerance.</p>
+				</div>
+			</div>
+
+			<div class="disclaimer">
+				<p><strong>Disclaimer:</strong> This data is compiled by a non-professional volunteer (整理人: G) for reference purposes only. Updated as of April 25, 2026. Information may not be 100% accurate and clinical trial availability may change without notice. This resource does not constitute medical advice. Always consult your treating oncologist before making treatment decisions. For trial enrollment, contact the hospital's international department directly.</p>
+			</div>
+		</main>
+		<Footer />
+
+		<script>
+			document.querySelectorAll('.tab-btn').forEach(btn => {
+				btn.addEventListener('click', () => {
+					document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+					document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+					btn.classList.add('active');
+					document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+				});
+			});
+		</script>
+	</body>
+</html>
