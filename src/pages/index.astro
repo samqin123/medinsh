@@ -3,46 +3,644 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			/* ===== Hero: full-width ===== */
+			.hero {
+				position: relative;
+				width: 100vw;
+				margin-left: calc(-50vw + 50%);
+				overflow: hidden;
+			}
+			.hero-bg {
+				width: 100%;
+				height: 560px;
+				object-fit: cover;
+				display: block;
+			}
+			.hero-content {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 4em 3em 2.5em;
+				background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+				color: white;
+			}
+			.hero-inner {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.hero-content h1 {
+				color: white;
+				font-size: 2.6em;
+				margin-bottom: 0.4em;
+				line-height: 1.15;
+				max-width: 700px;
+			}
+			.hero-subtitle {
+				font-size: 1.15em;
+				opacity: 0.9;
+				margin-bottom: 1.5em;
+				max-width: 600px;
+				line-height: 1.6;
+			}
+			.hero-btn {
+				display: inline-block;
+				padding: 0.75em 2em;
+				background: var(--accent);
+				color: white;
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 1em;
+				transition: background 0.2s, transform 0.15s;
+			}
+			.hero-btn:hover {
+				background: var(--accent-dark);
+				color: white;
+				transform: translateY(-2px);
+			}
+
+			/* ===== Stats bar ===== */
+			.stats-bar {
+				background: var(--accent);
+				color: white;
+				padding: 1.5em 0;
+				width: 100vw;
+				margin-left: calc(-50vw + 50%);
+			}
+			.stats-inner {
+				max-width: 900px;
+				margin: 0 auto;
+				display: flex;
+				justify-content: space-around;
+				padding: 0 1em;
+			}
+			.stat {
+				text-align: center;
+			}
+			.stat-num {
+				display: block;
+				font-size: 2em;
+				font-weight: 700;
+				line-height: 1.1;
+			}
+			.stat-text {
+				font-size: 0.82em;
+				opacity: 0.85;
+			}
+
+			/* ===== Section defaults ===== */
+			.section {
+				padding: 3em 0;
+			}
+			.section-alt {
+				background: #f8fafb;
+				width: 100vw;
+				margin-left: calc(-50vw + 50%);
+				padding: 3em calc(50vw - 50% + 0);
+			}
+			.section-header {
+				display: flex;
+				align-items: baseline;
+				gap: 0.6em;
+				margin-bottom: 0.5em;
+			}
+			.section-tag {
+				font-size: 0.8em;
+				font-weight: 700;
+				color: var(--accent);
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+			}
+			.section-header h2 {
+				font-size: 1.9em;
+			}
+			.section-intro {
+				color: rgb(var(--gray));
+				max-width: 700px;
+				margin-bottom: 2em;
+				font-size: 1.05em;
+			}
+
+			/* ===== Two-column ===== */
+			.two-col {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2.5em;
+				align-items: center;
+				margin-bottom: 2em;
+			}
+			.two-col.reverse {
+				direction: rtl;
+			}
+			.two-col.reverse > * {
+				direction: ltr;
+			}
+			.col-img img {
+				width: 100%;
+				border-radius: 10px;
+				box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+			}
+
+			/* ===== Tech grid ===== */
+			.tech-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1em;
+				margin-top: 1em;
+			}
+			.tech-item {
+				display: flex;
+				align-items: baseline;
+				gap: 0.6em;
+				padding: 0.6em 0;
+				border-bottom: 1px solid rgba(var(--gray-light), 0.5);
+			}
+			.tech-check {
+				color: var(--green);
+				font-weight: 700;
+				flex-shrink: 0;
+			}
+
+			/* ===== Hospital cards ===== */
+			.hospital-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.2em;
+			}
+			.hospital-card {
+				background: white;
+				border-radius: 10px;
+				padding: 1.5em;
+				border: 1px solid rgb(var(--gray-light));
+				transition: box-shadow 0.2s;
+			}
+			.hospital-card:hover {
+				box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+			}
+			.hospital-card h4 {
+				margin: 0 0 0.2em;
+				font-size: 1.1em;
+			}
+			.hospital-card .hospital-cn {
+				color: rgb(var(--gray));
+				font-size: 0.85em;
+				margin-bottom: 0.5em;
+			}
+			.hospital-card p {
+				font-size: 0.9em;
+				color: rgb(var(--gray-dark));
+				margin: 0;
+				line-height: 1.5;
+			}
+			.hospital-badge {
+				display: inline-block;
+				padding: 0.15em 0.5em;
+				background: var(--green-light);
+				color: var(--green);
+				border-radius: 3px;
+				font-size: 0.75em;
+				font-weight: 700;
+				margin-bottom: 0.5em;
+			}
+
+			/* ===== Comparison table ===== */
+			.comp-table {
+				background: white;
+				border-radius: 10px;
+				overflow: hidden;
+				border: 1px solid rgb(var(--gray-light));
+				box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+			}
+			.comp-table table {
+				margin: 0;
+			}
+			.comp-table thead {
+				background: var(--accent);
+				color: white;
+			}
+			.comp-table thead th {
+				background: var(--accent);
+				color: white;
+				border-bottom: none;
+				padding: 0.9em 1em;
+				font-size: 0.9em;
+			}
+			.comp-table td {
+				padding: 0.85em 1em;
+				font-size: 0.92em;
+			}
+			.comp-table tr:nth-child(even) td {
+				background: rgba(var(--gray-light), 0.25);
+			}
+			.col-shanghai {
+				color: var(--green);
+				font-weight: 700;
+			}
+
+			/* ===== CTA strip ===== */
+			.cta-strip {
+				background: var(--green-light);
+				border-left: 5px solid var(--green);
+				padding: 1.5em 2em;
+				border-radius: 0 10px 10px 0;
+				margin-top: 2em;
+			}
+			.cta-strip h3 {
+				color: var(--accent-dark);
+				margin-bottom: 0.3em;
+			}
+			.cta-strip p {
+				margin-bottom: 0.8em;
+			}
+			.cta-strip a {
+				font-weight: 700;
+				font-size: 1.05em;
+			}
+
+			/* ===== Post cards ===== */
+			.post-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				gap: 1.2em;
+			}
+			.post-card {
+				display: block;
+				background: white;
+				border-radius: 10px;
+				overflow: hidden;
+				border: 1px solid rgb(var(--gray-light));
+				text-decoration: none;
+				color: inherit;
+				transition: box-shadow 0.2s, transform 0.15s;
+			}
+			.post-card:hover {
+				box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+				transform: translateY(-3px);
+			}
+			.post-card img {
+				width: 100%;
+				height: 160px;
+				object-fit: cover;
+				border-radius: 0;
+			}
+			.post-card-body {
+				padding: 1em 1.2em;
+			}
+			.post-card h4 {
+				font-size: 1em;
+				margin: 0 0 0.3em;
+				line-height: 1.35;
+			}
+			.post-card p {
+				font-size: 0.82em;
+				color: rgb(var(--gray));
+				margin: 0 0 0.4em;
+				line-height: 1.4;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
+			.post-card-date {
+				font-size: 0.75em;
+				color: rgb(var(--gray));
+			}
+
+			/* ===== Process steps ===== */
+			.process-steps {
+				display: flex;
+				gap: 1.5em;
+				margin-top: 1.5em;
+			}
+			.step {
+				flex: 1;
+				text-align: center;
+			}
+			.step-num {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 42px;
+				height: 42px;
+				border-radius: 50%;
+				background: var(--accent);
+				color: white;
+				font-weight: 700;
+				font-size: 1.1em;
+				margin-bottom: 0.5em;
+			}
+			.step h4 {
+				font-size: 0.95em;
+				margin: 0 0 0.3em;
+			}
+			.step p {
+				font-size: 0.82em;
+				color: rgb(var(--gray));
+				margin: 0;
+				line-height: 1.4;
+			}
+
+			@media (max-width: 720px) {
+				.hero-bg { height: 380px; }
+				.hero-content { padding: 2em 1.5em 1.5em; }
+				.hero-content h1 { font-size: 1.6em; }
+				.stats-inner { flex-wrap: wrap; gap: 1em; }
+				.stat { min-width: 40%; }
+				.two-col { grid-template-columns: 1fr; }
+				.tech-grid { grid-template-columns: 1fr; }
+				.hospital-grid { grid-template-columns: 1fr; }
+				.post-grid { grid-template-columns: 1fr; }
+				.process-steps { flex-direction: column; }
+				.section-header h2 { font-size: 1.4em; }
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<!-- Hero -->
+			<section class="hero">
+				<img src="/images/hero-shanghai-skyline.jpg" alt="Shanghai cityscape" class="hero-bg" />
+				<div class="hero-content">
+					<div class="hero-inner">
+						<h1>Expert Pancreatic Cancer Surgery in Shanghai</h1>
+						<p class="hero-subtitle">
+							Access world-class hepatobiliary-pancreatic care at Shanghai's leading university hospitals.
+							Performed by surgeons who do 600+ of these procedures a year — at a fraction of the cost.
+						</p>
+						<a href="/blog" class="hero-btn">Read Our Patient Guides</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Stats bar -->
+			<section class="stats-bar">
+				<div class="stats-inner">
+					<div class="stat">
+						<span class="stat-num">600+</span>
+						<span class="stat-text">Pancreatic surgeries/year</span>
+					</div>
+					<div class="stat">
+						<span class="stat-num">1.5%</span>
+						<span class="stat-text">Mortality rate</span>
+					</div>
+					<div class="stat">
+						<span class="stat-num">70–80%</span>
+						<span class="stat-text">R0 resection rate</span>
+					</div>
+					<div class="stat">
+						<span class="stat-num">$11K–$28K</span>
+						<span class="stat-text">Whipple procedure cost</span>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 1: Why Shanghai -->
+			<section class="section">
+				<div class="section-header">
+					<span class="section-tag">Why Shanghai</span>
+				</div>
+				<h2>The Data Behind Shanghai's Hepatobiliary-Pancreatic Excellence</h2>
+				<p class="section-intro">
+					Shanghai's top hospitals perform pancreatic and hepatobiliary surgery at volumes that rival
+					or exceed Memorial Sloan Kettering, Johns Hopkins, and the Royal Marsden.
+				</p>
+
+				<div class="two-col">
+					<div class="col-img">
+						<img src="/images/hospital-interior.jpg" alt="Modern hospital facility in Shanghai" />
+					</div>
+					<div>
+						<h3>World-Class Surgical Volume</h3>
+						<p>
+							Pancreatic cancer has a 5-year survival rate of just 12%. But for the 20% of patients
+							who are surgical candidates, <strong>the choice of where to have surgery is the most
+							important decision they'll make.</strong>
+						</p>
+						<p>
+							The volume-outcome relationship in pancreatic surgery is one of the strongest in
+							all of surgery. Shanghai's Ruijin Hospital performs <strong>600+ pancreatic
+							resections per year</strong> — a number many Western surgeons never reach in their
+							entire careers.
+						</p>
+					</div>
+				</div>
+
+				<div class="two-col reverse">
+					<div class="col-img">
+						<img src="/images/surgery-team.jpg" alt="Surgical team in operating room" />
+					</div>
+					<div>
+						<h3>Four Premier Hospitals</h3>
+						<div class="hospital-grid">
+							<div class="hospital-card">
+								<span class="hospital-badge">Pancreatic Surgery</span>
+								<h4>Ruijin Hospital</h4>
+								<p class="hospital-cn">瑞金医院</p>
+								<p>600+ pancreatic resections/year. Standalone pancreatic surgery department. International patient coordinators.</p>
+							</div>
+							<div class="hospital-card">
+								<span class="hospital-badge">Liver & Biliary</span>
+								<h4>Zhongshan Hospital</h4>
+								<p class="hospital-cn">中山医院</p>
+								<p>800+ liver/biliary surgeries/year. Pioneered resection techniques. Highest-volume transplant program in Asia.</p>
+							</div>
+							<div class="hospital-card">
+								<span class="hospital-badge">Comprehensive Oncology</span>
+								<h4>Fudan Cancer Center</h4>
+								<p class="hospital-cn">复旦大学附属肿瘤医院</p>
+								<p>Dedicated cancer hospital. Multidisciplinary tumor boards. Active clinical trials. Proton therapy access.</p>
+							</div>
+							<div class="hospital-card">
+								<span class="hospital-badge">Liver Surgery</span>
+								<h4>Eastern Hepatobiliary</h4>
+								<p class="hospital-cn">东方肝胆外科医院</p>
+								<p>Founded by Wu Mengchao. Over 10,000 liver resections historically. Deepest liver surgery expertise in Asia.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 2: Technology & Equipment -->
+			<section class="section section-alt">
+				<div style="max-width: 900px; margin: 0 auto;">
+					<div class="section-header">
+						<span class="section-tag">Technology</span>
+					</div>
+					<h2>Advanced Surgical Technology</h2>
+					<p class="section-intro">
+						Shanghai's top hospitals are equipped with the same technology found at major Western cancer centers.
+					</p>
+
+					<div class="two-col">
+						<div>
+							<div class="tech-grid">
+								<div class="tech-item"><span class="tech-check">✓</span> Intraoperative ultrasound</div>
+								<div class="tech-item"><span class="tech-check">✓</span> Frozen section pathology</div>
+								<div class="tech-item"><span class="tech-check">✓</span> Neoadjuvant chemo (FOLFIRINOX)</div>
+								<div class="tech-item"><span class="tech-check">✓</span> Robotic surgery (Da Vinci)</div>
+								<div class="tech-item"><span class="tech-check">✓</span> Proton & heavy ion therapy</div>
+								<div class="tech-item"><span class="tech-check">✓</span> ERCP biliary stenting</div>
+								<div class="tech-item"><span class="tech-check">✓</span> Portal vein embolization</div>
+								<div class="tech-item"><span class="tech-check">✓</span> ALPPS two-stage resection</div>
+							</div>
+						</div>
+						<div class="col-img">
+							<img src="/images/medical-tech.jpg" alt="Advanced medical equipment" />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 3: Cost Comparison -->
+			<section class="section">
+				<div class="section-header">
+					<span class="section-tag">Pricing</span>
+				</div>
+				<h2>Significantly Lower Cost, Same Quality</h2>
+				<p class="section-intro">
+					The same Whipple procedure, performed by surgeons with higher case volumes, for a fraction of the price.
+					Plus, 30-day visa-free entry for 47+ countries.
+				</p>
+
+				<div class="comp-table">
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>USA</th>
+								<th>UK (NHS)</th>
+								<th>UK (Private)</th>
+								<th>Australia</th>
+								<th>Shanghai</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Whipple Procedure</strong></td>
+								<td>$150K–$250K</td>
+								<td>Free</td>
+								<td>£30K–£60K</td>
+								<td>AUD $50K–$100K</td>
+								<td class="col-shanghai">$11K–$28K</td>
+							</tr>
+							<tr>
+								<td><strong>Wait Time</strong></td>
+								<td>4–8 weeks</td>
+								<td>3–6 months</td>
+								<td>2–4 weeks</td>
+								<td>4–8 weeks</td>
+								<td class="col-shanghai">2–4 weeks</td>
+							</tr>
+							<tr>
+								<td><strong>Liver Surgery</strong></td>
+								<td>$100K–$200K</td>
+								<td>Free (wait 2–4 mo)</td>
+								<td>—</td>
+								<td>—</td>
+								<td class="col-shanghai">$8K–$22K</td>
+							</tr>
+							<tr>
+								<td><strong>Quality</strong></td>
+								<td>World-class</td>
+								<td>World-class</td>
+								<td>Good</td>
+								<td>Good</td>
+								<td class="col-shanghai">World-class</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="cta-strip">
+					<h3>30-Day Visa-Free Entry</h3>
+					<p>
+						Citizens of the US, UK, Canada, Australia, NZ, and most EU countries can fly to Shanghai —
+						no visa application, no embassy visit. Stay up to 30 days.
+					</p>
+					<a href="/blog/visa-free-pancreatic-cancer-surgery/">See the full cost breakdown →</a>
+				</div>
+			</section>
+
+			<!-- Section 4: Patient Journey -->
+			<section class="section section-alt">
+				<div style="max-width: 900px; margin: 0 auto;">
+					<div class="section-header">
+						<span class="section-tag">How It Works</span>
+					</div>
+					<h2>Your Journey to Treatment</h2>
+					<p class="section-intro">From first contact to flying home — a clear, guided process.</p>
+
+					<div class="process-steps">
+						<div class="step">
+							<span class="step-num">1</span>
+							<h4>Gather Records</h4>
+							<p>CT/MRI images, pathology report, blood work</p>
+						</div>
+						<div class="step">
+							<span class="step-num">2</span>
+							<h4>Remote Consult</h4>
+							<p>Video call with the surgical team. Preliminary opinion &amp; cost estimate.</p>
+						</div>
+						<div class="step">
+							<span class="step-num">3</span>
+							<h4>Book &amp; Fly</h4>
+							<p>30-day visa-free. Coordinator meets you at the airport.</p>
+						</div>
+						<div class="step">
+							<span class="step-num">4</span>
+							<h4>Surgery &amp; Recovery</h4>
+							<p>Pre-op workup in 2 days. Surgery. 2–3 week recovery.</p>
+						</div>
+						<div class="step">
+							<span class="step-num">5</span>
+							<h4>Fly Home</h4>
+							<p>English discharge summary. Remote follow-up with your local oncologist.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Section 5: Patient Stories -->
+			<section class="section">
+				<div class="section-header">
+					<span class="section-tag">Patient Guides</span>
+				</div>
+				<h2>In-Depth Resources</h2>
+				<p class="section-intro">Data-driven guides and real patient experiences.</p>
+
+				<div class="post-grid">
+					{posts.map((post) => (
+						<a href={`/blog/${post.id}/`} class="post-card">
+							{post.data.heroImage && (
+								<img src={post.data.heroImage} alt={post.data.title} />
+							)}
+							<div class="post-card-body">
+								<h4>{post.data.title}</h4>
+								<p>{post.data.description}</p>
+								<span class="post-card-date">
+									<FormattedDate date={post.data.pubDate} />
+								</span>
+							</div>
+						</a>
+					))}
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>

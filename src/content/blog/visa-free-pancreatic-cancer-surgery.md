@@ -1,13 +1,8 @@
 ---
-title: "China's 30-Day Visa-Free Policy Just Made Pancreatic Cancer Surgery Abroad Actually Feasible — Here's the Math"
+title: "China's 30-Day Visa-Free Policy Made Pancreatic Cancer Surgery Abroad Feasible"
 description: "A realistic breakdown of costs, wait times, and logistics for patients considering hepatobiliary-pancreatic surgery in Shanghai."
 pubDate: 2026-05-10
----
-
-# China's 30-Day Visa-Free Policy Just Made Pancreatic Cancer Surgery Abroad Actually Feasible — Here's the Math
-
-**A realistic breakdown of costs, wait times, and logistics for patients considering hepatobiliary-pancreatic surgery in Shanghai.**
-
+heroImage: "/images/hero-surgery.jpg"
 ---
 
 If you or someone you know has been diagnosed with pancreatic cancer, you already know the math doesn't add up.
