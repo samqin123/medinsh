@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://medinsh.com/sitemap-index.xml
