@@ -15,7 +15,13 @@ This article reviews both breakthroughs in detail — the toripalimab-AG regimen
 
 ## A Visual Overview
 
-![PAAG vs Toripalimab-AG Regimen Comparison](https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/PAAG_vs_TAG.png)
+The PAAG quadruplet regimen compared to the toripalimab-AG triplet approach:
+
+![PAAG vs Toripalimab-AG Key Data Comparison](https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/ChatGPT%20Image%202026%E5%B9%B45%E6%9C%8819%E6%97%A5%2015_20_03.png)
+
+Chinese-language comparison chart:
+
+![PAAG vs TAG 对比图表](https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/PAAG_vs_TAG.png)
 
 ---
 
