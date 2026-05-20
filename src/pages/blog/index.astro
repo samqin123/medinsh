@@ -76,6 +76,9 @@ const categories = ['All', 'Clinical Trials', 'Patient Guides', 'Research', 'New
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
+			ul li.hidden {
+				display: none;
+			}
 			.card {
 				display: block;
 				background: white;
@@ -129,6 +132,14 @@ const categories = ['All', 'Clinical Trials', 'Patient Guides', 'Research', 'New
 				-webkit-box-orient: vertical;
 				overflow: hidden;
 			}
+			.no-results {
+				grid-column: 1 / -1;
+				text-align: center;
+				padding: 3em 1em;
+				color: rgb(var(--gray));
+				font-size: 1.1em;
+				display: none;
+			}
 			@media (max-width: 720px) {
 				ul {
 					grid-template-columns: 1fr;
@@ -146,15 +157,15 @@ const categories = ['All', 'Clinical Trials', 'Patient Guides', 'Research', 'New
 				<p>Clinical research, patient guides, and the latest developments in cancer treatment in China</p>
 			</div>
 
-			<div class="category-filters">
+			<div class="category-filters" id="filters">
 				{categories.map((cat) => (
-					<span class="category-btn active">{cat}</span>
+					<button class="category-btn" data-filter={cat}>{cat}</button>
 				))}
 			</div>
 
-			<ul>
+			<ul id="post-list">
 				{posts.map((post) => (
-					<li>
+					<li data-category={post.data.category}>
 						<a href={`/blog/${post.id}/`} class="card">
 							{post.data.heroImage && (
 								<img src={post.data.heroImage} alt={post.data.title} />
@@ -170,8 +181,59 @@ const categories = ['All', 'Clinical Trials', 'Patient Guides', 'Research', 'New
 						</a>
 					</li>
 				))}
+				<li class="no-results" id="no-results">No articles found in this category.</li>
 			</ul>
 		</main>
 		<Footer />
+
+		<script>
+			function initFilters() {
+				const filters = document.getElementById('filters');
+				const list = document.getElementById('post-list');
+				const noResults = document.getElementById('no-results');
+				if (!filters || !list || !noResults) return;
+
+				const buttons = filters.querySelectorAll('.category-btn');
+				const items = list.querySelectorAll('li[data-category]');
+
+				// Set "All" as active by default
+				buttons.forEach(btn => {
+					if (btn.getAttribute('data-filter') === 'All') {
+						btn.classList.add('active');
+					}
+				});
+
+				filters.addEventListener('click', (e) => {
+					const btn = e.target.closest('.category-btn');
+					if (!btn) return;
+
+					const filter = btn.getAttribute('data-filter');
+
+					// Update active button
+					buttons.forEach(b => b.classList.remove('active'));
+					btn.classList.add('active');
+
+					// Filter posts
+					let visibleCount = 0;
+					items.forEach(item => {
+						const cat = item.getAttribute('data-category');
+						if (filter === 'All' || cat === filter) {
+							item.classList.remove('hidden');
+							visibleCount++;
+						} else {
+							item.classList.add('hidden');
+						}
+					});
+
+					// Show/hide no-results message
+					noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+				});
+			}
+
+			// Run on page load
+			initFilters();
+			// Also re-init if Astro does a client-side navigation
+			document.addEventListener('astro:page-load', initFilters);
+		</script>
 	</body>
 </html>
