@@ -3,6 +3,7 @@ title: "Two Breakthroughs in Pancreatic Cancer: The Toripalimab-AG and PAAG Regi
 description: "A comprehensive comparison of two pioneering Chinese regimens for advanced pancreatic cancer: the 2021 toripalimab-AG triplet (Prof. Cao Dan) and the 2026 ASCO PAAG quadruplet (Prof. Du Juan) — tracing the evolution of immunotherapy combination strategies."
 pubDate: 2026-05-19
 heroImage: "https://picgo-1302991947.cos.ap-guangzhou.myqcloud.com/images/ChatGPT%20Image%202026%E5%B9%B45%E6%9C%8819%E6%97%A5%2015_20_03.png"
+category: Research
 ---
 
 Pancreatic ductal adenocarcinoma (PDAC) has long been known as the "king of cancers" — a disease that resists treatment, evades the immune system, and claims lives with a five-year survival rate below 13%. For years, systemic therapy for advanced pancreatic cancer was limited to gemcitabine-based or FOLFIRINOX chemotherapy regimens, with survival gains measured in weeks.

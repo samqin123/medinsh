@@ -3,6 +3,7 @@ title: "UK Patient Waited 6 Months — Flew to Shanghai, Had Surgery in 2 Weeks"
 description: "How China's visa-free policy is opening a door for pancreatic cancer patients who can't afford to wait — or to pay."
 pubDate: 2026-05-10
 heroImage: "/images/doctor-consultation.jpg"
+category: Patient Guides
 ---
 
 David Richardson was 62 when his GP referred him to a specialist in Manchester. The CT scan showed a 2.8cm mass on the head of his pancreas. The specialist said surgery was possible — a Whipple procedure — but it would take time. NHS referral, staging workup, multidisciplinary team review, surgical scheduling.

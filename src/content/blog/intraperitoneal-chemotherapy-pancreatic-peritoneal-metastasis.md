@@ -3,6 +3,7 @@ title: "Intraperitoneal Chemotherapy for Pancreatic Cancer Peritoneal Metastasis
 description: "Three intraperitoneal chemotherapy strategies for pancreatic cancer that has spread to the peritoneum — what they are, survival data, risks, and which patients might benefit."
 pubDate: 2026-05-21
 heroImage: "/images/surgery-team.jpg"
+category: Clinical Trials
 ---
 
 When pancreatic cancer spreads to the peritoneum — the lining of the abdominal cavity — it presents one of oncology's most formidable challenges. Standard intravenous chemotherapy has limited penetration into the abdominal cavity, and the prognosis is grim: median survival of just 3–6 months without treatment, 9–11 months with aggressive chemotherapy.

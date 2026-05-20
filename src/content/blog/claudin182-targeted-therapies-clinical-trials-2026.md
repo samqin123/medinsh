@@ -3,6 +3,7 @@ title: "Claudin18.2 Targeted Therapies: A Complete Guide to Drugs and Clinical T
 description: "From CT041 CAR-T to Zolbetuximab — a comprehensive look at all Claudin18.2-targeted drugs in development, clinical trial status, efficacy data, and what international patients should know."
 pubDate: 2026-05-21
 heroImage: "/images/medical-tech.jpg"
+category: Clinical Trials
 ---
 
 Claudin18.2 — a tight junction protein normally found in stomach lining — has emerged as one of the most promising targets in oncology. When tumors overexpress this protein, it becomes an ideal surface marker for precision therapies: CAR-T cells, antibody-drug conjugates (ADCs), monoclonal antibodies, and bispecific antibodies.

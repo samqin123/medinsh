@@ -3,6 +3,7 @@ title: "Clinical Trials Overview: mRNA Cancer Vaccines and Cell Therapies in Chi
 description: "A comprehensive guide to active clinical trials in China for mRNA vaccines and immune cell therapies targeting solid tumors — including pancreatic cancer, KRAS-mutant cancers, and more. What international patients need to know."
 pubDate: 2025-05-21
 heroImage: "/images/mrna-tumor-vaccine-clinical-trials.jpg"
+category: Clinical Trials
 ---
 
 China is rapidly becoming a global hub for next-generation cancer immunotherapy. With over a dozen active clinical trials for mRNA vaccines and immune cell therapies (TCR-T, CAR-T, adoptive cell therapy), Chinese oncology centers are offering access to cutting-edge treatments that are still years away from commercial availability in many Western countries.

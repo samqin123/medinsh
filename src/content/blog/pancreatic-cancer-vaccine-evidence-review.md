@@ -3,6 +3,7 @@ title: "Pancreatic Cancer Therapeutic Vaccines: Evidence Review of 7 Projects (2
 description: "Deep evidence grading of 7 pancreatic cancer vaccine projects — Neo-P DC, WT1 DC, PCNAT-01, P01, LK101, XH001, RGL-270. What the data actually shows vs. what's marketing."
 pubDate: 2026-05-11
 heroImage: "/images/medical-tech.jpg"
+category: Research
 ---
 
 Pancreatic cancer (PDAC) is one of the hardest cancers to treat. Five-year survival sits around 9–12% globally. But a new wave of therapeutic vaccines — designed to train the patient's own immune system to recognize and attack tumor cells — is generating real hope. And real hype.

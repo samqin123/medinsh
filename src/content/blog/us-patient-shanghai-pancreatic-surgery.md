@@ -3,6 +3,7 @@ title: "US vs. Shanghai: A Cost Comparison for Pancreatic Cancer Surgery"
 description: "Why some American patients are choosing Shanghai for pancreatic cancer surgery—and the data behind the decision."
 pubDate: 2026-05-13
 heroImage: "/images/cost-comparison.jpg"
+category: Patient Guides
 ---
 
 In the United States, a pancreatic cancer diagnosis often brings two devastating pieces of news: you need surgery immediately, and you may not be able to afford it.

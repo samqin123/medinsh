@@ -3,6 +3,7 @@ title: "A Brazilian Doctor Told Him: 'Go to Shanghai — That's Where the Best S
 description: "How a Chinese-Brazilian patient flew 20,000 km from São Paulo to Ruijin Hospital for a robotic Whipple procedure — and why his Brazilian surgeon recommended it."
 pubDate: 2026-05-11
 heroImage: "/images/ruijin-jin-jiabin-consult.jpg"
+category: Patient Guides
 ---
 
 Mr. Lin had lived in Brazil for over two decades. At 52, he noticed his skin and eyes turning yellow, his urine dark as strong tea, and weight falling off him despite eating normally.

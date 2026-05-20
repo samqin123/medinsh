@@ -3,6 +3,7 @@ title: "From Follower to Leader: Ruijin Hospital Achieves 21.2% Five-Year Surviv
 description: "How Ruijin Hospital's Pancreatic Disease Center became a global benchmark — 30,000+ cases treated, 21.2% 5-year survival (vs 9-12% global average), 4,000+ robotic surgeries, and China's first voice in the ESMO Asia-Pacific Consensus."
 pubDate: 2026-05-11
 heroImage: "/images/ruijin-surgery-shen.jpg"
+category: Research
 ---
 
 During China's National Cancer Prevention Week, the international journal *ESMO Gastrointestinal Oncology* published the **Pancreatic Cancer Systemic Therapy Asia-Pacific Expert Consensus** — and at its center was one Chinese institution: **Ruijin Hospital**.

@@ -3,6 +3,7 @@ title: "Pancreatic Cancer Surgery in Shanghai: What International Patients Need 
 description: "A disease-focused guide to hepatobiliary-pancreatic oncology in Shanghai — hospitals, surgeons, techniques, and what the data actually says."
 pubDate: 2026-05-10
 heroImage: "/images/surgery-team.jpg"
+category: Patient Guides
 ---
 
 Pancreatic cancer is one of the hardest diagnoses in medicine. The 5-year survival rate globally sits around 12%. Most patients are diagnosed at stage III or IV, when curative surgery is no longer an option.

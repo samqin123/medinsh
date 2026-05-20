@@ -14,6 +14,7 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(z.string()),
+			category: z.enum(['Clinical Trials', 'Patient Guides', 'Research', 'News']).default('Clinical Trials'),
 		}),
 });
 

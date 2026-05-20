@@ -3,6 +3,7 @@ title: "Alibaba's DAMO PANDA: First AI Model to Receive FDA 'Breakthrough Device
 description: "Alibaba DAMO Academy's AI model can detect pancreatic cancer from routine CT scans with 92.9% sensitivity and 99.9% specificity — years before symptoms appear. Now FDA-recognized as a breakthrough medical device."
 pubDate: 2026-05-11
 heroImage: "/images/medical-tech.jpg"
+category: News
 ---
 
 On April 17, 2025, the U.S. Food and Drug Administration (FDA) granted **"Breakthrough Medical Device"** designation to **DAMO PANDA** — an AI model developed by Alibaba's DAMO Academy for pancreatic cancer screening. This is the first time a large AI model has received this recognition from the FDA.

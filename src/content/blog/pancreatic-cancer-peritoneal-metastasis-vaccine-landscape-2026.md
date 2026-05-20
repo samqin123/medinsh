@@ -3,6 +3,7 @@ title: "Pancreatic Cancer Peritoneal Metastasis: The Vaccine Landscape in 2026"
 description: "A comprehensive review of cancer vaccine clinical trials for pancreatic peritoneal metastasis — efficacy data, combination strategies, targeted therapies, and what patients should do today."
 pubDate: 2026-05-21
 heroImage: "/images/medical-tech.jpg"
+category: Research
 ---
 
 Pancreatic cancer is the most lethal solid tumor in the world. Its five-year survival rate has hovered around **13%** for decades — one of the worst outcomes among all major cancers. For the subset of patients whose disease has spread to the peritoneum — the thin membrane lining the abdominal cavity — the numbers are even more brutal.

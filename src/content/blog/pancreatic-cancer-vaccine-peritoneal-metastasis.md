@@ -3,6 +3,7 @@ title: "Pancreatic Cancer Peritoneal Metastasis: The Vaccine Landscape in 2026"
 description: "A comprehensive review of clinical trials, efficacy data, and what it means for patients with peritoneal metastasis today."
 pubDate: 2026-05-21
 heroImage: "/images/mrna-tumor-vaccine-clinical-trials.jpg"
+category: Research
 ---
 
 # Pancreatic Cancer Peritoneal Metastasis: The Vaccine Landscape in 2026
