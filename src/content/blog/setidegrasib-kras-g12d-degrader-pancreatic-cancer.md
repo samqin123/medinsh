@@ -2,7 +2,7 @@
 title: "First KRAS G12D Protein Degrader Shows Promise in Pancreatic Cancer — NEJM Phase 1 Data (2026)"
 description: "Setidegrasib achieves 95.5% KRAS G12D protein degradation in pancreatic cancer. NEJM Phase 1 trial results and what they mean for PDAC patients."
 pubDate: 2026-05-21
-heroImage: "/images/immunotherapy-cells.jpg"
+heroImage: "/images/immunotherapy-treatment.jpg"
 category: "Clinical Trials"
 ---
 

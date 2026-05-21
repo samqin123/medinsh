@@ -2,7 +2,7 @@
 title: "Daraxonrasib (RMC-6236): A Breakthrough Pan-RAS Inhibitor for Pancreatic Cancer"
 description: "Phase 1-2 data shows daraxonrasib achieves 35% ORR and 13.1-month OS in heavily pre-treated RAS-mutant pancreatic cancer — 3-4x better response than chemotherapy. Published in NEJM 2026."
 pubDate: 2026-05-21
-heroImage: "/images/targeted-therapy-pills.jpg"
+heroImage: "/images/clinical-trial-pills.jpg"
 category: "Clinical Trials"
 ---
 

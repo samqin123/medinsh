@@ -2,7 +2,7 @@
 title: "Intraperitoneal Chemotherapy for Pancreatic Cancer Peritoneal Metastasis: CRS+HIPEC, NIPEC, and PIPAC Explained"
 description: "Three intraperitoneal chemotherapy strategies for pancreatic cancer that has spread to the peritoneum — what they are, survival data, risks, and which patients might benefit."
 pubDate: 2026-05-21
-heroImage: "/images/hospital-modern-corridor.jpg"
+heroImage: "/images/surgical-team-operating.jpg"
 category: Clinical Trials
 ---
 

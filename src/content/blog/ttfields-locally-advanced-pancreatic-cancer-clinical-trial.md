@@ -2,7 +2,7 @@
 title: "Tumor Treating Fields (TTFields) for Locally Advanced Pancreatic Cancer: A New Clinical Trial in Shanghai"
 description: "Fudan Zhongshan Hospital is recruiting for a Phase II trial combining TTFields with AG chemotherapy for locally advanced pancreatic cancer — a non-invasive approach now included in NCCN guidelines."
 pubDate: 2026-05-21
-heroImage: "/images/medical-imaging-scan.jpg"
+heroImage: "/images/medical-imaging-radiology.jpg"
 category: Clinical Trials
 ---
 
