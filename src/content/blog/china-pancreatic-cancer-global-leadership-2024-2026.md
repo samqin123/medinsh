@@ -2,7 +2,7 @@
 title: "China's Global Leadership in Pancreatic Cancer: A 2024-2026 Deep Dive"
 description: "From heavy ion therapy to robotic surgery to KRAS inhibitors — how China went from follower to leader in pancreatic cancer treatment. A comprehensive report on breakthroughs, survival rates, and next-generation drugs."
 pubDate: 2026-05-11
-heroImage: "/images/fudan-hospital.jpg"
+heroImage: "/images/shanghai-hospital.jpg"
 category: Research
 ---
 

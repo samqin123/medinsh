@@ -2,7 +2,7 @@
 title: "US vs. Shanghai: A Cost Comparison for Pancreatic Cancer Surgery"
 description: "Why some American patients are choosing Shanghai for pancreatic cancer surgery—and the data behind the decision."
 pubDate: 2026-05-13
-heroImage: "/images/cost-comparison.jpg"
+heroImage: "/images/doctor-consultation.jpg"
 category: Patient Guides
 ---
 

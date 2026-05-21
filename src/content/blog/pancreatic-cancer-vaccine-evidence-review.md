@@ -2,7 +2,7 @@
 title: "Pancreatic Cancer Therapeutic Vaccines: Evidence Review of 7 Projects (2026)"
 description: "Deep evidence grading of 7 pancreatic cancer vaccine projects — Neo-P DC, WT1 DC, PCNAT-01, P01, LK101, XH001, RGL-270. What the data actually shows vs. what's marketing."
 pubDate: 2026-05-11
-heroImage: "/images/medical-tech.jpg"
+heroImage: "/images/cancer-research-microscope.jpg"
 category: Research
 ---
 

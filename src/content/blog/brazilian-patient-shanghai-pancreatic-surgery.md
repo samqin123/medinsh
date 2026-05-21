@@ -2,7 +2,7 @@
 title: "A Brazilian Doctor Told Him: 'Go to Shanghai — That's Where the Best Surgeons Are'"
 description: "How a Chinese-Brazilian patient flew 20,000 km from São Paulo to Ruijin Hospital for a robotic Whipple procedure — and why his Brazilian surgeon recommended it."
 pubDate: 2026-05-11
-heroImage: "/images/ruijin-jin-jiabin-consult.jpg"
+heroImage: "/images/patient-care.jpg"
 category: Patient Guides
 ---
 

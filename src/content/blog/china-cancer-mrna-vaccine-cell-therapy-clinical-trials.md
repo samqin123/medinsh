@@ -2,7 +2,7 @@
 title: "Clinical Trials Overview: mRNA Cancer Vaccines and Cell Therapies in China (2025)"
 description: "A comprehensive guide to active clinical trials in China for mRNA vaccines and immune cell therapies targeting solid tumors — including pancreatic cancer, KRAS-mutant cancers, and more. What international patients need to know."
 pubDate: 2025-05-21
-heroImage: "/images/mrna-tumor-vaccine-clinical-trials.jpg"
+heroImage: "/images/cancer-research-microscope.jpg"
 category: Clinical Trials
 ---
 

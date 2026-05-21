@@ -2,7 +2,7 @@
 title: "Claudin18.2 Targeted Therapies: A Complete Guide to Drugs and Clinical Trials for Gastric and Pancreatic Cancer (2026)"
 description: "From CT041 CAR-T to Zolbetuximab — a comprehensive look at all Claudin18.2-targeted drugs in development, clinical trial status, efficacy data, and what international patients should know."
 pubDate: 2026-05-21
-heroImage: "/images/medical-tech.jpg"
+heroImage: "/images/dna-molecule-abstract.jpg"
 category: Clinical Trials
 ---
 

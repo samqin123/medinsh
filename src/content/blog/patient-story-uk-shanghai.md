@@ -2,7 +2,7 @@
 title: "UK Patient Waited 6 Months — Flew to Shanghai, Had Surgery in 2 Weeks"
 description: "How China's visa-free policy is opening a door for pancreatic cancer patients who can't afford to wait — or to pay."
 pubDate: 2026-05-10
-heroImage: "/images/doctor-consultation.jpg"
+heroImage: "/images/ruijin-jin-jiabin-consult.jpg"
 category: Patient Guides
 ---
 

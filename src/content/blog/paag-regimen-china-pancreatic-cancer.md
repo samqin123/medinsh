@@ -2,7 +2,7 @@
 title: "The PAAG Regimen: A Chinese Innovation Redefining First-Line Treatment for Advanced Pancreatic Cancer"
 description: "A quadruplet regimen combining penpulimab, anlotinib, nab-paclitaxel, and gemcitabine extends median PFS to 7.7 months in metastatic pancreatic cancer — a 71% improvement over standard AG chemotherapy."
 pubDate: 2026-05-18
-heroImage: "/images/fudan-hospital.jpg"
+heroImage: "/images/targeted-therapy-pills.jpg"
 category: Research
 ---
 
