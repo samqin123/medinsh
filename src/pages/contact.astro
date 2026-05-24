@@ -1,0 +1,92 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Contact MedInSh — Request a Case Navigation Call"
+			description="Contact MedInSh to request a remote case review, ask about Shanghai hospitals, or discuss next-step medical travel logistics."
+		/>
+		<style>
+			.content {
+				max-width: 760px;
+				margin: 0 auto;
+				padding: 3rem 0;
+			}
+			.hero {
+				background: linear-gradient(135deg, var(--accent-light), #f0fdf4);
+				border-radius: 16px;
+				padding: 2.5rem 2rem;
+				margin-bottom: 2rem;
+			}
+			.hero h1 {
+				margin: 0 0 0.5rem;
+				font-size: 2.2rem;
+			}
+			.hero p {
+				margin: 0;
+				color: rgb(var(--gray-dark));
+				line-height: 1.6;
+			}
+			.card {
+				background: white;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 12px;
+				padding: 1.5rem;
+				margin-bottom: 1.25rem;
+			}
+			.card h2 {
+				margin-top: 0;
+				font-size: 1.35rem;
+			}
+			.links {
+				display: grid;
+				gap: 0.75rem;
+			}
+			.links a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.8rem 1.1rem;
+				border-radius: 8px;
+				background: var(--accent);
+				color: white;
+				text-decoration: none;
+				font-weight: 700;
+			}
+			.links a.secondary {
+				background: transparent;
+				color: var(--accent-dark);
+				border: 1px solid var(--accent);
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main class="content">
+			<section class="hero">
+				<h1>Contact MedInSh</h1>
+				<p>Request a remote case review, ask about hospital options, or discuss medical travel planning for Shanghai.</p>
+			</section>
+			<section class="card">
+				<h2>How to reach us</h2>
+				<p>Email: hello@medinsh.com</p>
+				<p>Telegram: <a href="https://t.me/medinsh01" target="_blank" rel="noopener">@medinsh01</a></p>
+				<p>WeChat: use the QR code in the footer</p>
+			</section>
+			<section class="card">
+				<h2>Next step</h2>
+				<p>Use one of the options below to start the intake flow.</p>
+				<div class="links">
+					<a href="/">Request a Free 15-Minute Case Navigation Call</a>
+					<a href="/medical-travel" class="secondary">Read the travel guide first</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

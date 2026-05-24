@@ -56,6 +56,11 @@ const posts = (await getCollection('blog')).sort(
 				max-width: 600px;
 				line-height: 1.6;
 			}
+			.hero-actions {
+				display: flex;
+				gap: 0.9rem;
+				flex-wrap: wrap;
+			}
 			.hero-btn {
 				display: inline-block;
 				padding: 0.75em 2em;
@@ -67,10 +72,17 @@ const posts = (await getCollection('blog')).sort(
 				font-size: 1em;
 				transition: background 0.2s, transform 0.15s;
 			}
+			.hero-btn.secondary {
+				background: transparent;
+				border: 1px solid rgba(255, 255, 255, 0.85);
+			}
 			.hero-btn:hover {
 				background: var(--accent-dark);
 				color: white;
 				transform: translateY(-2px);
+			}
+			.hero-btn.secondary:hover {
+				background: rgba(255, 255, 255, 0.12);
 			}
 
 			/* ===== Stats bar ===== */
@@ -382,7 +394,10 @@ const posts = (await getCollection('blog')).sort(
 							Access world-class hepatobiliary-pancreatic care at Shanghai's leading university hospitals.
 							Performed by surgeons who do 2,000+ of these procedures a year — at a fraction of the cost.
 						</p>
-						<a href="/blog" class="hero-btn">Read Our Patient Guides</a>
+						<div class="hero-actions">
+							<a href="/contact" class="hero-btn">Request a Remote Case Review</a>
+							<a href="/medical-travel" class="hero-btn secondary">Get a Cost Estimate</a>
+						</div>
 					</div>
 				</div>
 			</section>
