@@ -17,6 +17,25 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/insurance">Insurance</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav>
+		<h2><a href="/"><img src="/images/logo.png" alt="MedInSh" class="logo-img" /></a></h2>
+		<div class="internal-links">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/hospitals">Hospitals</HeaderLink>
+			<HeaderLink href="/doctors">Surgeons</HeaderLink>
+			<HeaderLink href="/research">Research</HeaderLink>
+			<HeaderLink href="/clinical-trials">Clinical Trials</HeaderLink>
+			<HeaderLink href="/blog">Insights</HeaderLink>
+			<HeaderLink href="/medical-travel">Medical Travel</HeaderLink>
+			<HeaderLink href="/insurance">Insurance</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
 		<div class="social-links">
 			<a href="https://facebook.com/" target="_blank" rel="noopener">
 				<span class="sr-only">Facebook</span>
@@ -49,6 +68,7 @@ import HeaderLink from './HeaderLink.astro';
 		padding: 0 1em;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		overflow: visible;
 	}
 	h2 {
 		margin: 0;
@@ -75,6 +95,7 @@ import HeaderLink from './HeaderLink.astro';
 		justify-content: space-between;
 		gap: 1rem;
 		flex-wrap: nowrap;
+		overflow: visible;
 	}
 	.internal-links {
 		display: flex;
@@ -95,6 +116,7 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
+		overflow: visible;
 	}
 	.social-links a,
 	.social-wechat {
@@ -110,8 +132,7 @@ import HeaderLink from './HeaderLink.astro';
 	.wechat-popup {
 		display: none;
 		position: absolute;
-		top: auto;
-		bottom: calc(100% + 12px);
+		top: calc(100% + 12px);
 		right: 0;
 		background: white;
 		border: 1px solid rgb(var(--gray-light));
@@ -161,7 +182,8 @@ import HeaderLink from './HeaderLink.astro';
 		h2 a {
 			padding: 0.5rem 0;
 		}
-	}</style>
+	}
+</style>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
@@ -169,14 +191,168 @@ import HeaderLink from './HeaderLink.astro';
 		const popup = document.getElementById('wechat-popup');
 		if (!btn || !popup) return;
 
-		btn.addEventListener('click', (e) => {
+		const toggle = (e) => {
 			e.preventDefault();
 			e.stopPropagation();
 			popup.classList.toggle('show');
+		};
+
+		btn.addEventListener('click', toggle);
+		btn.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ') toggle(e);
 		});
 
 		document.addEventListener('click', (e) => {
-			if (!popup.contains(e.target) && e.target !== btn) {
+			if (!popup.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+				popup.classList.remove('show');
+			}
+		});
+	});
+</script>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: white;
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		overflow: visible;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+	}
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+	}
+	.logo-img {
+		display: block;
+		width: clamp(56px, 5vw, 74px);
+		height: auto;
+		max-height: 74px;
+		object-fit: contain;
+		border-radius: 6px;
+		flex-shrink: 0;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: nowrap;
+		overflow: visible;
+	}
+	.internal-links {
+		display: flex;
+		flex: 1 1 auto;
+		justify-content: center;
+		gap: 1rem;
+		min-width: 0;
+		flex-wrap: nowrap;
+		overflow: hidden;
+	}
+	.internal-links :global(a) {
+		white-space: nowrap;
+		font-size: 1.05rem;
+		font-weight: 600;
+		letter-spacing: 0.01em;
+	}
+	.social-links {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		overflow: visible;
+	}
+	.social-links a,
+	.social-wechat {
+		display: flex;
+		align-items: center;
+		text-decoration: none;
+		color: inherit;
+	}
+	.social-wechat {
+		cursor: pointer;
+		position: relative;
+	}
+	.wechat-popup {
+		display: none;
+		position: absolute;
+		top: calc(100% + 12px);
+		right: 0;
+		background: white;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 10px;
+		box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+		padding: 1.2em;
+		z-index: 1000;
+		text-align: center;
+		min-width: 220px;
+	}
+	.wechat-popup.show {
+		display: block;
+	}
+	.wechat-popup-inner p {
+		margin: 0 0 0.8em;
+		font-size: 0.9em;
+		color: rgb(var(--gray-dark));
+	}
+	.wechat-popup-inner img {
+		border-radius: 8px;
+		margin-bottom: 0.5em;
+	}
+	.wechat-hint {
+		font-size: 0.8em !important;
+		color: rgb(var(--gray)) !important;
+		margin: 0 !important;
+	}
+	@media (max-width: 1150px) {
+		nav {
+			flex-wrap: wrap;
+		}
+		.internal-links {
+			order: 3;
+			width: 100%;
+			justify-content: flex-start;
+			overflow-x: auto;
+			padding-bottom: 0.25rem;
+		}
+	}
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+		.internal-links {
+			display: none;
+		}
+		h2 a {
+			padding: 0.5rem 0;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const btn = document.getElementById('wechat-btn');
+		const popup = document.getElementById('wechat-popup');
+		if (!btn || !popup) return;
+
+		const toggle = (e) => {
+			e.preventDefault();
+			e.stopPropagation();
+			popup.classList.toggle('show');
+		};
+
+		btn.addEventListener('click', toggle);
+		btn.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter' || e.key === ' ') toggle(e);
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!popup.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
 				popup.classList.remove('show');
 			}
 		});
