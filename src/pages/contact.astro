@@ -8,14 +8,14 @@ import Header from '../components/Header.astro';
 <html lang="en">
 	<head>
 		<BaseHead
-			title="Contact MedInSh — Request a Case Navigation Call"
-			description="Contact MedInSh to request a remote case review, ask about Shanghai hospitals, or discuss next-step medical travel logistics."
+			title="Patient Registration — MedInSh"
+			description="Submit a short patient registration summary to MedInSh for remote case review, hospital matching, and next-step medical travel planning."
 		/>
 		<style>
 			.content {
-				max-width: 760px;
+				max-width: 860px;
 				margin: 0 auto;
-				padding: 3rem 0;
+				padding: 3rem 1rem;
 			}
 			.hero {
 				background: linear-gradient(135deg, var(--accent-light), #f0fdf4);
@@ -43,25 +43,84 @@ import Header from '../components/Header.astro';
 				margin-top: 0;
 				font-size: 1.35rem;
 			}
-			.links {
+			.contact-list {
 				display: grid;
-				gap: 0.75rem;
+				gap: 0.5rem;
+				margin: 0;
 			}
-			.links a {
+			.registration-form {
+				display: grid;
+				gap: 1rem;
+			}
+			.form-grid {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 1rem;
+			}
+			.form-field {
+				display: grid;
+				gap: 0.4rem;
+			}
+			.form-field.full {
+				grid-column: 1 / -1;
+			}
+			label {
+				font-weight: 700;
+				color: rgb(var(--gray-dark));
+			}
+			input,
+			select,
+			textarea {
+				width: 100%;
+				box-sizing: border-box;
+				border: 1px solid rgb(var(--gray-light));
+				border-radius: 8px;
+				padding: 0.75rem 0.85rem;
+				font: inherit;
+				background: white;
+				color: rgb(var(--black));
+			}
+			textarea {
+				min-height: 140px;
+				resize: vertical;
+			}
+			.helper {
+				margin: 0;
+				font-size: 0.9rem;
+				color: rgb(var(--gray));
+				line-height: 1.5;
+			}
+			.consent {
+				display: flex;
+				align-items: flex-start;
+				gap: 0.6rem;
+				font-weight: 400;
+				line-height: 1.5;
+			}
+			.consent input {
+				width: auto;
+				margin-top: 0.25rem;
+			}
+			.submit-btn {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				padding: 0.8rem 1.1rem;
+				border: 0;
 				border-radius: 8px;
+				padding: 0.9rem 1.2rem;
 				background: var(--accent);
 				color: white;
-				text-decoration: none;
+				font: inherit;
 				font-weight: 700;
+				cursor: pointer;
 			}
-			.links a.secondary {
-				background: transparent;
-				color: var(--accent-dark);
-				border: 1px solid var(--accent);
+			.submit-btn:hover {
+				background: var(--accent-dark);
+			}
+			@media (max-width: 720px) {
+				.form-grid {
+					grid-template-columns: 1fr;
+				}
 			}
 		</style>
 	</head>
@@ -69,22 +128,81 @@ import Header from '../components/Header.astro';
 		<Header />
 		<main class="content">
 			<section class="hero">
-				<h1>Contact MedInSh</h1>
-				<p>Request a remote case review, ask about hospital options, or discuss medical travel planning for Shanghai.</p>
+				<h1>Patient Registration</h1>
+				<p>Share a short case summary so MedInSh can understand your situation and suggest the next step for remote review, hospital matching, or medical travel planning.</p>
 			</section>
+
 			<section class="card">
 				<h2>How to reach us</h2>
-				<p>Email: hello@medinsh.com</p>
-				<p>Telegram: <a href="https://t.me/medinsh01" target="_blank" rel="noopener">@medinsh01</a></p>
-				<p>WeChat: use the QR code in the footer</p>
-			</section>
-			<section class="card">
-				<h2>Next step</h2>
-				<p>Use one of the options below to start the intake flow.</p>
-				<div class="links">
-					<a href="/">Request a Free 15-Minute Case Navigation Call</a>
-					<a href="/medical-travel" class="secondary">Read the travel guide first</a>
+				<div class="contact-list">
+					<p>Email: <a href="mailto:service@medinsh.asia">service@medinsh.asia</a></p>
+					<p>Telegram: <a href="https://t.me/medinsh01" target="_blank" rel="noopener">@medinsh01</a></p>
+					<p>WeChat: use the QR code in the header or footer</p>
 				</div>
+			</section>
+
+			<section class="card">
+				<h2>Registration summary</h2>
+				<p class="helper">Please do not submit emergency requests through this form. For urgent symptoms, contact local emergency services or your treating physician.</p>
+				<form class="registration-form" action="https://formspree.io/f/xqejlvga" method="POST">
+					<input type="hidden" name="_subject" value="New MedInSh patient registration" />
+					<div class="form-grid">
+						<div class="form-field">
+							<label for="patient-name">Patient name</label>
+							<input id="patient-name" type="text" name="patient_name" autocomplete="name" required />
+						</div>
+						<div class="form-field">
+							<label for="email">Email</label>
+							<input id="email" type="email" name="email" autocomplete="email" required />
+						</div>
+						<div class="form-field">
+							<label for="country">Country / Region</label>
+							<input id="country" type="text" name="country_region" autocomplete="country-name" />
+						</div>
+						<div class="form-field">
+							<label for="messenger">WhatsApp / Telegram / WeChat</label>
+							<input id="messenger" type="text" name="messenger_contact" placeholder="Include country code or username" />
+						</div>
+						<div class="form-field">
+							<label for="diagnosis">Diagnosis</label>
+							<input id="diagnosis" type="text" name="diagnosis" placeholder="e.g. pancreatic cancer, suspected PDAC" />
+						</div>
+						<div class="form-field">
+							<label for="stage">Current stage / status</label>
+							<input id="stage" type="text" name="current_stage_status" placeholder="e.g. newly diagnosed, post-surgery, metastatic" />
+						</div>
+						<div class="form-field">
+							<label for="goal">Primary goal</label>
+							<select id="goal" name="primary_goal">
+								<option value="">Select one</option>
+								<option value="Remote case review">Remote case review</option>
+								<option value="Hospital or surgeon matching">Hospital or surgeon matching</option>
+								<option value="Clinical trial options">Clinical trial options</option>
+								<option value="Medical travel planning">Medical travel planning</option>
+								<option value="Cost estimate">Cost estimate</option>
+							</select>
+						</div>
+						<div class="form-field">
+							<label for="timeline">Preferred timeline</label>
+							<select id="timeline" name="preferred_timeline">
+								<option value="">Select one</option>
+								<option value="As soon as possible">As soon as possible</option>
+								<option value="Within 2 weeks">Within 2 weeks</option>
+								<option value="Within 1 month">Within 1 month</option>
+								<option value="Exploring options only">Exploring options only</option>
+							</select>
+						</div>
+						<div class="form-field full">
+							<label for="message">Case summary</label>
+							<textarea id="message" name="message" required placeholder="Briefly describe the diagnosis, major test results, treatments already received, current symptoms, and what you want help with."></textarea>
+						</div>
+					</div>
+					<label class="consent" for="consent">
+						<input id="consent" type="checkbox" name="consent" value="I consent to be contacted by MedInSh about this inquiry" required />
+						<span>I understand this form is for information and coordination only, not medical diagnosis or emergency care. I agree to be contacted by MedInSh about this inquiry.</span>
+					</label>
+					<button class="submit-btn" type="submit">Submit Registration</button>
+				</form>
 			</section>
 		</main>
 		<Footer />
