@@ -110,7 +110,8 @@ import HeaderLink from './HeaderLink.astro';
 	.wechat-popup {
 		display: none;
 		position: absolute;
-		top: calc(100% + 12px);
+		top: auto;
+		bottom: calc(100% + 12px);
 		right: 0;
 		background: white;
 		border: 1px solid rgb(var(--gray-light));
@@ -160,8 +161,7 @@ import HeaderLink from './HeaderLink.astro';
 		h2 a {
 			padding: 0.5rem 0;
 		}
-	}
-</style>
+	}</style>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
