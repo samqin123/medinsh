@@ -6,6 +6,9 @@ dist/
 # dependencies
 node_modules/
 
+# project-local Claude instructions
+CLAUDE.md
+
 # article source materials
 article/
 
