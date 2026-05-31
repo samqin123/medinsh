@@ -1,0 +1,88 @@
+<script>
+	import {
+		trackEngagedRead,
+		trackEvent,
+		trackGuideView,
+		trackOutboundClick,
+		trackPageView,
+	} from '../lib/analytics';
+
+	const ENGAGED_READ_THRESHOLD_MS = 45_000;
+	let currentPath = '';
+	let engagedReadTimer: number | undefined;
+	let engagedReadTrackedFor = '';
+
+	const getPageUrl = () => window.location.href;
+	const isBlogArticle = () => /^\/blog\/.+/.test(window.location.pathname);
+
+	const resetEngagedReadTimer = () => {
+		if (engagedReadTimer) {
+			window.clearTimeout(engagedReadTimer);
+		}
+
+		const pageUrl = getPageUrl();
+		engagedReadTimer = window.setTimeout(() => {
+			if (engagedReadTrackedFor === pageUrl) return;
+			engagedReadTrackedFor = pageUrl;
+			trackEngagedRead(pageUrl, document.title, ENGAGED_READ_THRESHOLD_MS / 1000);
+		}, ENGAGED_READ_THRESHOLD_MS);
+	};
+
+	const trackRoute = () => {
+		const path = `${window.location.pathname}${window.location.search}`;
+		if (path === currentPath) return;
+
+		currentPath = path;
+		trackPageView(getPageUrl(), document.title);
+
+		if (isBlogArticle()) {
+			trackGuideView(getPageUrl(), document.title);
+		}
+
+		resetEngagedReadTimer();
+	};
+
+	const getAnalyticsParams = (element: HTMLElement) => {
+		const params: Record<string, string> = {};
+
+		for (const [key, value] of Object.entries(element.dataset)) {
+			if (!key.startsWith('analytics') || key === 'analyticsEvent' || !value) continue;
+			const paramName = key
+				.replace(/^analytics/, '')
+				.replace(/^[A-Z]/, (match) => match.toLowerCase())
+				.replace(/[A-Z]/g, (match) => `_${match.toLowerCase()}`);
+			params[paramName] = value;
+		}
+
+		return params;
+	};
+
+	document.addEventListener('click', (event) => {
+		const target = event.target;
+		if (!(target instanceof Element)) return;
+
+		const analyticsElement = target.closest<HTMLElement>('[data-analytics-event]');
+		if (analyticsElement?.dataset.analyticsEvent) {
+			trackEvent(analyticsElement.dataset.analyticsEvent, {
+				...getAnalyticsParams(analyticsElement),
+				page_location: getPageUrl(),
+			});
+		}
+
+		const link = target.closest<HTMLAnchorElement>('a[href]');
+		if (!link || !link.href) return;
+
+		const url = new URL(link.href, window.location.href);
+		if (url.origin !== window.location.origin) {
+			trackOutboundClick(url.href, link.textContent?.trim() || link.href);
+		}
+	});
+
+	window.addEventListener('astro:page-load', trackRoute);
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', trackRoute, { once: true });
+	} else {
+		trackRoute();
+	}
+</script>
